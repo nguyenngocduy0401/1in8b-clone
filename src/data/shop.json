@@ -1,0 +1,142 @@
+[
+  {
+    "id": "dinner",
+    "name": {
+      "vi": "Mời bữa cơm thân mật cho gia đình & bạn bè",
+      "en": "Family & Friends Gathering Dinner",
+      "ko": "가족·친구와 외식·선물"
+    },
+    "desc": {
+      "vi": "Gắn kết tình thân, chia sẻ niềm vui ấm cúng",
+      "en": "Bonds +4, Happiness +2",
+      "ko": "관계 +4 · 행복 +2"
+    },
+    "minAge": 16,
+    "costPercentile": 0.03,
+    "effects": {
+      "social": 4,
+      "happiness": 2,
+      "wealth": -200
+    }
+  },
+  {
+    "id": "checkup",
+    "name": {
+      "vi": "Khám sức khỏe tổng quát & Rèn luyện thể lực",
+      "en": "Comprehensive Health Checkup & PT",
+      "ko": "종합검진·운동 PT"
+    },
+    "desc": {
+      "vi": "Sức khỏe +6, phát hiện sớm nguy cơ bệnh tật",
+      "en": "Health +6, reduced chronic risk",
+      "ko": "건강 +6 · 만성질환 위험 ↓"
+    },
+    "minAge": 25,
+    "costPercentile": 0.08,
+    "effects": {
+      "health": 8,
+      "happiness": 2,
+      "wealth": -400
+    }
+  },
+  {
+    "id": "trip",
+    "name": {
+      "vi": "Chuyến du lịch khám phá danh lam trong nước",
+      "en": "Domestic Sightseeing Trip",
+      "ko": "국내 여행"
+    },
+    "desc": {
+      "vi": "Hạnh phúc +6, Trí tuệ +2",
+      "en": "Happiness +6, Smarts +2",
+      "ko": "행복 +5 · 지식 +1"
+    },
+    "minAge": 16,
+    "costPercentile": 0.06,
+    "effects": {
+      "happiness": 6,
+      "smarts": 2,
+      "wealth": -300
+    }
+  },
+  {
+    "id": "abroad",
+    "name": {
+      "vi": "Chuyến du lịch nước ngoài mở rộng tầm mắt",
+      "en": "International Journey Abroad",
+      "ko": "해외여행"
+    },
+    "desc": {
+      "vi": "Hạnh phúc +10, Trí tuệ +5, mở mang thế giới quan",
+      "en": "Happiness +10, Smarts +5",
+      "ko": "행복 +8 · 지식 +3"
+    },
+    "minAge": 20,
+    "costPercentile": 0.25,
+    "effects": {
+      "happiness": 10,
+      "smarts": 5,
+      "wealth": -1200
+    }
+  },
+  {
+    "id": "course",
+    "name": {
+      "vi": "Học chứng chỉ nghề nghiệp / Nâng cao kỹ năng",
+      "en": "Professional Certification & Training",
+      "ko": "자격증·직무 강좌"
+    },
+    "desc": {
+      "vi": "Trí tuệ +8, tăng cơ hội thăng tiến nghề nghiệp",
+      "en": "Smarts +8, career promotion chances",
+      "ko": "지식 +6 · 소득 ↑"
+    },
+    "minAge": 18,
+    "costPercentile": 0.12,
+    "effects": {
+      "smarts": 8,
+      "happiness": -2,
+      "wealth": -500
+    }
+  },
+  {
+    "id": "donate",
+    "name": {
+      "vi": "Quyên góp từ thiện giúp đỡ hoàn cảnh khó khăn",
+      "en": "Charitable Donation to Community",
+      "ko": "기부하기"
+    },
+    "desc": {
+      "vi": "Hạnh phúc +6, Quan hệ xã hội +4",
+      "en": "Happiness +6, Social +4",
+      "ko": "기부 · 행복 ↑"
+    },
+    "minAge": 20,
+    "costPercentile": 0.05,
+    "effects": {
+      "happiness": 6,
+      "social": 4,
+      "wealth": -250
+    }
+  },
+  {
+    "id": "pet",
+    "name": {
+      "vi": "Nhận nuôi một chú thú cưng bầu bạn (Chó/Mèo)",
+      "en": "Adopt a Companion Pet (Dog/Cat)",
+      "ko": "반려동물 입양"
+    },
+    "desc": {
+      "vi": "Hạnh phúc +8, Quan hệ +5, bớt cô đơn",
+      "en": "Happiness +8, Social +5",
+      "ko": "반려동물 · 행복 +8"
+    },
+    "minAge": 10,
+    "costPercentile": 0.04,
+    "effects": {
+      "happiness": 8,
+      "social": 5,
+      "wealth": -150
+    }
+  }
+]

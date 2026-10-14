@@ -1,0 +1,72 @@
+{
+  "VNM": {
+    "vi": "Tết Nguyên Đán",
+    "en": "Tet (Lunar New Year)",
+    "ko": "뗏(설)"
+  },
+  "CHN": {
+    "vi": "Tết Xuân Tiết",
+    "en": "Chunjie (Spring Festival)",
+    "ko": "춘절"
+  },
+  "KOR": {
+    "vi": "Tết Seollal",
+    "en": "Seollal (Korean Lunar New Year)",
+    "ko": "설날"
+  },
+  "JPN": {
+    "vi": "Tết Oshogatsu",
+    "en": "Oshogatsu (New Year Festival)",
+    "ko": "오쇼가쓰(정월)"
+  },
+  "THA": {
+    "vi": "Lễ hội té nước Songkran",
+    "en": "Songkran Water Festival",
+    "ko": "송끄란"
+  },
+  "LAO": {
+    "vi": "Lễ hội năm mới Pi Mai",
+    "en": "Boun Pi Mai (Lao New Year)",
+    "ko": "삐마이(새해)"
+  },
+  "KHM": {
+    "vi": "Lễ hội Chaul Chnam Thmey",
+    "en": "Chaul Chnam Thmey",
+    "ko": "쫄츠남(새해)"
+  },
+  "MMR": {
+    "vi": "Lễ hội té nước Thingyan",
+    "en": "Thingyan Water Festival",
+    "ko": "띤잔(물 축제)"
+  },
+  "IND": {
+    "vi": "Lễ hội ánh sáng Diwali",
+    "en": "Diwali (Festival of Lights)",
+    "ko": "디왈리"
+  },
+  "NPL": {
+    "vi": "Đại lễ Dashain",
+    "en": "Dashain Festival",
+    "ko": "다사인"
+  },
+  "IRN": {
+    "vi": "Tết năm mới Nowruz",
+    "en": "Nowruz (Persian New Year)",
+    "ko": "노루즈"
+  },
+  "AFG": {
+    "vi": "Tết Nowruz",
+    "en": "Nowruz",
+    "ko": "노루즈"
+  },
+  "MNG": {
+    "vi": "Lễ hội Tsagaan Sar",
+    "en": "Tsagaan Sar (White Moon Festival)",
+    "ko": "차강사르"
+  },
+  "ETH": {
+    "vi": "Đại lễ Timkat",
+    "en": "Timkat Epiphany Festival",
+    "ko": "팀캇"
+  }
+}

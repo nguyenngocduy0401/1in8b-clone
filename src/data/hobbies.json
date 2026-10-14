@@ -1,0 +1,222 @@
+{
+  "sport": {
+    "vi": "Chơi thể thao rèn luyện sức khỏe",
+    "en": "Playing sports",
+    "ko": "운동·스포츠",
+    "stats": {
+      "h": 3,
+      "hl": 4,
+      "so": 2,
+      "sm": 0
+    }
+  },
+  "music": {
+    "vi": "Chơi nhạc cụ & ca hát",
+    "en": "Singing & musical instruments",
+    "ko": "노래·악기 연주",
+    "stats": {
+      "h": 4,
+      "hl": 0,
+      "so": 2,
+      "sm": 1
+    }
+  },
+  "dance": {
+    "vi": "Học khiêu vũ & nhảy múa",
+    "en": "Dancing",
+    "ko": "춤",
+    "stats": {
+      "h": 4,
+      "hl": 2,
+      "so": 2,
+      "sm": 0
+    }
+  },
+  "screen": {
+    "vi": "Xem phim và chương trình truyền hình",
+    "en": "Watching movies & TV series",
+    "ko": "영화·드라마 보기",
+    "stats": {
+      "h": 3,
+      "hl": -1,
+      "so": 0,
+      "sm": 0
+    }
+  },
+  "sns": {
+    "vi": "Lướt mạng xã hội trên điện thoại thông minh",
+    "en": "Browsing social media",
+    "ko": "스마트폰·SNS",
+    "stats": {
+      "h": 2,
+      "hl": -1,
+      "so": 2,
+      "sm": 0
+    }
+  },
+  "games": {
+    "vi": "Chơi trò chơi điện tử (video games)",
+    "en": "Video gaming",
+    "ko": "비디오 게임",
+    "stats": {
+      "h": 4,
+      "hl": -1,
+      "so": 1,
+      "sm": 1
+    }
+  },
+  "reading": {
+    "vi": "Đọc sách bồi dưỡng tri thức",
+    "en": "Reading books",
+    "ko": "독서",
+    "stats": {
+      "h": 2,
+      "hl": 0,
+      "so": 0,
+      "sm": 4
+    }
+  },
+  "faith": {
+    "vi": "Tham gia sinh hoạt tôn giáo & tín ngưỡng",
+    "en": "Religious community gatherings",
+    "ko": "종교 모임",
+    "stats": {
+      "h": 3,
+      "hl": 0,
+      "so": 4,
+      "sm": 0
+    }
+  },
+  "fishing": {
+    "vi": "Câu cá thư giãn",
+    "en": "Recreational fishing",
+    "ko": "낚시",
+    "stats": {
+      "h": 3,
+      "hl": 1,
+      "so": 1,
+      "sm": 0
+    }
+  },
+  "cooking": {
+    "vi": "Nấu ăn & khám phá ẩm thực",
+    "en": "Cooking & culinary arts",
+    "ko": "요리",
+    "stats": {
+      "h": 3,
+      "hl": 1,
+      "so": 2,
+      "sm": 1
+    }
+  },
+  "garden": {
+    "vi": "Trồng cây & chăm sóc hoa vườn nhà",
+    "en": "Gardening & plant care",
+    "ko": "텃밭 가꾸기",
+    "stats": {
+      "h": 3,
+      "hl": 2,
+      "so": 0,
+      "sm": 0
+    }
+  },
+  "hiking": {
+    "vi": "Đi bộ đường dài & leo núi ngắm cảnh",
+    "en": "Hiking & scenic walks",
+    "ko": "등산·산책",
+    "stats": {
+      "h": 3,
+      "hl": 3,
+      "so": 1,
+      "sm": 0
+    }
+  },
+  "travel": {
+    "vi": "Du lịch khám phá thế giới",
+    "en": "Traveling & backpacking",
+    "ko": "여행",
+    "stats": {
+      "h": 5,
+      "hl": 0,
+      "so": 1,
+      "sm": 2
+    }
+  },
+  "board": {
+    "vi": "Chơi cờ tướng, cờ vua, board game",
+    "en": "Board games (Chess, Go, Carrom)",
+    "ko": "보드게임·체스·바둑",
+    "stats": {
+      "h": 3,
+      "hl": 0,
+      "so": 3,
+      "sm": 1
+    }
+  },
+  "crafts": {
+    "vi": "Đan len & làm đồ thủ công mỹ nghệ",
+    "en": "Handicrafts & knitting",
+    "ko": "수공예·뜨개질",
+    "stats": {
+      "h": 3,
+      "hl": 0,
+      "so": 1,
+      "sm": 1
+    }
+  },
+  "art": {
+    "vi": "Vẽ tranh & hội họa",
+    "en": "Drawing & painting",
+    "ko": "그림 그리기",
+    "stats": {
+      "h": 3,
+      "hl": 0,
+      "so": 1,
+      "sm": 2
+    }
+  },
+  "drama": {
+    "vi": "Tham gia kịch nghệ & diễn xuất",
+    "en": "Theater acting & drama",
+    "ko": "연극·연기",
+    "stats": {
+      "h": 4,
+      "hl": 0,
+      "so": 3,
+      "sm": 1
+    }
+  },
+  "photo": {
+    "vi": "Chụp ảnh nghệ thuật",
+    "en": "Photography",
+    "ko": "사진",
+    "stats": {
+      "h": 3,
+      "hl": 1,
+      "so": 1,
+      "sm": 1
+    }
+  },
+  "gym": {
+    "vi": "Tập gym & thể hình",
+    "en": "Gym & fitness training",
+    "ko": "헬스·피트니스",
+    "stats": {
+      "h": 2,
+      "hl": 5,
+      "so": 0,
+      "sm": 0
+    }
+  },
+  "karaoke": {
+    "vi": "Hát karaoke cùng bạn bè",
+    "en": "Karaoke singing with friends",
+    "ko": "노래방",
+    "stats": {
+      "h": 4,
+      "hl": 0,
+      "so": 3,
+      "sm": 0
+    }
+  }
+}

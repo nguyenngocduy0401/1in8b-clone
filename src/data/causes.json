@@ -1,0 +1,152 @@
+{
+  "neo": {
+    "vi": "Bệnh lý sơ sinh (sinh non, ngạt thở, biến chứng)",
+    "en": "Neonatal conditions (preterm birth, birth asphyxia)",
+    "ko": "신생아 질환 (조산·출생 합병증)"
+  },
+  "lri": {
+    "vi": "Viêm phổi và nhiễm trùng đường hô hấp dưới",
+    "en": "Pneumonia and lower respiratory infection",
+    "ko": "폐렴 (하기도 감염)"
+  },
+  "diar": {
+    "vi": "Bệnh tiêu chảy cấp tính gây mất nước nghiêm trọng",
+    "en": "Acute diarrheal disease and dehydration",
+    "ko": "설사병"
+  },
+  "mal": {
+    "vi": "Sốt rét ác tính",
+    "en": "Severe malaria",
+    "ko": "말라리아"
+  },
+  "tb": {
+    "vi": "Bệnh lao phổi biến chứng",
+    "en": "Tuberculosis",
+    "ko": "결핵"
+  },
+  "hiv": {
+    "vi": "Biến chứng suy giảm miễn dịch HIV/AIDS",
+    "en": "HIV/AIDS related complications",
+    "ko": "HIV/AIDS"
+  },
+  "oinf": {
+    "vi": "Bệnh truyền nhiễm cấp tính (sởi, sốt xuất huyết, viêm màng não)",
+    "en": "Infectious diseases (measles, dengue, meningitis)",
+    "ko": "감염병"
+  },
+  "nut": {
+    "vi": "Suy dinh dưỡng nặng và suy kiệt cơ thể",
+    "en": "Severe malnutrition and wasting",
+    "ko": "영양실조"
+  },
+  "cong": {
+    "vi": "Dị tật bẩm sinh tim mạch hoặc cơ quan",
+    "en": "Congenital heart and organ anomalies",
+    "ko": "선천성 기형"
+  },
+  "ihd": {
+    "vi": "Bệnh tim thiếu máu cục bộ (nhồi máu cơ tim)",
+    "en": "Ischemic heart disease (heart attack)",
+    "ko": "허혈성 심장질환 (심근경색)"
+  },
+  "str": {
+    "vi": "Đột quỵ não (tai biến mạch máu não cấp)",
+    "en": "Stroke (cerebrovascular accident)",
+    "ko": "뇌졸중"
+  },
+  "can": {
+    "vi": "Bệnh ung thư ác tính",
+    "en": "Cancer",
+    "ko": "암"
+  },
+  "copd": {
+    "vi": "Bệnh phổi tắc nghẽn mạn tính (COPD)",
+    "en": "Chronic obstructive pulmonary disease (COPD)",
+    "ko": "만성폐쇄성폐질환 (COPD)"
+  },
+  "dia": {
+    "vi": "Biến chứng nặng của bệnh tiểu đường",
+    "en": "Severe diabetes complications",
+    "ko": "당뇨병 합병증"
+  },
+  "kid": {
+    "vi": "Suy thận mạn tính giai đoạn cuối",
+    "en": "End-stage chronic kidney disease",
+    "ko": "만성 신장질환"
+  },
+  "dem": {
+    "vi": "Hội chứng sa sút trí tuệ / Alzheimer",
+    "en": "Alzheimer's disease and dementia",
+    "ko": "알츠하이머·치매"
+  },
+  "cir": {
+    "vi": "Xơ gan và suy giảm chức năng gan",
+    "en": "Cirrhosis and chronic liver failure",
+    "ko": "간경변 (간 질환)"
+  },
+  "ocd": {
+    "vi": "Các bệnh lý nội khoa mạn tính khác",
+    "en": "Other chronic diseases",
+    "ko": "기타 질병"
+  },
+  "road": {
+    "vi": "Tai nạn giao thông đường bộ",
+    "en": "Road traffic collision",
+    "ko": "교통사고"
+  },
+  "hom": {
+    "vi": "Nạn nhân của tội phạm giết người / bạo lực",
+    "en": "Homicide / victim of violent crime",
+    "ko": "타살"
+  },
+  "war": {
+    "vi": "Nạn nhân của xung đột vũ trang và chiến tranh",
+    "en": "Armed conflict and war casualty",
+    "ko": "무력 분쟁"
+  },
+  "drown": {
+    "vi": "Tai nạn đuối nước",
+    "en": "Accidental drowning",
+    "ko": "익사"
+  },
+  "fall": {
+    "vi": "Tai nạn té ngã nghiêm trọng",
+    "en": "Fatal accidental fall",
+    "ko": "낙상 사고"
+  },
+  "fire": {
+    "vi": "Hỏa hoạn và bỏng nhiệt nặng",
+    "en": "Fire, heat, and hot substances",
+    "ko": "화재·화상"
+  },
+  "inj": {
+    "vi": "Tai nạn lao động / chấn thương rủi ro",
+    "en": "Occupational injury / unintentional injury",
+    "ko": "사고 (산업재해 등)"
+  },
+  "od": {
+    "vi": "Ngộ độc thuốc / sốc thuốc quá liều",
+    "en": "Accidental drug overdose / poison",
+    "ko": "약물 과다복용"
+  },
+  "mat": {
+    "vi": "Biến chứng sản khoa khi sinh con (tử vong mẹ)",
+    "en": "Maternal childbirth complications",
+    "ko": "출산 합병증 (모성 사망)"
+  },
+  "disa": {
+    "vi": "Nạn nhân thiên tai / thảm họa tự nhiên",
+    "en": "Natural disaster casualty",
+    "ko": "자연재해"
+  },
+  "covid": {
+    "vi": "Bệnh truyền nhiễm đại dịch COVID-19",
+    "en": "COVID-19 pandemic",
+    "ko": "코로나19"
+  },
+  "suic": {
+    "vi": "Tự sát do khủng hoảng tâm lý kéo dài",
+    "en": "Suicide (intentional self-harm)",
+    "ko": "자살"
+  }
+}

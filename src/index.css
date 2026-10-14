@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-card2: var(--card2);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-ink3: var(--ink3);
+  --color-rule: var(--rule);
+  --color-rule2: var(--rule2);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-stamp: var(--stamp);
+  --color-stamp-soft: var(--stamp-soft);
+  --color-gold: var(--gold);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-warn: var(--warn);
+  --color-loss: var(--loss);
+
+  --font-display: 'Hahmlet', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --paper: #EBF0ED;
+  --card: #F7FAF8;
+  --card2: #F0F4F2;
+  --ink: #13212A;
+  --ink2: #4A5A61;
+  --ink3: #5F6E72;
+  --rule: #C7D2CE;
+  --rule2: #DCE4E1;
+  --accent: #8C1D3C;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #F3E3E8;
+  --stamp: #0F6E68;
+  --stamp-soft: #DCEDEA;
+  --gold: #9C7020;
+  --good: #2B7A4E;
+  --bad: #B0362B;
+  --warn: #A8730F;
+  --loss: #2C2F3A;
+  --shadow-vintage: 0 1px 0 rgba(19,33,42,.04), 0 8px 24px -12px rgba(19,33,42,.18);
+}
+
+:root[data-theme="dark"] {
+  --paper: #0D1316;
+  --card: #141D21;
+  --card2: #1A2428;
+  --ink: #E1E9E6;
+  --ink2: #A3B2AF;
+  --ink3: #8A9A96;
+  --rule: #2A383D;
+  --rule2: #1D282C;
+  --accent: #E2678A;
+  --accent-ink: #1B0910;
+  --accent-soft: #3A1C26;
+  --stamp: #4CC0AF;
+  --stamp-soft: #12302D;
+  --gold: #D9AF59;
+  --good: #5CC38B;
+  --bad: #F07B6B;
+  --warn: #E2B04C;
+  --loss: #C9CDD8;
+  --shadow-vintage: 0 1px 0 rgba(0,0,0,.3), 0 10px 30px -14px rgba(0,0,0,.6);
+}
+
+html, body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar matching paper aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink3);
+}
+
+/* Guilloche paper certificate background simulation */
+.guilloche-pattern {
+  background-image: radial-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 16px 16px;
+}

@@ -1,0 +1,3083 @@
+[
+  {
+    "id": "vax",
+    "minAge": 0,
+    "maxAge": 1,
+    "weight": 3,
+    "cat": "infant",
+    "statEffects": {
+      "health": 3
+    },
+    "text": {
+      "vi": "Bạn đã được tiêm phòng đầy đủ các mũi vắc-xin cơ bản (DTP và sởi).",
+      "en": "You got your basic vaccinations (DTP and measles).",
+      "ko": "기본 예방접종(DTP·홍역)을 받았습니다."
+    },
+    "fact": {
+      "vi": "Năm 2023, 84% trẻ sơ sinh trên toàn cầu đã hoàn thành đủ 3 liều vắc-xin DTP (WHO/UNICEF).",
+      "en": "In 2023, 84% of infants worldwide received all three doses of the DTP vaccine (WHO·UNICEF)",
+      "ko": "2023년 전 세계 영아의 84%가 DTP 3차 접종을 마쳤습니다 (WHO·UNICEF)"
+    }
+  },
+  {
+    "id": "steps",
+    "minAge": 1,
+    "maxAge": 1,
+    "weight": 3,
+    "cat": "infant",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Bạn chập chững bước những bước đi đầu tiên. Cả nhà reo hò vỗ tay mừng rỡ.",
+      "en": "You took your first steps. The whole family clapped.",
+      "ko": "첫 걸음마를 뗐습니다. 온 가족이 박수를 쳤습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "word",
+    "minAge": 1,
+    "maxAge": 2,
+    "weight": 2,
+    "cat": "infant",
+    "statEffects": {},
+    "text": {
+      "vi": "Bạn cất tiếng bập bẹ gọi tiếng đầu đời: \"Mẹ ơi\".",
+      "en": "You said your first word: ‘Mama’.",
+      "ko": "첫 단어를 말했습니다. ‘엄마’라는 뜻의 말이었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kidsick",
+    "minAge": 0,
+    "maxAge": 4,
+    "weight": 40,
+    "cat": "infant",
+    "statEffects": {
+      "health": -4
+    },
+    "text": {
+      "vi": "Bạn bị ốm sốt tiêu chảy vài ngày, nhưng sau khi được đưa đi khám đã nhanh chóng khỏi bệnh.",
+      "en": "You had diarrhea for a few days, but a visit to the doctor soon put you right.",
+      "ko": "설사병으로 며칠 앓았지만 병원에 다녀와 금방 나았습니다."
+    },
+    "fact": {
+      "vi": "Năm 2023, khoảng 76% ca tử vong do sốt rét trên thế giới là trẻ em dưới 5 tuổi (WHO).",
+      "en": "In 2023, about 76% of malaria deaths were children under 5 (WHO World Malaria Report 2024)",
+      "ko": "2023년 말라리아 사망자의 약 76%가 5세 미만 아이였습니다 (WHO World Malaria Report 2024)"
+    }
+  },
+  {
+    "id": "kid_dream",
+    "minAge": 6,
+    "maxAge": 9,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {},
+    "text": {
+      "vi": "Mỗi khi người lớn hỏi sau này lớn lên thích làm gì, bạn luôn hào hứng kể về ước mơ của mình.",
+      "en": "Whenever grown-ups asked what you wanted to be, you said ....",
+      "ko": "어른들이 커서 뭐가 되고 싶냐고 물으면 늘 ... 되겠다고 대답했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_books",
+    "minAge": 2,
+    "maxAge": 7,
+    "weight": 1.2,
+    "cat": "childhood",
+    "statEffects": {
+      "smarts": 2,
+      "social": 1
+    },
+    "text": {
+      "vi": "Buổi tối, gia đình quây quần đọc cho bạn nghe những mẩu truyện cổ tích ấm áp.",
+      "en": "your family",
+      "ko": "가족"
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_room",
+    "minAge": 6,
+    "maxAge": 11,
+    "weight": 0.9,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Khi bước vào tiểu học, bạn được bố mẹ dọn cho một góc phòng riêng.",
+      "en": "When you started primary school, you got a room of your own.",
+      "ko": "초등학생이 되자 내 방이 생겼습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_trip",
+    "minAge": 5,
+    "maxAge": 14,
+    "weight": 0.8,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "Kỳ nghỉ hè, cả gia đình bạn cùng nhau đi du lịch, lưu lại những kỷ niệm tuổi thơ tuyệt đẹp.",
+      "en": "You went on a trip with your family during the school holidays.",
+      "ko": "방학에 가족과 함께 여행을 다녀왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_water",
+    "minAge": 5,
+    "maxAge": 12,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "health": 1,
+      "happiness": -1
+    },
+    "text": {
+      "vi": "Trước lúc bình minh, bạn xách can đi lấy nước ở giếng xa. Con đường gánh nước về nhà lúc nào cũng dài hơn.",
+      "en": "Before sunrise you carried a water can to the far well and back. The way home always felt longer.",
+      "ko": "해 뜨기 전, 물통을 들고 먼 우물까지 물을 길으러 다녀왔습니다. 돌아오는 길은 늘 더 멀게 느껴졌습니다."
+    },
+    "fact": {
+      "vi": "Tại 7/10 hộ gia đình thiếu nước sạch sinh hoạt tại nhà, phụ nữ và trẻ em gái là người phải đi gánh nước (UNICEF).",
+      "en": "In 7 of 10 households without water at home, women and girls fetch it (WHO/UNICEF JMP 2023)",
+      "ko": "집에 수도가 없는 가정 열에 일곱은 여성과 소녀가 물을 길어 옵니다 (WHO·UNICEF JMP 2023)"
+    }
+  },
+  {
+    "id": "kid_bike",
+    "minAge": 5,
+    "maxAge": 10,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "Bạn tập đi xe đạp ở khoảng sân trước nhà. Ngã trầy xước vài lần rồi cũng tự mình phóng đi vun vút.",
+      "en": "You learned to ride a bicycle in the lot in front of your building. After a few falls you rode off on your own.",
+      "ko": "아파트 앞 공터에서 처음 자전거를 배웠습니다. 몇 번 넘어진 끝에 혼자 달렸습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_rain",
+    "minAge": 5,
+    "maxAge": 11,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Mùa mưa đến, con ngõ nhỏ ngập nước như dòng sông nhỏ. Bạn cùng lũ trẻ trong xóm gấp thuyền giấy thả trôi trên dòng nước bùn.",
+      "en": "In the rainy season the lanes swelled like rivers. You and the neighbourhood children sailed paper boats on the muddy water.",
+      "ko": "우기에 골목이 강처럼 불었습니다. 동네 아이들과 흙탕물 위에 종이배를 띄우며 놀았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_snow",
+    "minAge": 3,
+    "maxAge": 11,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "Ngày tuyết đầu mùa rơi dày đặc, lũ trẻ rủ nhau ra đường ném tuyết và đắp người tuyết cười toe toét.",
+      "en": "On the day of the first heavy snow you had a snowball fight with the neighbourhood children and built a snowman.",
+      "ko": "첫눈이 펑펑 내린 날, 동네 아이들과 눈싸움을 하고 눈사람을 만들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_academy",
+    "minAge": 9,
+    "maxAge": 13,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "smarts": 2,
+      "happiness": -2
+    },
+    "text": {
+      "vi": "Sau giờ tan trường, bạn vội vã đến hai lớp học thêm và chỉ về đến nhà khi trời đã tối mịt.",
+      "en": "After school you went on to two cram schools and got home only after dark.",
+      "ko": "학교가 끝나면 학원 두 곳을 돌고, 깜깜해져서야 집에 돌아왔습니다."
+    },
+    "fact": {
+      "vi": "Tại các nước Đông Á, hơn 78% học sinh tham gia các lớp học thêm ngoài giờ.",
+      "en": "78.5% of Korean school students take private tutoring (Statistics Korea, 2023 private education survey)",
+      "ko": "한국 초·중·고생의 78.5%가 사교육을 받습니다 (통계청 2023 초중고 사교육비조사)"
+    }
+  },
+  {
+    "id": "kid_lamp",
+    "minAge": 7,
+    "maxAge": 13,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "smarts": 1
+    },
+    "text": {
+      "vi": "Nhà chưa có điện lưới, bạn cặm cụi làm bài tập dưới ánh đèn dầu leo lét.",
+      "en": "There was no electricity at home, so you did your homework by the light of an oil lamp.",
+      "ko": "집에 전기가 들어오지 않아 등잔불 아래에서 숙제를 했습니다."
+    },
+    "fact": {
+      "vi": "Năm 2022, khoảng 685 triệu người trên thế giới vẫn sống trong cảnh không có điện lưới sinh hoạt (World Bank).",
+      "en": "In 2022 about 685 million people lived without electricity, more than 80% of them in sub-Saharan Africa (Tracking SDG7 2024)",
+      "ko": "2022년 전 세계 약 6억 8,500만 명이 전기 없이 살았고, 그 80% 넘게 사하라 이남 아프리카에 있습니다 (Tracking SDG7 2024)"
+    }
+  },
+  {
+    "id": "kid_ball",
+    "minAge": 5,
+    "maxAge": 12,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3,
+      "health": 1,
+      "social": 2
+    },
+    "text": {
+      "vi": "Với quả bóng cuộn bằng túi ni-lông và chân trần, bạn cùng đám bạn đá bóng say mê cho tới khi mặt trời lặn.",
+      "en": "With a ball made of rolled-up plastic bags, you played football barefoot until the sun went down.",
+      "ko": "비닐봉지를 둘둘 말아 만든 공으로, 맨발로 해가 질 때까지 축구를 했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_library",
+    "minAge": 6,
+    "maxAge": 12,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "smarts": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "Bạn tìm thấy niềm say mê bất tận trong thư viện, ngồi đọc say sưa từng trang sách mở ra chân trời mới.",
+      "en": "At the local library you got your first library card with your own name on it.",
+      "ko": "동네 도서관에서 처음으로 내 이름이 적힌 대출증을 받았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "faith_secret",
+    "minAge": 7,
+    "maxAge": 14,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "social": 1
+    },
+    "text": {
+      "vi": "My family kept the faith handed down from Grandmother, praying softly under the covers at night. Again and again I had to promise never to speak of it outside.",
+      "en": "My family kept the faith handed down from Grandmother, praying softly under the covers at night. Again and again I had to promise never to speak of it outside.",
+      "ko": "우리 집은 할머니에게서 물려받은 신앙을 밤에 이불 속에서 작게 기도하며 지켰습니다. 밖에서는 절대 말하지 말라고 몇 번이고 다짐을 받았습니다."
+    },
+    "fact": {
+      "vi": "In North Korea, people caught practising a religion without permission can be sent to political prison camps or killed (UN Commission of Inquiry on Human Rights in the DPRK, 2014)",
+      "en": "In North Korea, people caught practising a religion without permission can be sent to political prison camps or killed (UN Commission of Inquiry on Human Rights in the DPRK, 2014)",
+      "ko": "북한에서는 허가되지 않은 종교 활동이 들키면 정치범 수용소에 보내지거나 목숨을 잃기도 합니다 (유엔 북한인권조사위원회, 2014)"
+    }
+  },
+  {
+    "id": "kid_faith",
+    "minAge": 5,
+    "maxAge": 10,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "Every morning you learned to read the Quran at the neighbourhood mosque.",
+      "en": "Every morning you learned to read the Quran at the neighbourhood mosque.",
+      "ko": "아침마다 동네 모스크에서 꾸란 읽는 법을 배웠습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kid_tree",
+    "minAge": 6,
+    "maxAge": 11,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 2,
+      "health": -1
+    },
+    "text": {
+      "vi": "You fell from the big tree at the edge of the village and scraped your knees. The next day you climbed it again.",
+      "en": "You fell from the big tree at the edge of the village and scraped your knees. The next day you climbed it again.",
+      "ko": "마을 어귀 큰 나무에 오르다 떨어져 무릎이 까졌습니다. 다음 날 또 올라갔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_maid",
+    "minAge": 1,
+    "maxAge": 6,
+    "weight": 1,
+    "cat": "childhood",
+    "statEffects": {},
+    "text": {
+      "vi": "Your family had someone at home to help with the housework and look after you.",
+      "en": "Your family had someone at home to help with the housework and look after you.",
+      "ko": "집에 살림과 아이 돌보기를 도와주는 사람이 있었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_room1",
+    "minAge": 2,
+    "maxAge": 12,
+    "weight": 1,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "The whole family ate and slept together in a single room.",
+      "en": "The whole family ate and slept together in a single room.",
+      "ko": "온 가족이 방 한 칸에서 함께 먹고 잤습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fam_clothes",
+    "minAge": 4,
+    "maxAge": 12,
+    "weight": 0.8,
+    "cat": "childhood",
+    "statEffects": {},
+    "text": {
+      "vi": "New clothes came only once a year, for the holidays.",
+      "en": "New clothes came only once a year, for the holidays.",
+      "ko": "새 옷은 명절에나 한 벌 생겼습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "hungry",
+    "minAge": 0,
+    "maxAge": 17,
+    "weight": 1.5,
+    "cat": "youth",
+    "statEffects": {
+      "health": -5,
+      "happiness": -3,
+      "smarts": -1
+    },
+    "text": {
+      "vi": "Mất mùa đói kém, gia đình phải chia nhau từng bát cháo loãng cầm hơi qua ngày.",
+      "en": "A poor harvest meant many days with only one meal.",
+      "ko": "흉작으로 하루 한 끼만 먹는 날이 많았습니다."
+    },
+    "fact": {
+      "vi": "Khoảng 733 triệu người trên thế giới đối mặt với nạn đói và mất an ninh lương thực nghiêm trọng (FAO 2024).",
+      "en": "In 2023, about 733 million people worldwide faced hunger (FAO SOFI 2024)",
+      "ko": "2023년 전 세계 약 7억 3,300만 명이 기아를 겪었습니다 (FAO SOFI 2024)"
+    }
+  },
+  {
+    "id": "stunt",
+    "minAge": 1,
+    "maxAge": 4,
+    "weight": 1,
+    "cat": "infant",
+    "statEffects": {
+      "health": -4,
+      "smarts": -3
+    },
+    "text": {
+      "vi": "Do thiếu thốn dinh dưỡng từ nhỏ, vóc dáng bạn thấp bé hơn hẳn so với bạn bè đồng trang lứa.",
+      "en": "Poor nutrition left you shorter than other children your age.",
+      "ko": "영양이 부족해 또래보다 키가 작게 자랐습니다."
+    },
+    "fact": {
+      "vi": "Gần 150 triệu trẻ em dưới 5 tuổi trên toàn cầu bị suy dinh dưỡng thể thấp còi (UNICEF/WHO).",
+      "en": "22% of children under 5 worldwide are stunted (UNICEF·WHO 2023)",
+      "ko": "전 세계 5세 미만 아동의 22%가 발육부진입니다 (UNICEF·WHO 2023)"
+    }
+  },
+  {
+    "id": "play",
+    "minAge": 2,
+    "maxAge": 9,
+    "weight": 2,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "Sau giờ học, bạn cùng đám bạn bè trong xóm chơi trốn tìm, đuổi bắt rộn rã tiếng cười.",
+      "en": "You played with the neighbourhood children until the sun went down.",
+      "ko": "동네 아이들과 해가 질 때까지 어울려 놀았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kinder",
+    "minAge": 3,
+    "maxAge": 5,
+    "weight": 2,
+    "cat": "childhood",
+    "statEffects": {
+      "smarts": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "Bạn đến lớp mầm non, làm quen với những người bạn đầu tiên và học cách chia sẻ đồ chơi.",
+      "en": "You started preschool.",
+      "ko": "유치원에 다니기 시작했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fest",
+    "minAge": 1,
+    "maxAge": 100,
+    "weight": 0.8,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 2,
+      "social": 1
+    },
+    "text": {
+      "vi": "Cả nhà sum vầy đón ngày lễ hội truyền thống lớn nhất trong năm trong không khí ấm áp, linh thiêng.",
+      "en": "You spent ... with your family.",
+      "ko": "... 가족과 함께 보냈습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "water",
+    "minAge": 4,
+    "maxAge": 15,
+    "weight": 1.5,
+    "cat": "youth",
+    "statEffects": {
+      "health": -1,
+      "smarts": -1
+    },
+    "text": {
+      "vi": "Nguồn nước sạch được dẫn về tận thôn xóm, gia đình bạn không còn phải đi gánh nước từ xa.",
+      "en": "Every morning you walked a long way to fetch water.",
+      "ko": "매일 아침 물을 길으러 먼 길을 걸었습니다."
+    },
+    "fact": {
+      "vi": "In 2022, 2.2 billion people worldwide lacked safely managed drinking water (WHO·UNICEF JMP)",
+      "en": "In 2022, 2.2 billion people worldwide lacked safely managed drinking water (WHO·UNICEF JMP)",
+      "ko": "2022년 전 세계 22억 명이 안전하게 관리되는 식수를 이용하지 못했습니다 (WHO·UNICEF JMP)"
+    }
+  },
+  {
+    "id": "nopower",
+    "minAge": 4,
+    "maxAge": 16,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {},
+    "text": {
+      "vi": "Khu vực mất điện diện rộng giữa mùa hè oi ả, cả nhà ra hiên ngồi hóng gió phe phẩy quạt nan.",
+      "en": "There was no electricity, so after sunset you lived by lamplight.",
+      "ko": "전기가 들어오지 않아 해가 지면 등불 아래에서 지냈습니다."
+    },
+    "fact": {
+      "vi": "In 2022, about 685 million people worldwide lived without electricity (Tracking SDG7 2024)",
+      "en": "In 2022, about 685 million people worldwide lived without electricity (Tracking SDG7 2024)",
+      "ko": "2022년 전 세계 약 6억 8,500만 명이 전기 없이 살았습니다 (Tracking SDG7 2024)"
+    }
+  },
+  {
+    "id": "grades",
+    "minAge": 7,
+    "maxAge": 22,
+    "weight": 2,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "Bảng điểm tổng kết cuối năm đạt thành tích xuất sắc, bạn hãnh diện mang về khoe với gia đình.",
+      "en": "Your grades were among the best in your class.",
+      "ko": "반에서 손꼽히는 성적을 받았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "teacher",
+    "minAge": 7,
+    "maxAge": 17,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {
+      "smarts": 4
+    },
+    "text": {
+      "vi": "Một người thầy tận tụy đã nhận ra năng khiếu của bạn và hết lòng chỉ bảo, động viên bạn phấn đấu.",
+      "en": "좋은 선생님을 만나 ${pick([L",
+      "ko": "좋은 선생님을 만나 ${pick([L"
+    },
+    "fact": null
+  },
+  {
+    "id": "bully",
+    "minAge": 8,
+    "maxAge": 15,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -6,
+      "social": -3
+    },
+    "text": {
+      "vi": "Bạn từng bị một nhóm bạn trêu chọc bắt nạt ở trường, nhưng đã dũng cảm vượt qua nhờ sự ủng hộ của người thân.",
+      "en": "You were bullied at school.",
+      "ko": "학교에서 괴롭힘을 당했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "bff",
+    "minAge": 6,
+    "maxAge": 20,
+    "weight": 1.2,
+    "cat": "general",
+    "statEffects": {
+      "social": 5,
+      "happiness": 3
+    },
+    "text": {
+      "vi": "Bạn kết thân với một người bạn tri kỷ, cùng nhau chia sẻ mọi bí mật tuổi học trò.",
+      "en": "You and ... became best friends.",
+      "ko": "... 단짝 친구가 되었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "chores",
+    "minAge": 6,
+    "maxAge": 14,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {
+      "health": 1,
+      "smarts": -1,
+      "social": 1
+    },
+    "text": {
+      "vi": "Mỗi ngày sau giờ học, bạn chăm chỉ phụ giúp cha mẹ làm việc nhà và chăm sóc các em nhỏ.",
+      "en": "After school, you tended the animals and helped in the fields.",
+      "ko": "방과 후 가축을 돌보고 밭일을 거들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "childwork",
+    "minAge": 6,
+    "maxAge": 14,
+    "weight": 2,
+    "cat": "youth",
+    "statEffects": {
+      "health": -2
+    },
+    "text": {
+      "vi": "Hoàn cảnh gia đình khó khăn, bạn phải sớm đi làm thuê phụ giúp trang trải bữa ăn hàng ngày.",
+      "en": "Instead of school, you served customers in the family shop all day.",
+      "ko": "학교 대신 집안 가게에서 하루 종일 손님을 받았습니다."
+    },
+    "fact": {
+      "vi": "Khoảng 160 triệu trẻ em trên thế giới tham gia lao động trẻ em, nhiều em phải làm việc trong điều kiện độc hại (ILO).",
+      "en": "About 160 million children worldwide are in child labor (ILO·UNICEF 2020)",
+      "ko": "전 세계 아동 약 1억 6천만 명이 아동노동을 합니다 (ILO·UNICEF 2020)"
+    }
+  },
+  {
+    "id": "net",
+    "minAge": 3,
+    "maxAge": 25,
+    "weight": 1.5,
+    "cat": "general",
+    "statEffects": {
+      "smarts": 2,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Gia đình bạn lần đầu tiên kết nối Internet tại nhà, mở ra cả thế giới thông tin trước màn hình.",
+      "en": "your family",
+      "ko": "가족"
+    },
+    "fact": null
+  },
+  {
+    "id": "crush",
+    "minAge": 13,
+    "maxAge": 18,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Trái tim bạn xao xuyến trước một ánh mắt nụ cười thời áo trắng, mối tình đầu ngập ngừng chưa dám ngỏ.",
+      "en": "You had a crush on a classmate.",
+      "ko": "같은 반 친구에게 설렘을 느꼈습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "exam",
+    "minAge": 15,
+    "maxAge": 18,
+    "weight": 2,
+    "cat": "youth",
+    "statEffects": {},
+    "text": {
+      "vi": "Bạn trải qua kỳ thi tuyển sinh căng thẳng tột độ sau những tháng ngày miệt mài đèn sách thâu đêm.",
+      "en": "You did well on an important exam.",
+      "ko": "중요한 시험을 잘 치렀습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "teenjob",
+    "minAge": 14,
+    "maxAge": 18,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {},
+    "text": {
+      "vi": "Bạn nhận công việc làm thêm đầu tiên thời học sinh, cầm trên tay những đồng tiền mồ hôi nước mắt do chính mình làm ra.",
+      "en": "You worked over the school break and earned your first money.",
+      "ko": "방학 동안 일해서 처음으로 돈을 벌었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "hithome",
+    "minAge": 4,
+    "maxAge": 13,
+    "weight": 1.6,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -3,
+      "social": -1
+    },
+    "text": {
+      "vi": "Cha mẹ có những lúc nóng giận nghiêm khắc, nhưng bạn hiểu đó là nỗi lo toan vất vả mưu sinh đời thường.",
+      "en": "When you did something wrong, you were hit. On those nights you lay awake for a long time.",
+      "ko": "잘못을 하면 매를 맞으며 자랐습니다. 그런 날이면 밤늦도록 잠이 오지 않았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "parentfight",
+    "minAge": 4,
+    "maxAge": 17,
+    "weight": 2,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "Your parents argued often.",
+      "en": "Your parents argued often.",
+      "ko": "부모님이 자주 다투셨습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "promo",
+    "minAge": 22,
+    "maxAge": 62,
+    "weight": 40,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 5
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_visit",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "social": 3,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your child came to visit. You pressed your palm to theirs through the glass.",
+      "en": "Your child came to visit. You pressed your palm to theirs through the glass.",
+      "ko": "아이가 면회를 왔습니다. 유리창 너머로 손바닥을 맞댔습니다."
+    },
+    "fact": {
+      "vi": "Prisoners who had visitors were 13% less likely to reoffend after release (Minnesota Department of Corrections 2011)",
+      "en": "Prisoners who had visitors were 13% less likely to reoffend after release (Minnesota Department of Corrections 2011)",
+      "ko": "면회를 받은 수감자는 출소 뒤 다시 범죄를 저지를 위험이 13% 낮았습니다 (미네소타주 교정국 2011)"
+    }
+  },
+  {
+    "id": "pr_novisit",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "For months, no one came to visit.",
+      "en": "For months, no one came to visit.",
+      "ko": "몇 달째 면회를 오는 사람이 없었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_appeal",
+    "minAge": 18,
+    "maxAge": 125,
+    "weight": 1.5,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "You applied for a retrial and were turned down. Still, you read the case file again from the beginning.",
+      "en": "You applied for a retrial and were turned down. Still, you read the case file again from the beginning.",
+      "ko": "재심을 청구했지만 받아들여지지 않았습니다. 그래도 사건 기록을 처음부터 다시 읽었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "atonelate",
+    "minAge": 18,
+    "maxAge": 125,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 6,
+      "social": 4
+    },
+    "text": {
+      "vi": "After several holidays at the door, your mother asked you in for a meal for the first time.",
+      "en": "After several holidays at the door, your mother asked you in for a meal for the first time.",
+      "ko": "몇 번의 명절 끝에, 어머니가 처음으로 들어와 밥 먹고 가라고 하셨습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "street",
+    "minAge": 13,
+    "maxAge": 15,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "social": 2,
+      "happiness": -1
+    },
+    "text": {
+      "vi": "You started hanging around with older boys in the neighbourhood who were out of school too.",
+      "en": "You started hanging around with older boys in the neighbourhood who were out of school too.",
+      "ko": "학교에 다니지 않는 동네 형들과 어울려 다니기 시작했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "streetout",
+    "minAge": 14,
+    "maxAge": 19,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 4,
+      "social": 2
+    },
+    "text": {
+      "vi": "The owner of the local gym took you under his wing and offered to train you. Little by little you drifted away from that crowd.",
+      "en": "The owner of the local gym took you under his wing and offered to train you. Little by little you drifted away from that crowd.",
+      "ko": "동네 체육관 관장님이 운동을 가르쳐 주겠다며 붙잡아 주었습니다. 그 무리와는 조금씩 멀어졌습니다."
+    },
+    "fact": {
+      "vi": "Young people matched with a mentor were 46% less likely to start using drugs and about a third less likely to hit someone (Big Brothers Big Sisters study, Tierney et al. 1995)",
+      "en": "Young people matched with a mentor were 46% less likely to start using drugs and about a third less likely to hit someone (Big Brothers Big Sisters study, Tierney et al. 1995)",
+      "ko": "멘토를 만난 청소년은 약물을 시작할 가능성이 46%, 누군가를 때릴 가능성이 약 3분의 1 낮았습니다 (Big Brothers Big Sisters 연구, Tierney 외 1995)"
+    }
+  },
+  {
+    "id": "pr_learn",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.8,
+    "cat": "general",
+    "statEffects": {
+      "smarts": 4,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You took vocational training inside the prison.",
+      "en": "You took vocational training inside the prison.",
+      "ko": "교도소 안에서 기술 교육을 받았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_work",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.7,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "You worked in the prison workshop. A whole day's pay was less than an hour's wage outside.",
+      "en": "You worked in the prison workshop. A whole day's pay was less than an hour's wage outside.",
+      "ko": "교도소 작업장에서 일했습니다. 하루 종일 일한 품삯은 바깥의 한 시간 벌이에도 못 미쳤습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_letter",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "You wrote your family a long letter and counted the days until the reply.",
+      "en": "You wrote your family a long letter and counted the days until the reply.",
+      "ko": "가족에게 긴 편지를 썼습니다. 답장이 오기까지 하루하루를 셌습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_school",
+    "minAge": 16,
+    "maxAge": 60,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "smarts": 5,
+      "happiness": 4
+    },
+    "text": {
+      "vi": "You studied inside and passed the high school equivalency exam.",
+      "en": "You studied inside and passed the high school equivalency exam.",
+      "ko": "교도소 안에서 공부해 고등학교 학력 시험에 합격했습니다."
+    },
+    "fact": {
+      "vi": "People who take part in education in prison are about 40% less likely to return to prison (RAND 2013)",
+      "en": "People who take part in education in prison are about 40% less likely to return to prison (RAND 2013)",
+      "ko": "교도소 안에서 교육을 받은 사람은 다시 수감될 확률이 약 40% 낮습니다 (RAND 2013)"
+    }
+  },
+  {
+    "id": "pr_friend",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "social": 2
+    },
+    "text": {
+      "vi": "You and your cellmate shared your stories and grew close.",
+      "en": "You and your cellmate shared your stories and grew close.",
+      "ko": "같은 방 사람과 서로의 이야기를 나누며 가까워졌습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pr_hard",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.8,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3,
+      "health": -2
+    },
+    "text": {
+      "vi": "There were many nights you could not sleep in the cramped cell.",
+      "en": "There were many nights you could not sleep in the cramped cell.",
+      "ko": "좁은 방에서 잠을 설치는 밤이 많았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pol_visit",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "social": 3,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your mother came to visit and, through the glass, asked only that you come out in one piece.",
+      "en": "Your mother came to visit and, through the glass, asked only that you come out in one piece.",
+      "ko": "면회 온 어머니가 유리창 너머에서, 몸만 성히 나오라고 하셨습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pol_letter",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.7,
+    "cat": "general",
+    "statEffects": {
+      "social": 2
+    },
+    "text": {
+      "vi": "Letters from friends arrived through the censors, a few lines in each blacked out.",
+      "en": "Letters from friends arrived through the censors, a few lines in each blacked out.",
+      "ko": "친구들이 보낸 편지가 검열을 거쳐, 몇 줄씩 까맣게 지워진 채 도착했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pk_work",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "health": -2,
+      "happiness": -2
+    },
+    "text": {
+      "vi": "From dawn you were marched out to cut timber. There was never enough food.",
+      "en": "From dawn you were marched out to cut timber. There was never enough food.",
+      "ko": "새벽부터 벌목장에 끌려 나가 일했습니다. 배급은 늘 모자랐습니다."
+    },
+    "fact": {
+      "vi": "People sent back to North Korea do forced labor in labor training camps or prison camps (UN Commission of Inquiry on North Korea, 2014)",
+      "en": "People sent back to North Korea do forced labor in labor training camps or prison camps (UN Commission of Inquiry on North Korea, 2014)",
+      "ko": "북한으로 송환된 사람들은 노동단련대나 교화소에서 강제 노동을 합니다 (UN 북한인권조사위원회 2014)"
+    }
+  },
+  {
+    "id": "pk_hard",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.8,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3,
+      "health": -2
+    },
+    "text": {
+      "vi": "You watched someone in your cell collapse from hunger and illness.",
+      "en": "You watched someone in your cell collapse from hunger and illness.",
+      "ko": "같은 방 사람이 굶주림과 병으로 쓰러지는 것을 보았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pk_visit",
+    "minAge": 14,
+    "maxAge": 125,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "social": 3,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your family came a long way to hand in a sack of cornmeal for you.",
+      "en": "Your family came a long way to hand in a sack of cornmeal for you.",
+      "ko": "가족이 먼 길을 와서 옥수수 가루 한 자루를 넣어 주고 갔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "layoff",
+    "minAge": 20,
+    "maxAge": 62,
+    "weight": 40,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -4
+    },
+    "text": {
+      "vi": "You lost your job.",
+      "en": "You lost your job.",
+      "ko": "일자리를 잃었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "harvest",
+    "minAge": 16,
+    "maxAge": 80,
+    "weight": 1.5,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "The harvest was good this year.",
+      "en": "The harvest was good this year.",
+      "ko": "올해는 풍년이었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "bonus",
+    "minAge": 22,
+    "maxAge": 64,
+    "weight": 0.6,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "You got an unexpected bonus. (+{0})",
+      "en": "You got an unexpected bonus. (+...)",
+      "ko": "예상치 못한 보너스를 받았습니다. (+...)"
+    },
+    "fact": null
+  },
+  {
+    "id": "expense",
+    "minAge": 20,
+    "maxAge": 90,
+    "weight": 0.8,
+    "cat": "adulthood",
+    "statEffects": {},
+    "text": {
+      "vi": "You went to a relative's funeral, lent a hand and paid your respects.",
+      "en": "You went to a relative's funeral, lent a hand and paid your respects.",
+      "ko": "친척 장례에 찾아가 일손을 거들고 마음을 전했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fight",
+    "minAge": 17,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "teenbad",
+    "minAge": 13,
+    "maxAge": 18,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {},
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "kidbad",
+    "minAge": 26,
+    "maxAge": 80,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -4
+    },
+    "text": {
+      "vi": "The police station called: {0} had been caught shoplifting with friends. You took {1} to the shop to apologise to the owner together.",
+      "en": "The police station called: ... had been caught shoplifting with friends. You took ... to the shop to apologise to the owner together.",
+      "ko": "경찰서에서 전화가 왔습니다. 친구들과 가게에서 물건을 훔치다 붙잡혔다고 했습니다. ... 데리고 가게 주인께 함께 사과하러 갔습니다."
+    },
+    "fact": {
+      "vi": "Of British men born in 1953, 20% had a conviction by 20, but only 3% got their first between 30 and 40 (Home Office)",
+      "en": "Of British men born in 1953, 20% had a conviction by 20, but only 3% got their first between 30 and 40 (Home Office)",
+      "ko": "영국에서 1953년에 태어난 남성은 스무 살까지 20%가 유죄 판결을 받았지만, 서른에서 마흔 사이에 처음 받은 사람은 3%뿐이었습니다 (영국 내무부)"
+    }
+  },
+  {
+    "id": "needtheft",
+    "minAge": 16,
+    "maxAge": 80,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -4,
+      "social": -2
+    },
+    "text": {
+      "vi": "You hadn't eaten properly for days. At a supermarket you put bread and milk in your bag.",
+      "en": "You hadn't eaten properly for days. At a supermarket you put bread and milk in your bag.",
+      "ko": "며칠째 제대로 먹지 못했습니다. 마트에서 빵과 우유를 가방에 넣었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "pp_v",
+    "minAge": 2,
+    "maxAge": 18,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 1
+    },
+    "text": {
+      "vi": "Dad",
+      "en": "Dad",
+      "ko": "아빠"
+    },
+    "fact": null
+  },
+  {
+    "id": "pp_ask",
+    "minAge": 7,
+    "maxAge": 18,
+    "weight": 30,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "Dad",
+      "en": "Dad",
+      "ko": "아빠"
+    },
+    "fact": {
+      "vi": "Among children of prisoners in Korea, 30% knew their parent was in prison (National Human Rights Commission of Korea 2017)",
+      "en": "Among children of prisoners in Korea, 30% knew their parent was in prison (National Human Rights Commission of Korea 2017)",
+      "ko": "한국의 수용자 자녀 가운데 부모가 갇혀 있다는 사실을 아는 아이는 30%였습니다 (국가인권위원회 2017)"
+    }
+  },
+  {
+    "id": "sibpr_v",
+    "minAge": 10,
+    "maxAge": 85,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 1
+    },
+    "text": {
+      "vi": "You went to visit your {0}. Behind the glass, your {1} smiled first.",
+      "en": "You went to visit your .... Behind the glass, your ... smiled first.",
+      "ko": "... 면회하러 갔습니다. 유리창 너머에서 먼저 웃어 보였습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kidpr_v",
+    "minAge": 36,
+    "maxAge": 110,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "You went to visit {0}. There was little you could do, so you put some money in their prison account and came home.",
+      "en": "You went to visit .... There was little you could do, so you put some money in their prison account and came home.",
+      "ko": "... 면회하러 갔습니다. 해 줄 수 있는 것이 많지 않아, 영치금만 넣고 돌아왔습니다."
+    },
+    "fact": {
+      "vi": "Prisoners who had visitors were 13% less likely to reoffend after release (Minnesota Department of Corrections 2011)",
+      "en": "Prisoners who had visitors were 13% less likely to reoffend after release (Minnesota Department of Corrections 2011)",
+      "ko": "면회를 받은 수감자는 출소 뒤 다시 범죄를 저지를 위험이 13% 낮았습니다 (미네소타주 교정국 2011)"
+    }
+  },
+  {
+    "id": "theft",
+    "minAge": 16,
+    "maxAge": 80,
+    "weight": 6,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "A bicycle left outside for a moment was stolen.",
+      "en": "A bicycle left outside for a moment was stolen.",
+      "ko": "잠깐 세워 둔 자전거를 도둑맞았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "wedding",
+    "minAge": 13,
+    "maxAge": 50,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You went to a friend's wedding and brought your good wishes instead of a gift.",
+      "en": "You went to a friend's wedding and brought your good wishes instead of a gift.",
+      "ko": "친구의 결혼식에 가서 축의금 대신 마음을 전했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "reunion",
+    "minAge": 25,
+    "maxAge": 80,
+    "weight": 0.6,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 4,
+      "happiness": 3
+    },
+    "text": {
+      "vi": "You got together with old friends and talked all night.",
+      "en": "You got together with old friends and talked all night.",
+      "ko": "오랜 친구들과 다시 만나 밤새 이야기했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "overwork",
+    "minAge": 22,
+    "maxAge": 64,
+    "weight": 2,
+    "cat": "adulthood",
+    "statEffects": {
+      "health": -4,
+      "happiness": -2
+    },
+    "text": {
+      "vi": "Night after night of overtime wore you out.",
+      "en": "Night after night of overtime wore you out.",
+      "ko": "야근이 계속되어 몸이 지쳤습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "commute",
+    "minAge": 20,
+    "maxAge": 64,
+    "weight": 0.5,
+    "cat": "adulthood",
+    "statEffects": {},
+    "text": {
+      "vi": "Since changing jobs, work is far away again: the commute takes {0} hours a day.",
+      "en": "Since changing jobs, work is far away again: the commute takes ... hours a day.",
+      "ko": "일을 옮기고 나니 직장이 다시 멀어져, 출퇴근에 하루 ...시간이 걸립니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "flu",
+    "minAge": 5,
+    "maxAge": 100,
+    "weight": 0.2,
+    "cat": "general",
+    "statEffects": {
+      "health": -3
+    },
+    "text": {
+      "vi": "You were sick with the flu for a week.",
+      "en": "You were sick with the flu for a week.",
+      "ko": "독감으로 일주일을 앓았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "givedrive",
+    "minAge": 75,
+    "maxAge": 105,
+    "weight": 30,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "Driving had become a strain, so you handed in your licence and sold the car for {0}.",
+      "en": "Driving had become a strain, so you handed in your licence and sold the car for ....",
+      "ko": "운전이 점점 부담스러워져 운전면허를 반납하고 자동차를 팔았습니다. ...이 손에 남았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "back",
+    "minAge": 25,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "health": -3
+    },
+    "text": {
+      "vi": "You strained your back lifting something heavy, and the back pain started.",
+      "en": "You strained your back lifting something heavy, and the back pain started.",
+      "ko": "무거운 것을 들다 허리를 삐끗한 뒤로 허리 통증이 시작됐습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "accident",
+    "minAge": 10,
+    "maxAge": 80,
+    "weight": 40,
+    "cat": "general",
+    "statEffects": {
+      "health": -8
+    },
+    "text": {
+      "vi": "You were hit by a car while crossing the street and hurt your leg. You were on crutches for months.",
+      "en": "You were hit by a car while crossing the street and hurt your leg. You were on crutches for months.",
+      "ko": "길을 건너다 차에 치여 다리를 다쳤습니다. 몇 달 동안 목발을 짚었습니다."
+    },
+    "fact": {
+      "vi": "Road traffic deaths in {0}: about {1} per 100,000 people (WHO estimate)",
+      "en": "Road traffic deaths in ...: about ... per 100,000 people (WHO estimate)",
+      "ko": "...의 도로 교통사고 사망률: 인구 10만 명당 약 ...명 (WHO 추정)"
+    }
+  },
+  {
+    "id": "dis_sign",
+    "minAge": 2,
+    "maxAge": 6,
+    "weight": 2,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "For the first time, you said 'Mum' with your hands. The whole family learned to sign along with you.",
+      "en": "For the first time, you said 'Mum' with your hands. The whole family learned to sign along with you.",
+      "ko": "처음으로 손으로 ‘엄마’를 표현했습니다. 온 가족이 따라 수어를 배웠습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "cp_life",
+    "minAge": 6,
+    "maxAge": 85,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 1
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_play",
+    "minAge": 5,
+    "maxAge": 12,
+    "weight": 0.8,
+    "cat": "childhood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "You raced across the playground in your wheelchair, playing tag with your friends.",
+      "en": "You raced across the playground in your wheelchair, playing tag with your friends.",
+      "ko": "휠체어로 운동장을 가로지르며 친구들과 술래잡기를 했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_braille",
+    "minAge": 6,
+    "maxAge": 14,
+    "weight": 1,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 3,
+      "smarts": 2
+    },
+    "text": {
+      "vi": "For the first time, you read a braille book all the way through on your own.",
+      "en": "For the first time, you read a braille book all the way through on your own.",
+      "ko": "점자로 된 책을 처음으로 혼자 끝까지 읽었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_friend",
+    "minAge": 6,
+    "maxAge": 17,
+    "weight": 0.8,
+    "cat": "youth",
+    "statEffects": {
+      "social": 4,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your best friend started learning sign language so the two of you could talk.",
+      "en": "Your best friend started learning sign language so the two of you could talk.",
+      "ko": "단짝 친구가 나와 이야기하려고 수어를 배우기 시작했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_class",
+    "minAge": 7,
+    "maxAge": 16,
+    "weight": 0.8,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "You couldn't hear the teacher, so you followed the lessons on your own from the blackboard and your deskmate's notebook.",
+      "en": "You couldn't hear the teacher, so you followed the lessons on your own from the blackboard and your deskmate's notebook.",
+      "ko": "선생님 말씀을 들을 수 없어, 칠판과 짝의 공책을 보며 혼자 수업을 따라갔습니다."
+    },
+    "fact": {
+      "vi": "In North Korea, only about 2% of deaf children are reported to attend a school for the deaf (CBS News)",
+      "en": "In North Korea, only about 2% of deaf children are reported to attend a school for the deaf (CBS News)",
+      "ko": "북한에서 농학교에 다니는 농인 아이는 약 2%뿐이라고 알려져 있습니다 (CBS 뉴스)"
+    }
+  },
+  {
+    "id": "dis_tease",
+    "minAge": 6,
+    "maxAge": 16,
+    "weight": 0.5,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "Some children teased you. Your teacher talked with the class for a long time.",
+      "en": "Some children teased you. Your teacher talked with the class for a long time.",
+      "ko": "놀리는 아이들이 있었습니다. 선생님이 반 아이들과 오래 이야기를 나눴습니다."
+    },
+    "fact": {
+      "vi": "Children with disabilities are 41% more likely to feel discriminated against (UNICEF 2021)",
+      "en": "Children with disabilities are 41% more likely to feel discriminated against (UNICEF 2021)",
+      "ko": "장애가 있는 아이는 차별을 겪었다고 느낄 가능성이 41% 더 높습니다 (UNICEF 2021)"
+    }
+  },
+  {
+    "id": "dis_stairs",
+    "minAge": 12,
+    "maxAge": 100,
+    "weight": 0.4,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "The shop you wanted to visit had nothing but steps at the door, so you turned back.",
+      "en": "The shop you wanted to visit had nothing but steps at the door, so you turned back.",
+      "ko": "가고 싶던 가게 입구에 계단밖에 없어 그냥 돌아왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_lift",
+    "minAge": 12,
+    "maxAge": 100,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "Your local train station got a lift. There were more places you could reach on your own.",
+      "en": "Your local train station got a lift. There were more places you could reach on your own.",
+      "ko": "동네 지하철역에 엘리베이터가 생겼습니다. 혼자 갈 수 있는 곳이 늘었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_screen",
+    "minAge": 14,
+    "maxAge": 100,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "smarts": 1
+    },
+    "text": {
+      "vi": "With a screen reader, you could do your banking on your own.",
+      "en": "With a screen reader, you could do your banking on your own.",
+      "ko": "화면 읽기 프로그램으로 은행 일을 혼자 볼 수 있게 되었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_caption",
+    "minAge": 10,
+    "maxAge": 100,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "Videos began to come with captions, and you laughed at the same clips as your friends.",
+      "en": "Videos began to come with captions, and you laughed at the same clips as your friends.",
+      "ko": "영상마다 자막이 붙기 시작해 친구들과 같은 영상을 보며 함께 웃었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_club",
+    "minAge": 16,
+    "maxAge": 80,
+    "weight": 0.4,
+    "cat": "general",
+    "statEffects": {
+      "social": 4,
+      "happiness": 3
+    },
+    "text": {
+      "vi": "You joined a wheelchair basketball club. Food never tasted better than after a game.",
+      "en": "You joined a wheelchair basketball club. Food never tasted better than after a game.",
+      "ko": "휠체어 농구 모임에 나가기 시작했습니다. 땀 흘린 뒤의 밥이 꿀맛이었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_ask",
+    "minAge": 14,
+    "maxAge": 100,
+    "weight": 0.3,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You were grateful to someone who asked first whether you wanted help, instead of just stepping in.",
+      "en": "You were grateful to someone who asked first whether you wanted help, instead of just stepping in.",
+      "ko": "무작정 도와주는 대신, 도움이 필요한지 먼저 물어 준 사람이 고마웠습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_hire",
+    "minAge": 18,
+    "maxAge": 60,
+    "weight": 0.8,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "When your disability came up in the interview, the mood changed. They never called back.",
+      "en": "When your disability came up in the interview, the mood changed. They never called back.",
+      "ko": "면접에서 장애 이야기가 나오자 분위기가 달라졌습니다. 연락은 오지 않았습니다."
+    },
+    "fact": {
+      "vi": "About 27% of persons with disabilities are employed, less than half the rate of those without (56%) (UN DESA 2024)",
+      "en": "About 27% of persons with disabilities are employed, less than half the rate of those without (56%) (UN DESA 2024)",
+      "ko": "장애가 있는 사람의 고용률은 약 27%로, 장애가 없는 사람(56%)의 절반에 못 미칩니다 (UN DESA 2024)"
+    }
+  },
+  {
+    "id": "dis_work",
+    "minAge": 20,
+    "maxAge": 64,
+    "weight": 0.5,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "Your workplace adjusted your desk and the way around the building to suit you.",
+      "en": "Your workplace adjusted your desk and the way around the building to suit you.",
+      "ko": "일터에서 책상 높이와 동선을 내게 맞게 바꿔 주었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "dis_kid",
+    "minAge": 24,
+    "maxAge": 70,
+    "weight": 0.6,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 4,
+      "social": 2
+    },
+    "text": {
+      "vi": "Your child came running, eager to push your wheelchair.",
+      "en": "Your child came running, eager to push your wheelchair.",
+      "ko": "아이가 내 휠체어를 밀어 주겠다며 신이 나서 뛰어왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_night",
+    "minAge": 16,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "health": -1,
+      "happiness": -1
+    },
+    "text": {
+      "vi": "Your twins {0} and {1} took turns crying all night, and you paced the house holding them. Everyone fell asleep only at dawn.",
+      "en": "Your twins ... and ... took turns crying all night, and you paced the house holding them. Everyone fell asleep only at dawn.",
+      "ko": "밤새 번갈아 우는 쌍둥이 ... ... 안고 집 안을 서성였습니다. 해가 뜰 무렵에야 모두 잠들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_word",
+    "minAge": 16,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 4
+    },
+    "text": {
+      "vi": "Within a few days of each other, your twins {0} and {1} called you 'Mum' for the first time.",
+      "en": "Within a few days of each other, your twins ... and ... called you 'Mum' for the first time.",
+      "ko": "쌍둥이 ... ... 며칠 사이로 처음 '엄마'라고 불렀습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_draw",
+    "minAge": 18,
+    "maxAge": 65,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "You put the family picture {0} drew on the fridge. Everyone in it was smiling.",
+      "en": "You put the family picture ... drew on the fridge. Everyone in it was smiling.",
+      "ko": "... 그려 준 가족 그림을 냉장고에 붙였습니다. 모두 활짝 웃고 있었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_sports",
+    "minAge": 20,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "You went to your twins {0} and {1}'s sports day and cheered yourself hoarse as they ran side by side.",
+      "en": "You went to your twins ... and ...'s sports day and cheered yourself hoarse as they ran side by side.",
+      "ko": "쌍둥이 ... ...의 운동회에 갔습니다. 둘이 나란히 달리는 모습에 목이 쉬도록 응원했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_placed",
+    "minAge": 18,
+    "maxAge": 75,
+    "weight": 2,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 1,
+      "social": 1
+    },
+    "text": {
+      "vi": "Every weekend you went to {0}'s home and spent the day with {1}. Each time you left, the child held on to your sleeve.",
+      "en": "Every weekend you went to ...'s home and spent the day with .... Each time you left, the child held on to your sleeve.",
+      "ko": "주말마다 ... 댁에 가서 ... 하루를 보냈습니다. 헤어질 때마다 아이가 옷자락을 붙잡았습니다."
+    },
+    "fact": {
+      "vi": "Every weekend you went to {0}'s home and spent the day with {1}. Each time you left, the child held on to your sleeve.",
+      "en": "Every weekend you went to ...'s home and spent the day with .... Each time you left, the child held on to your sleeve.",
+      "ko": "주말마다 ... 댁에 가서 ... 하루를 보냈습니다. 헤어질 때마다 아이가 옷자락을 붙잡았습니다."
+    }
+  },
+  {
+    "id": "kc_found",
+    "minAge": 35,
+    "maxAge": 95,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 5,
+      "social": 2
+    },
+    "text": {
+      "vi": "{0}, the child you placed for adoption long ago, got in touch. Nervously you met, and heard the story of their life.",
+      "en": "..., the child you placed for adoption long ago, got in touch. Nervously you met, and heard the story of their life.",
+      "ko": "오래전 입양 보낸 ... 연락을 해 왔습니다. 떨리는 마음으로 만나, 그동안 살아온 이야기를 들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fr_call",
+    "minAge": 18,
+    "maxAge": 85,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 2,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your old friend {0} called out of the blue and you talked for an hour.",
+      "en": "Your old friend ... called out of the blue and you talked for an hour.",
+      "ko": "오랜 친구 불쑥 전화를 걸어 와 한 시간을 떠들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fr_fight",
+    "minAge": 15,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 1,
+      "happiness": -1
+    },
+    "text": {
+      "vi": "A small misunderstanding with your friend {0} kept you apart for a while, until you apologised first and grew close again.",
+      "en": "A small misunderstanding with your friend ... kept you apart for a while, until you apologised first and grew close again.",
+      "ko": "사소한 오해로 친구 ... 한동안 연락을 끊었다가, 먼저 사과하고 다시 가까워졌습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fr_help",
+    "minAge": 20,
+    "maxAge": 85,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 3,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "In a hard year, your friend {0} turned up unannounced and treated you to a meal.",
+      "en": "In a hard year, your friend ... turned up unannounced and treated you to a meal.",
+      "ko": "힘든 일이 있던 해, 친구 말없이 찾아와 밥을 사 주었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fr_hosp",
+    "minAge": 45,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 2
+    },
+    "text": {
+      "vi": "Your friend {0} was in hospital and you went to visit. You laughed at each other's grey hair.",
+      "en": "Your friend ... was in hospital and you went to visit. You laughed at each other's grey hair.",
+      "ko": "친구 병원에 입원해 병문안을 다녀왔습니다. 서로의 흰머리를 보며 웃었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "fr_move",
+    "minAge": 22,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 3,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "On moving day your friend {0} borrowed a truck and carried boxes with you all day.",
+      "en": "On moving day your friend ... borrowed a truck and carried boxes with you all day.",
+      "ko": "이삿날 친구 트럭을 빌려 와 하루 종일 짐을 날라 주었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_visit",
+    "minAge": 20,
+    "maxAge": 75,
+    "weight": 2,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "You had a long international call with {1}, who lives in {0}. It was good to hear their voice.",
+      "en": "You had a long international call with ..., who lives in .... It was good to hear their voice.",
+      "ko": "...에 사는 ... 국제 전화로 오래 이야기했습니다. 목소리가 반가웠습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_comeback",
+    "minAge": 25,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 6,
+      "social": 2
+    },
+    "text": {
+      "vi": "{1}, now {0}, said they wanted to live with you. After a talk with your former partner, {2} packed a bag and moved in.",
+      "en": "..., now ..., said they wanted to live with you. After a talk with your former partner, ... packed a bag and moved in.",
+      "ko": "...살이 된 나와 함께 살고 싶다고 했습니다. 전 배우자와 이야기 끝에 짐을 싸 들고 우리 집으로 왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_outing",
+    "minAge": 20,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "At the weekend you took {0} to an indoor play café. They played until drenched in sweat and fell asleep on the way home.",
+      "en": "At the weekend you took ... to an indoor play café. They played until drenched in sweat and fell asleep on the way home.",
+      "ko": "주말에 ... 데리고 키즈카페에 갔습니다. 땀범벅이 되도록 뛰어놀고는 돌아오는 길에 잠들었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_ownway",
+    "minAge": 36,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "{0} left university to chase a childhood dream. You worried, but gave them a pat on the back.",
+      "en": "... left university to chase a childhood dream. You worried, but gave them a pat on the back.",
+      "ko": "어릴 적 꿈을 좇겠다며 대학을 그만두었습니다. 걱정이 앞섰지만 등을 두드려 주었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "gk_mind",
+    "minAge": 45,
+    "maxAge": 85,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "{0} asked you to mind the grandchild, but your body was not up to it, so you dropped by now and then instead.",
+      "en": "... asked you to mind the grandchild, but your body was not up to it, so you dropped by now and then instead.",
+      "ko": "손주를 봐 달라고 부탁했지만, 몸이 따라 주지 않아 가끔 들러 주는 것으로 대신했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_prize",
+    "minAge": 22,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "{0} came running in with a certificate from school.",
+      "en": "... came running in with a certificate from school.",
+      "ko": "... 학교에서 받은 상장을 들고 뛰어 들어왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_trouble",
+    "minAge": 25,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "You were called to school about {0}, who had had a big fight with a friend. On the way home, the two of you talked for a long time.",
+      "en": "You were called to school about ..., who had had a big fight with a friend. On the way home, the two of you talked for a long time.",
+      "ko": "...의 일로 학교에 불려 갔습니다. 친구와 크게 다퉜다고 합니다. 돌아오는 길에 오래 이야기를 나눴습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_crush",
+    "minAge": 28,
+    "maxAge": 80,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "It seems {0} has a crush on someone. You smiled and pretended not to notice.",
+      "en": "It seems ... has a crush on someone. You smiled and pretended not to notice.",
+      "ko": "...에게 좋아하는 사람이 생긴 것 같습니다. 모른 척 웃었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_bday",
+    "minAge": 30,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 4,
+      "social": 2
+    },
+    "text": {
+      "vi": "On your birthday {0} handed you a handwritten letter and a lopsided cake.",
+      "en": "On your birthday ... handed you a handwritten letter and a lopsided cake.",
+      "ko": "생일날 손편지와 삐뚤빼뚤한 케이크를 내밀었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_talk",
+    "minAge": 28,
+    "maxAge": 80,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 2,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You and {0} talked about the future late into the night. When had they grown up so much?",
+      "en": "You and ... talked about the future late into the night. When had they grown up so much?",
+      "ko": "... 밤늦게 앞날 이야기를 나눴습니다. 어느새 훌쩍 자라 있었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_pay",
+    "minAge": 36,
+    "maxAge": 95,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 5,
+      "social": 2
+    },
+    "text": {
+      "vi": "{0} bought you a present with their first pay. You treasured it for years.",
+      "en": "... bought you a present with their first pay. You treasured it for years.",
+      "ko": "... 첫 월급으로 선물을 사 왔습니다. 오래도록 아껴 썼습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kc_abroad",
+    "minAge": 40,
+    "maxAge": 100,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2,
+      "social": 1
+    },
+    "text": {
+      "vi": "You had a long international call with {1}, who lives in {0}. It was good to hear their voice.",
+      "en": "You had a long international call with ..., who lives in .... It was good to hear their voice.",
+      "ko": "...에 사는 ... 국제 전화로 오래 이야기했습니다. 목소리가 반가웠습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kidschool",
+    "minAge": 24,
+    "maxAge": 70,
+    "weight": 4,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 4
+    },
+    "text": {
+      "vi": "{0} and {1} started school together.",
+      "en": "... and ... started school together.",
+      "ko": "... 나란히 학교에 입학했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "grandkid",
+    "minAge": 40,
+    "maxAge": 100,
+    "weight": 1.2,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 6,
+      "social": 4
+    },
+    "text": {
+      "vi": "Your first grandchild was born!",
+      "en": "Your first grandchild was born!",
+      "ko": "첫 손주가 태어났습니다!"
+    },
+    "fact": null
+  },
+  {
+    "id": "parentill",
+    "minAge": 25,
+    "maxAge": 75,
+    "weight": 0.7,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "your mother",
+      "en": "your mother",
+      "ko": "어머니"
+    },
+    "fact": {
+      "vi": "A call came that {0} was in hospital, and you could not sleep all night. At least the bills were not a worry, you were told.",
+      "en": "A call came that ... was in hospital, and you could not sleep all night. At least the bills were not a worry, you were told.",
+      "ko": "...가 입원하셨다는 전화를 받고 밤새 잠을 이루지 못했습니다. 다행히 병원비 걱정은 없다고 하셨습니다."
+    }
+  },
+  {
+    "id": "neighbor",
+    "minAge": 12,
+    "maxAge": 95,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "social": 3
+    },
+    "text": {
+      "vi": "People in African countries are among the most likely to say they ‘helped a stranger’. They more often help with their time and their hands than with money (CAF World Giving Index)",
+      "en": "People in African countries are among the most likely to say they ‘helped a stranger’. They more often help with their time and their hands than with money (CAF World Giving Index)",
+      "ko": "‘낯선 사람을 도왔다’는 응답은 아프리카 나라들에서 가장 높은 편입니다. 돈보다 시간과 손으로 돕는 경우가 많습니다 (CAF World Giving Index)"
+    },
+    "fact": null
+  },
+  {
+    "id": "heat",
+    "minAge": 5,
+    "maxAge": 100,
+    "weight": 0.6,
+    "cat": "general",
+    "statEffects": {
+      "health": -2
+    },
+    "text": {
+      "vi": "A record heat wave hit.",
+      "en": "A record heat wave hit.",
+      "ko": "기록적인 폭염이 찾아왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "youthday",
+    "minAge": 10,
+    "maxAge": 17,
+    "weight": 1.5,
+    "cat": "youth",
+    "statEffects": {
+      "health": 1,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "By the time youth team practice ended, the sun had always set.",
+      "en": "By the time youth team practice ended, the sun had always set.",
+      "ko": "유소년팀 훈련이 끝나면 늘 해가 져 있었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "volcoach",
+    "minAge": 23,
+    "maxAge": 80,
+    "weight": 0.8,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2,
+      "social": 2
+    },
+    "text": {
+      "vi": "Every weekend you coached the neighbourhood kids in {0}.",
+      "en": "Every weekend you coached the neighbourhood kids in ....",
+      "ko": "주말마다 동네 아이들에게 ... 가르쳤습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "hobbylv",
+    "minAge": 8,
+    "maxAge": 95,
+    "weight": 3,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 6,
+      "social": 3
+    },
+    "text": {
+      "vi": "You made friends who shared your love of {0}.",
+      "en": "You made friends who shared your love of ....",
+      "ko": "함께 ... 하는 친구들이 생겼습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "lonely",
+    "minAge": 60,
+    "maxAge": 125,
+    "weight": 1.5,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "Lonely days came more and more often.",
+      "en": "Lonely days came more and more often.",
+      "ko": "적적한 날이 많아졌습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "friendgone",
+    "minAge": 55,
+    "maxAge": 125,
+    "weight": 1.5,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -4,
+      "social": -3
+    },
+    "text": {
+      "vi": "오랜 친구 세상을 떠났습니다.${last ? L",
+      "en": "오랜 친구 세상을 떠났습니다.${last ? L",
+      "ko": "오랜 친구 세상을 떠났습니다.${last ? L"
+    },
+    "fact": null
+  },
+  {
+    "id": "memory",
+    "minAge": 75,
+    "maxAge": 125,
+    "weight": 0.8,
+    "cat": "elder",
+    "statEffects": {
+      "smarts": -3
+    },
+    "text": {
+      "vi": "Your memory isn't what it used to be.",
+      "en": "Your memory isn't what it used to be.",
+      "ko": "기억력이 예전 같지 않습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "mindkeep",
+    "minAge": 65,
+    "maxAge": 105,
+    "weight": 0.6,
+    "cat": "elder",
+    "statEffects": {
+      "smarts": 1,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "You took classes at the community center and learned something new.",
+      "en": "You took classes at the community center and learned something new.",
+      "ko": "복지관 강좌에 다니며 새로운 것을 배웠습니다."
+    },
+    "fact": {
+      "vi": "Keeping on learning, staying in touch with people and exercising lower the risk of dementia (Lancet Commission on dementia, 2024)",
+      "en": "Keeping on learning, staying in touch with people and exercising lower the risk of dementia (Lancet Commission on dementia, 2024)",
+      "ko": "꾸준한 배움, 사람들과의 교류, 운동은 치매 위험을 낮춥니다 (Lancet 치매 위원회 2024)"
+    }
+  },
+  {
+    "id": "grandgarden",
+    "minAge": 62,
+    "maxAge": 100,
+    "weight": 1,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": 4,
+      "social": 3
+    },
+    "text": {
+      "vi": "${S.flags.grand > 1 ? L",
+      "en": "${S.flags.grand > 1 ? L",
+      "ko": "${S.flags.grand > 1 ? L"
+    },
+    "fact": null
+  },
+  {
+    "id": "checkup",
+    "minAge": 40,
+    "maxAge": 90,
+    "weight": 0.7,
+    "cat": "adulthood",
+    "statEffects": {
+      "health": 1
+    },
+    "text": {
+      "vi": "You had a routine health checkup.",
+      "en": "You had a routine health checkup.",
+      "ko": "정기 건강검진을 받았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "migjob",
+    "minAge": 18,
+    "maxAge": 70,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -2
+    },
+    "text": {
+      "vi": "Your shaky grasp of the language led to a misunderstanding.",
+      "en": "Your shaky grasp of the language led to a misunderstanding.",
+      "ko": "언어가 서툴러 오해를 샀습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "seeking",
+    "minAge": 16,
+    "maxAge": 64,
+    "weight": 2,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "You went looking for work, but it wasn't easy.",
+      "en": "You went looking for work, but it wasn't easy.",
+      "ko": "일자리를 찾아다녔지만 쉽지 않았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "savings",
+    "minAge": 25,
+    "maxAge": 70,
+    "weight": 0.6,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You have a comfortable cushion in the bank. Your savings have reached {0} (in US terms).",
+      "en": "You have a comfortable cushion in the bank. Your savings have reached ... (in US terms).",
+      "ko": "통장 잔고가 든든합니다. 저축이 ... (한국 체감)에 이르렀습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "debt",
+    "minAge": 20,
+    "maxAge": 90,
+    "weight": 1.2,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -4
+    },
+    "text": {
+      "vi": "${S.house > 0 ? L",
+      "en": "${S.house > 0 ? L",
+      "ko": "${S.house > 0 ? L"
+    },
+    "fact": null
+  },
+  {
+    "id": "camp",
+    "minAge": 0,
+    "maxAge": 100,
+    "weight": 2,
+    "cat": "general",
+    "statEffects": {
+      "health": -2,
+      "happiness": -2
+    },
+    "text": {
+      "vi": "You stood in the ration line for hours at a time.",
+      "en": "You stood in the ration line for hours at a time.",
+      "ko": "배급 줄에 몇 시간씩 서 있었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "prkwork",
+    "minAge": 14,
+    "maxAge": 60,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "You were mobilized to plant rice.",
+      "en": "You were mobilized to plant rice.",
+      "ko": "모내기 동원에 나갔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "prkmedia",
+    "minAge": 13,
+    "maxAge": 40,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "You watched a South Korean drama on a smuggled USB stick.",
+      "en": "You watched a South Korean drama on a smuggled USB stick.",
+      "ko": "몰래 구한 USB로 남쪽 드라마를 보았습니다."
+    },
+    "fact": {
+      "vi": "83% of North Koreans who left in 2016-2020 said they had watched foreign videos in the North (South Korea's Ministry of Unification, 2024)",
+      "en": "83% of North Koreans who left in 2016-2020 said they had watched foreign videos in the North (South Korea's Ministry of Unification, 2024)",
+      "ko": "2016~2020년에 북한을 떠난 탈북민의 83%가 북한에서 외부 영상을 본 적이 있다고 답했습니다 (통일부 북한 경제·사회 실태 보고서 2024)"
+    }
+  },
+  {
+    "id": "prkgone",
+    "minAge": 15,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "One day the family next door was gone. Word went around quietly that they had crossed the river.",
+      "en": "One day the family next door was gone. Word went around quietly that they had crossed the river.",
+      "ko": "이웃 가족이 어느 날 사라졌습니다. 강을 건넜다는 소문이 조용히 돌았습니다."
+    },
+    "fact": {
+      "vi": "Since 1998 a little over 1,300 North Koreans a year on average have reached South Korea; since the border closed in 2020, about 200 a year (South Korea's Ministry of Unification)",
+      "en": "Since 1998 a little over 1,300 North Koreans a year on average have reached South Korea; since the border closed in 2020, about 200 a year (South Korea's Ministry of Unification)",
+      "ko": "1998년부터 한국에 온 탈북민은 한 해 평균 1,300명 남짓입니다. 2020년 국경이 닫힌 뒤로는 한 해 200명 안팎입니다 (통일부)"
+    }
+  },
+  {
+    "id": "hidecn",
+    "minAge": 15,
+    "maxAge": 90,
+    "weight": 3,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3
+    },
+    "text": {
+      "vi": "Rumors of a police sweep kept you hidden for days.",
+      "en": "Rumors of a police sweep kept you hidden for days.",
+      "ko": "공안 단속이 있다는 소문에 며칠 동안 숨어 지냈습니다."
+    },
+    "fact": {
+      "vi": "Many North Korean women hiding in China are trafficked or forced into marriage (UN Commission of Inquiry on North Korea, 2014)",
+      "en": "Many North Korean women hiding in China are trafficked or forced into marriage (UN Commission of Inquiry on North Korea, 2014)",
+      "ko": "중국에 숨어 사는 탈북 여성의 상당수가 인신매매와 강제 결혼의 피해를 입습니다 (UN 북한인권조사위원회 2014)"
+    }
+  },
+  {
+    "id": "defsk",
+    "minAge": 15,
+    "maxAge": 125,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 1
+    },
+    "text": {
+      "vi": "You opened your first bank account in your own name. What you earned came in.",
+      "en": "You opened your first bank account in your own name. What you earned came in.",
+      "ko": "처음으로 내 이름으로 된 통장을 만들었습니다. 일한 만큼 돈이 들어왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "royal",
+    "minAge": 6,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 1
+    },
+    "text": {
+      "vi": "{0} (−{1})",
+      "en": "... (−...)",
+      "ko": "... (−...)"
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_disc",
+    "minAge": 6,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3,
+      "social": -1
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_warm",
+    "minAge": 3,
+    "maxAge": 95,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "paygap",
+    "minAge": 22,
+    "maxAge": 62,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {},
+    "text": {
+      "vi": "You found out that the men doing the same job as you were paid a higher salary.",
+      "en": "You found out that the men doing the same job as you were paid a higher salary.",
+      "ko": "같은 일을 하는 남자 동료들보다 월급이 적다는 것을 알게 되었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "cst_form",
+    "minAge": 6,
+    "maxAge": 8,
+    "weight": 30,
+    "cat": "childhood",
+    "statEffects": {},
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "cst_disc",
+    "minAge": 6,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -3,
+      "social": -1
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "cst_warm",
+    "minAge": 5,
+    "maxAge": 95,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "cst_see",
+    "minAge": 8,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_xj",
+    "minAge": 14,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": -4,
+      "social": -2
+    },
+    "text": {
+      "vi": "From 2017, one grown-up after another in the neighbourhood was sent to a 'vocational education and training centre'. The man next door was one of them, and no one would say when he would come back.",
+      "en": "From 2017, one grown-up after another in the neighbourhood was sent to a 'vocational education and training centre'. The man next door was one of them, and no one would say when he would come back.",
+      "ko": "2017년부터 동네 어른들이 하나둘 '직업기능교육훈련센터'로 보내졌습니다. 이웃집 아저씨도 그중 한 명이었고, 언제 돌아오는지 아무도 말해 주지 않았습니다."
+    },
+    "fact": {
+      "vi": "From 2017, one grown-up after another in the neighbourhood was sent to a 'vocational education and training centre'. The man next door was one of them, and no one would say when he would come back.",
+      "en": "From 2017, one grown-up after another in the neighbourhood was sent to a 'vocational education and training centre'. The man next door was one of them, and no one would say when he would come back.",
+      "ko": "2017년부터 동네 어른들이 하나둘 '직업기능교육훈련센터'로 보내졌습니다. 이웃집 아저씨도 그중 한 명이었고, 언제 돌아오는지 아무도 말해 주지 않았습니다."
+    }
+  },
+  {
+    "id": "eth_xjb",
+    "minAge": 18,
+    "maxAge": 90,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "There were noticeably fewer babies crying in the neighbourhood.",
+      "en": "There were noticeably fewer babies crying in the neighbourhood.",
+      "ko": "동네에서 아기 울음소리가 눈에 띄게 줄었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_past",
+    "minAge": 6,
+    "maxAge": 30,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "",
+      "en": "",
+      "ko": ""
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_noid",
+    "minAge": 14,
+    "maxAge": 40,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "With no papers to prove your nationality, it was hard to go elsewhere for work. You applied and waited for years.",
+      "en": "With no papers to prove your nationality, it was hard to go elsewhere for work. You applied and waited for years.",
+      "ko": "국적을 증명할 서류가 없어 다른 지역으로 일하러 가기 어려웠습니다. 서류를 내고 몇 해를 기다렸습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "eth_idok",
+    "minAge": 16,
+    "maxAge": 60,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 8
+    },
+    "text": {
+      "vi": "After years of waiting you finally got citizenship. For the first time you held an ID card with your name on it.",
+      "en": "After years of waiting you finally got citizenship. For the first time you held an ID card with your name on it.",
+      "ko": "몇 해를 기다린 끝에 마침내 국적을 얻었습니다. 처음으로 내 이름이 적힌 신분증을 받았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "gpvisit",
+    "minAge": 3,
+    "maxAge": 14,
+    "weight": 1.2,
+    "cat": "youth",
+    "statEffects": {
+      "happiness": 3,
+      "social": 2
+    },
+    "text": {
+      "vi": "For the holidays the whole family gathered at {0}'s home.",
+      "en": "For the holidays the whole family gathered at ...'s home.",
+      "ko": "명절에 ... 댁에 온 가족이 모였습니다."
+    },
+    "fact": {
+      "vi": "You sat beside {0} looking at old photographs for a long time.",
+      "en": "You sat beside ... looking at old photographs for a long time.",
+      "ko": "... 곁에 앉아 옛날 사진을 한참 들여다보았습니다."
+    }
+  },
+  {
+    "id": "gpcall",
+    "minAge": 15,
+    "maxAge": 45,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "You called {0} for the first time in a while. The voice on the line had grown much weaker.",
+      "en": "You called ... for the first time in a while. The voice on the line had grown much weaker.",
+      "ko": "오랜만에 ...께 전화를 드렸습니다. 목소리가 많이 약해지셨습니다."
+    },
+    "fact": {
+      "vi": "You called {0} for the first time in a while. The voice on the line had grown much weaker.",
+      "en": "You called ... for the first time in a while. The voice on the line had grown much weaker.",
+      "ko": "오랜만에 ...께 전화를 드렸습니다. 목소리가 많이 약해지셨습니다."
+    }
+  },
+  {
+    "id": "faithchg",
+    "minAge": 18,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "social": 2
+    },
+    "text": {
+      "vi": "Outwardly life went on as before, but inside, faith had been let go. No one was told.",
+      "en": "Outwardly life went on as before, but inside, faith had been let go. No one was told.",
+      "ko": "겉으로는 예전처럼 지냈지만, 마음속으로는 믿음을 내려놓았습니다. 아무에게도 말하지 않았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "faithlapse",
+    "minAge": 20,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": -1
+    },
+    "text": {
+      "vi": "At some point, stopped going to the {0}. Still, on the holy days, kept the rites with the family.",
+      "en": "At some point, stopped going to the .... Still, on the holy days, kept the rites with the family.",
+      "ko": "언제부턴가 ...에 나가지 않게 되었습니다. 그래도 명절이면 가족과 함께 예식을 지켰습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "sib_life",
+    "minAge": 20,
+    "maxAge": 80,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "One of your siblings got married. You watched the wedding from far away on a video call.",
+      "en": "One of your siblings got married. You watched the wedding from far away on a video call.",
+      "ko": "형제자매 한 명이 결혼했습니다. 멀리서 영상 통화로 식을 지켜보았습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "hob_life",
+    "minAge": 12,
+    "maxAge": 95,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 1
+    },
+    "text": {
+      "vi": "Through {0} you made a lifelong friend.",
+      "en": "Through ... you made a lifelong friend.",
+      "ko": "... 모임에서 오래 갈 친구를 사귀었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "tmpr_life",
+    "minAge": 10,
+    "maxAge": 75,
+    "weight": 30,
+    "cat": "general",
+    "statEffects": {},
+    "text": {
+      "vi": "You still stayed up late looking things up whenever you were curious.",
+      "en": "You still stayed up late looking things up whenever you were curious.",
+      "ko": "궁금한 것이 생기면 밤늦게까지 찾아보는 버릇은 여전했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "sibling",
+    "minAge": 18,
+    "maxAge": 85,
+    "weight": 0.5,
+    "cat": "general",
+    "statEffects": {
+      "social": 3,
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Anh chị em trong nhà đôi lúc có cãi vã tị nạnh, nhưng khi gặp khó khăn luôn bảo bọc yêu thương nhau.",
+      "en": "All the siblings gathered at your parents' home.",
+      "ko": "형제자매가 모두 부모님 댁에 모였습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "scam",
+    "minAge": 22,
+    "maxAge": 95,
+    "weight": 1,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -5
+    },
+    "text": {
+      "vi": "Bạn từng suýt bị lừa đảo trên mạng, nhưng may mắn tỉnh táo nhận ra và không mất mát tài sản.",
+      "en": "An urgent message from someone pretending to be your child fooled you into sending money. (−...)",
+      "ko": "자녀를 사칭한 다급한 연락에 속아 돈을 보냈습니다. (−...)"
+    },
+    "fact": {
+      "vi": "In 2023 Americans over 60 reported about $3.4 billion lost to fraud (FBI IC3)",
+      "en": "In 2023 Americans over 60 reported about $3.4 billion lost to fraud (FBI IC3)",
+      "ko": "2023년 미국에서 60세 이상이 신고한 사기 피해액은 약 34억 달러였습니다 (FBI IC3)"
+    }
+  },
+  {
+    "id": "richgift",
+    "minAge": 28,
+    "maxAge": 45,
+    "weight": 3,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Your parents passed part of their wealth to you early. (+{0})",
+      "en": "Your parents passed part of their wealth to you early. (+...)",
+      "ko": "부모님이 재산의 일부를 미리 물려주었습니다. (+...)"
+    },
+    "fact": null
+  },
+  {
+    "id": "kidback",
+    "minAge": 42,
+    "maxAge": 80,
+    "weight": 1,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 2,
+      "happiness": 1
+    },
+    "text": {
+      "vi": "{0}, who had moved out, lost a job and came home for a while. The dinner table was busy again. (−{1})",
+      "en": "..., who had moved out, lost a job and came home for a while. The dinner table was busy again. (−...)",
+      "ko": "독립했던 ... 일을 그만두고 한동안 집에 돌아와 지냈습니다. 오랜만에 식탁이 북적였습니다. (−...)"
+    },
+    "fact": null
+  },
+  {
+    "id": "volunteer",
+    "minAge": 16,
+    "maxAge": 82,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3,
+      "social": 3
+    },
+    "text": {
+      "vi": "Bạn tham gia một chuyến đi tình nguyện giúp đỡ bà con vùng khó khăn, cảm thấy cuộc đời thêm phần ý nghĩa.",
+      "en": "Every weekend you volunteered, serving meals at a free food kitchen.",
+      "ko": "주말마다 무료 급식소에서 밥을 퍼 담는 봉사를 했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "graying",
+    "minAge": 26,
+    "maxAge": 55,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -1
+    },
+    "text": {
+      "vi": "Nhìn vào gương, bạn nhận ra những sợi tóc hoa râm đầu tiên trên mái đầu, dấu ấn của thời gian và trải nghiệm.",
+      "en": "You found your first gray hair in the mirror.",
+      "ko": "거울 속에서 첫 흰머리를 발견했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "anniv",
+    "minAge": 28,
+    "maxAge": 125,
+    "weight": 4,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 4,
+      "social": 3
+    },
+    "text": {
+      "vi": "Kỷ niệm ngày cưới đầm ấm bên người bạn đời tri kỷ, cùng nhìn lại quãng đường dài đã đồng cam cộng khổ.",
+      "en": "... years together. You and ... had a quiet dinner.",
+      "ko": "함께한 지 ...년. ... 조촐하게 저녁을 먹었습니다."
+    },
+    "fact": {
+      "vi": "{0} years together. You and {1} had a quiet dinner.",
+      "en": "... years together. You and ... had a quiet dinner.",
+      "ko": "함께한 지 ...년. ... 조촐하게 저녁을 먹었습니다."
+    }
+  },
+  {
+    "id": "teachjr",
+    "minAge": 38,
+    "maxAge": 64,
+    "weight": 0.5,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2,
+      "social": 2
+    },
+    "text": {
+      "vi": "You taught a young neighbor how to farm, and remembered yourself at that age.",
+      "en": "You taught a young neighbor how to farm, and remembered yourself at that age.",
+      "ko": "이웃 젊은이에게 농사일을 가르쳐 주었습니다. 예전의 내가 떠올랐습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "redevelop",
+    "minAge": 20,
+    "maxAge": 85,
+    "weight": 1,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2
+    },
+    "text": {
+      "vi": "Khu phố gắn bó từ thuở ấu thơ nay được quy hoạch nâng cấp khang trang, gợi nhiều hoài niệm sâu lắng.",
+      "en": "Your neighborhood was redeveloped; you were compensated and moved to a new home. (+...)",
+      "ko": "살던 동네가 재개발되면서 보상금을 받고 새 집으로 옮겼습니다. (+...)"
+    },
+    "fact": null
+  },
+  {
+    "id": "rift",
+    "minAge": 20,
+    "maxAge": 70,
+    "weight": 30,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -2,
+      "social": -2
+    },
+    "text": {
+      "vi": "You had a big falling-out with a brother or sister over money and stopped speaking.",
+      "en": "You had a big falling-out with a brother or sister over money and stopped speaking.",
+      "ko": "돈 문제로 형제와 크게 다투고 연락을 끊었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "noise",
+    "minAge": 20,
+    "maxAge": 85,
+    "weight": 0.5,
+    "cat": "adulthood",
+    "statEffects": {
+      "social": 1
+    },
+    "text": {
+      "vi": "You quarreled with a neighbor over noise, then made peace over shared food.",
+      "en": "You quarreled with a neighbor over noise, then made peace over shared food.",
+      "ko": "소음 문제로 이웃과 얼굴을 붉혔다가, 음식을 나누며 화해했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "scare",
+    "minAge": 40,
+    "maxAge": 78,
+    "weight": 0.35,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": -1,
+      "health": 2
+    },
+    "text": {
+      "vi": "A check-up found something, and you had more tests. Luckily it was nothing. Since then you have kept yourself a little more active.",
+      "en": "A check-up found something, and you had more tests. Luckily it was nothing. Since then you have kept yourself a little more active.",
+      "ko": "건강검진에서 이상 소견이 나와 정밀검사를 받았습니다. 다행히 아무것도 아니었습니다. 그 뒤로 몸을 조금 더 움직이기 시작했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "oh_kid",
+    "minAge": 70,
+    "maxAge": 125,
+    "weight": 1.5,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": 2,
+      "social": 2
+    },
+    "text": {
+      "vi": "Coming home from school, the grandchildren stopped by your room first.",
+      "en": "Coming home from school, the grandchildren stopped by your room first.",
+      "ko": "손주들이 학교에서 돌아오면 내 방부터 들렀습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "oh_care",
+    "minAge": 70,
+    "maxAge": 125,
+    "weight": 1.5,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": 1,
+      "social": 1
+    },
+    "text": {
+      "vi": "Your children came to visit you at the care home at the weekend.",
+      "en": "Your children came to visit you at the care home at the weekend.",
+      "ko": "주말에 자녀들이 요양원으로 찾아왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kidcall",
+    "minAge": 50,
+    "maxAge": 105,
+    "weight": 0.5,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 2,
+      "social": 2
+    },
+    "text": {
+      "vi": "Con cái gọi điện về hỏi thăm sức khỏe, nghe tiếng cười nói của các cháu làm lòng bạn ấm áp vô ngần.",
+      "en": "..., who has a home of their own now, called to see how you were.",
+      "ko": "따로 사는 안부 전화를 걸어 왔습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "wallet",
+    "minAge": 12,
+    "maxAge": 88,
+    "weight": 1,
+    "cat": "general",
+    "statEffects": {
+      "happiness": 3
+    },
+    "text": {
+      "vi": "A stranger found your lost wallet and returned it. The world was kinder than you thought.",
+      "en": "A stranger found your lost wallet and returned it. The world was kinder than you thought.",
+      "ko": "잃어버린 지갑을 낯선 사람이 찾아 돌려주었습니다. 세상은 생각보다 따뜻했습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "kindhelp",
+    "minAge": 60,
+    "maxAge": 105,
+    "weight": 0.5,
+    "cat": "elder",
+    "statEffects": {
+      "happiness": 2,
+      "social": 1
+    },
+    "text": {
+      "vi": "Một người qua đường xa lạ đã nhiệt tình giúp đỡ bạn lúc gặp sự cố bất ngờ giữa phố đông.",
+      "en": "When you fell in the street, a passing student helped you up.",
+      "ko": "길에서 넘어졌을 때 지나가던 학생이 일으켜 세워 주었습니다."
+    },
+    "fact": null
+  },
+  {
+    "id": "repay",
+    "minAge": 20,
+    "maxAge": 100,
+    "weight": 1,
+    "cat": "adulthood",
+    "statEffects": {
+      "happiness": 3,
+      "social": 3
+    },
+    "text": {
+      "vi": "Your friend paid back the loan, and bought you a meal to say thanks. (+{0})",
+      "en": "Your friend paid back the loan, and bought you a meal to say thanks. (+...)",
+      "ko": "친구가 빌려 간 돈을 갚았습니다. 고맙다며 밥을 샀습니다. (+...)"
+    },
+    "fact": null
+  }
+]

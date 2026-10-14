@@ -1,0 +1,699 @@
+{
+  "w": 156,
+  "h": 66,
+  "land": "AAAAAAAAAHgfAAAAAAAAAAAAB4gGAAAAACD5//AAABAEAAAAAGi5f/xgAAAfp4H+AAAAT//GAAAB/2////w//+nsH8AB+Er////8P/9C////7///+MPBwD8///////3//////+H///yIGAAO////////g/////mAfn//A0AAAPH//////mAOn//gwACB//B8AACCP/////4GABgf8DAAAB//7+AAHAf/////4DAAAD+EAAAF//3+AAF////////BAAAA0AAAAD///gAAA////////QAAAAwAAAAD//+mAAB////////gAAAAAAAAAD///4AAA/+ef////gAAAAAAAAAH//+AAAF68Of////mAAAAAAAAAP//8AAAHhenP////AAAAAAAAAAP//wAAAPEL/P///0CAAAAAAAAAP//gAAAGBL/v///8iAAAAAAAAAP//gAAAD8EP////8nAAAAAAAAAH//AAAAH8AP////8IAAAAAAAAAD/8AAAAP/Mf////+AAAAAAAAAAD+kAAAAP///v////AAAAAAAAAAD8EAAAAf//vn////AAAAAAAAAAH4AAAAA///35////AAAAAAAAAAB4AAAAA///3+H//+gAAAAAAQAAB4GAAAB///7/D//8AAAAAAAAAAB5BAAAB///7+A+PgAAAAAAAAAAA7CgAAB///5+A8PgQAAAAAAAAAAfAAAAB///88A8HwQAAAAAAAAAADwAAAB///+wAYD4AAAAAAAAAAAAgAAAB////gAYA4AAAAAAAAAAAAhQAAA////IAYAYAAAAAAAAAAAAT+AAA////4AMAAAAAAAAAAAAAAP/AAAf///4AEBACAAAAAAAAAAAD/gAAPP//wAAAggAAAAAAAAAAAD/4AAAD//wAACggAAAAAAAAAAAH/4AAAD//gAABRgAAAAAAAAAAAH/4AAAD//AAAAjtAAAAAAAAAAAP/+AAAD//AAAAzoQAAAAAAAAAAH//gAAD/+AAAARg2EAAAAAAAAAP//wAAB/8AAAAQAHkAAAAAAAAAP//4AAB/8AAAAIADwAAAAAAAAAH//4AAB/8AAAABQDQgAAAAAAAAD//4AAA/+AAAAAEAIAAAAAAAAAD//wAAA/+AAAAAAYAAAAAAAAAAD//wAAB/+IAAAAAyAAAAAAAAAAB//wAAB/+QAAAAHzAAAAAAAAAAAf/wAAB/4wAAAAP7AAAAAAAAAAAf/wAAB/wwAAAAf/AAAAAAAAAAAP/gAAB/wwAAAB//AAAAAAAAAAAP/gAAA/xgAAAD//gAAAAAAAAAAP+AAAA/wgAAAH//gAAAAAAAAAAP+AAAA/gAAAAH//gAAAAAAAAAAP+AAAA/gAAAAH//AAAAAAAAAAAP8AAAAfAAAAAH//AAAAAAAAAAAP8AAAAeAAAAAHj+AAAAAAAAAAAP4AAAAQAAAAAMB8AAAAAAAAAAAPwAAAAAAAAAAAB4AAAAEAAAAAAPwAAAAAAAAAAABgBgAAAAAAAAAHgAAAAAAAAAAAAAAAAgEAAAAAAHgAAAAAAAAAAABAIAAAEAAAAAAHAAAAAAAAAAAAAAwAAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "at": {
+    "AFG": [
+      103.3,
+      18.3
+    ],
+    "DZA": [
+      79,
+      21.3
+    ],
+    "AGO": [
+      85.3,
+      43.7
+    ],
+    "ARG": [
+      53.2,
+      55.6
+    ],
+    "AUS": [
+      131.5,
+      51
+    ],
+    "AUT": [
+      83,
+      11.6
+    ],
+    "AZE": [
+      95.6,
+      15
+    ],
+    "BGD": [
+      114.2,
+      23.5
+    ],
+    "BLR": [
+      87.4,
+      9
+    ],
+    "BEL": [
+      79.6,
+      10.3
+    ],
+    "BEN": [
+      79,
+      31.3
+    ],
+    "BOL": [
+      51.5,
+      46.1
+    ],
+    "BWA": [
+      87.6,
+      49.1
+    ],
+    "BRA": [
+      55.9,
+      42.8
+    ],
+    "BGR": [
+      87.2,
+      13.9
+    ],
+    "BFA": [
+      77.3,
+      29.9
+    ],
+    "BDI": [
+      90.5,
+      38.7
+    ],
+    "KHM": [
+      121.4,
+      29.6
+    ],
+    "CMR": [
+      83.3,
+      33.6
+    ],
+    "CAN": [
+      46.3,
+      7
+    ],
+    "CAF": [
+      86.5,
+      33.1
+    ],
+    "TCD": [
+      85.7,
+      28.2
+    ],
+    "CHL": [
+      50.8,
+      55.5
+    ],
+    "CHN": [
+      117.1,
+      16.8
+    ],
+    "COL": [
+      47.4,
+      34.6
+    ],
+    "COG": [
+      84.4,
+      37.2
+    ],
+    "CRI": [
+      43,
+      31.2
+    ],
+    "CIV": [
+      75.7,
+      32.5
+    ],
+    "CUB": [
+      46.1,
+      24.7
+    ],
+    "CZE": [
+      83.3,
+      10.7
+    ],
+    "COD": [
+      87.9,
+      38.4
+    ],
+    "DNK": [
+      81.1,
+      7.9
+    ],
+    "DOM": [
+      49.3,
+      26.2
+    ],
+    "ECU": [
+      45.2,
+      37.6
+    ],
+    "EGY": [
+      89.9,
+      22.1
+    ],
+    "SLV": [
+      41.3,
+      29.1
+    ],
+    "GNQ": [
+      82.4,
+      35.9
+    ],
+    "ERI": [
+      94,
+      28.2
+    ],
+    "ETH": [
+      94.5,
+      31.9
+    ],
+    "FIN": [
+      85.9,
+      5
+    ],
+    "FRA": [
+      78.9,
+      12.1
+    ],
+    "GAB": [
+      82.9,
+      37.1
+    ],
+    "GMB": [
+      71.6,
+      29.2
+    ],
+    "GEO": [
+      93.9,
+      14.2
+    ],
+    "DEU": [
+      81.5,
+      10.1
+    ],
+    "GHA": [
+      77.5,
+      32.3
+    ],
+    "GRC": [
+      86.4,
+      15.5
+    ],
+    "GTM": [
+      40.9,
+      28
+    ],
+    "GIN": [
+      73.5,
+      30.9
+    ],
+    "GNB": [
+      71.8,
+      30
+    ],
+    "HTI": [
+      48.4,
+      26.2
+    ],
+    "HND": [
+      42.3,
+      28.5
+    ],
+    "HUN": [
+      84.8,
+      11.8
+    ],
+    "IND": [
+      110,
+      24.1
+    ],
+    "IDN": [
+      125.7,
+      36.9
+    ],
+    "IRN": [
+      99.1,
+      18.9
+    ],
+    "IRQ": [
+      94.9,
+      18.7
+    ],
+    "IRL": [
+      75.3,
+      9.2
+    ],
+    "ISR": [
+      91.6,
+      19.5
+    ],
+    "ITA": [
+      82.5,
+      13.5
+    ],
+    "JAM": [
+      46.4,
+      26.6
+    ],
+    "JPN": [
+      130.2,
+      16.9
+    ],
+    "JOR": [
+      92.3,
+      19.6
+    ],
+    "KAZ": [
+      101.5,
+      11.3
+    ],
+    "KEN": [
+      93.8,
+      36.4
+    ],
+    "KWT": [
+      96.7,
+      20.6
+    ],
+    "KGZ": [
+      105.4,
+      14.5
+    ],
+    "LAO": [
+      120.4,
+      26.4
+    ],
+    "LBN": [
+      91.8,
+      18.2
+    ],
+    "LSO": [
+      89.1,
+      53
+    ],
+    "LBR": [
+      74.1,
+      33.1
+    ],
+    "LBY": [
+      85.2,
+      21.8
+    ],
+    "MDG": [
+      97,
+      47.5
+    ],
+    "MWI": [
+      92.2,
+      44.2
+    ],
+    "MYS": [
+      126,
+      34.7
+    ],
+    "MLI": [
+      76.5,
+      27.1
+    ],
+    "MRT": [
+      73.8,
+      25.5
+    ],
+    "MEX": [
+      37,
+      23.5
+    ],
+    "MNG": [
+      114.5,
+      11.9
+    ],
+    "MAR": [
+      74.6,
+      20.4
+    ],
+    "MOZ": [
+      92.6,
+      46.4
+    ],
+    "MMR": [
+      117.1,
+      25
+    ],
+    "NAM": [
+      84.9,
+      49
+    ],
+    "NPL": [
+      111.1,
+      21.2
+    ],
+    "NLD": [
+      79.9,
+      9.6
+    ],
+    "NZL": [
+      139.7,
+      60.2
+    ],
+    "NIC": [
+      42.8,
+      29.6
+    ],
+    "NER": [
+      81.8,
+      27
+    ],
+    "NGA": [
+      81.4,
+      31.4
+    ],
+    "PRK": [
+      125.1,
+      15.1
+    ],
+    "NOR": [
+      81.7,
+      5.1
+    ],
+    "OMN": [
+      100.7,
+      25.3
+    ],
+    "PAK": [
+      105.1,
+      20.3
+    ],
+    "PSE": [
+      91.7,
+      19.3
+    ],
+    "PAN": [
+      44.6,
+      32
+    ],
+    "PNG": [
+      138.2,
+      40.5
+    ],
+    "PRY": [
+      54.5,
+      49.7
+    ],
+    "PER": [
+      47,
+      41.9
+    ],
+    "PHL": [
+      127.9,
+      27.8
+    ],
+    "POL": [
+      84.6,
+      9.6
+    ],
+    "PRT": [
+      75,
+      15.4
+    ],
+    "QAT": [
+      98.4,
+      22.7
+    ],
+    "ROU": [
+      86.9,
+      12.4
+    ],
+    "RUS": [
+      106.3,
+      4.4
+    ],
+    "RWA": [
+      90.5,
+      37.9
+    ],
+    "SAU": [
+      95.9,
+      23.4
+    ],
+    "SEN": [
+      72,
+      28.7
+    ],
+    "SRB": [
+      85.5,
+      13.2
+    ],
+    "SLE": [
+      73.1,
+      31.9
+    ],
+    "SGP": [
+      121.4,
+      36
+    ],
+    "SVK": [
+      84.8,
+      11.1
+    ],
+    "SOM": [
+      97.1,
+      34.1
+    ],
+    "ZAF": [
+      87.9,
+      52.7
+    ],
+    "KOR": [
+      126.4,
+      17
+    ],
+    "SSD": [
+      90.6,
+      32.6
+    ],
+    "ESP": [
+      76.7,
+      15
+    ],
+    "LKA": [
+      111.6,
+      32.5
+    ],
+    "SDN": [
+      90.3,
+      27.8
+    ],
+    "SWE": [
+      83,
+      5.6
+    ],
+    "CHE": [
+      80.9,
+      12
+    ],
+    "SYR": [
+      92.7,
+      17.7
+    ],
+    "TWN": [
+      126.6,
+      23.6
+    ],
+    "TJK": [
+      104.6,
+      15.9
+    ],
+    "TZA": [
+      92.5,
+      40.3
+    ],
+    "THA": [
+      119.6,
+      28.3
+    ],
+    "TGO": [
+      78.4,
+      32
+    ],
+    "TUN": [
+      81.7,
+      18.2
+    ],
+    "TUR": [
+      91.2,
+      15.7
+    ],
+    "TKM": [
+      100.2,
+      15.6
+    ],
+    "UGA": [
+      91.5,
+      36
+    ],
+    "UKR": [
+      88.9,
+      10.9
+    ],
+    "ARE": [
+      99.8,
+      23.5
+    ],
+    "GBR": [
+      77.2,
+      8.9
+    ],
+    "USA": [
+      41.3,
+      15.3
+    ],
+    "URY": [
+      56.4,
+      54.7
+    ],
+    "UZB": [
+      101.2,
+      14.3
+    ],
+    "VEN": [
+      50.4,
+      32.8
+    ],
+    "VNM": [
+      121.6,
+      27.5
+    ],
+    "YEM": [
+      97.5,
+      27.8
+    ],
+    "ZMB": [
+      89.5,
+      44.3
+    ],
+    "ZWE": [
+      90.2,
+      47.4
+    ],
+    "HKG": [
+      124,
+      24.3
+    ],
+    "HRV": [
+      83.9,
+      12.7
+    ],
+    "PRI": [
+      50.8,
+      26.6
+    ],
+    "BIH": [
+      84.4,
+      13.2
+    ],
+    "MDA": [
+      88,
+      11.8
+    ],
+    "ARM": [
+      94.6,
+      15.1
+    ],
+    "LTU": [
+      85.9,
+      8.3
+    ],
+    "ALB": [
+      85.4,
+      14.7
+    ],
+    "SVN": [
+      83.3,
+      12.3
+    ],
+    "LVA": [
+      86.1,
+      7.7
+    ],
+    "MKD": [
+      86,
+      14.4
+    ],
+    "XKX": [
+      85.6,
+      14
+    ],
+    "BHR": [
+      98.1,
+      22.3
+    ],
+    "TTO": [
+      52.5,
+      30.9
+    ],
+    "TLS": [
+      130.4,
+      41.7
+    ],
+    "EST": [
+      86.3,
+      7
+    ],
+    "CYP": [
+      90.6,
+      17.7
+    ],
+    "MUS": [
+      101.4,
+      48.1
+    ],
+    "SWZ": [
+      90.5,
+      51.5
+    ],
+    "DJI": [
+      95.6,
+      30.2
+    ],
+    "FJI": [
+      150.8,
+      46.7
+    ],
+    "COM": [
+      96,
+      43.3
+    ],
+    "GUY": [
+      53.4,
+      34.1
+    ],
+    "SLB": [
+      144.6,
+      42.2
+    ],
+    "BTN": [
+      113.8,
+      21.6
+    ],
+    "MAC": [
+      123.8,
+      24.4
+    ],
+    "LUX": [
+      80.1,
+      10.7
+    ],
+    "MNE": [
+      85,
+      13.9
+    ],
+    "SUR": [
+      54.6,
+      34.4
+    ],
+    "MLT": [
+      83.5,
+      17.2
+    ],
+    "MDV": [
+      108.7,
+      34.4
+    ],
+    "CPV": [
+      68.3,
+      28.3
+    ]
+  }
+}

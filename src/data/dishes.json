@@ -1,0 +1,507 @@
+{
+  "NGA": {
+    "vi": "Cơm Jollof Tây Phi",
+    "en": "Jollof rice",
+    "ko": "졸로프 라이스"
+  },
+  "GHA": {
+    "vi": "Cơm Jollof vàng ươm",
+    "en": "Jollof rice",
+    "ko": "졸로프 라이스"
+  },
+  "ETH": {
+    "vi": "Bánh Injera và sốt Wat cay",
+    "en": "Injera and Wat",
+    "ko": "인제라와 와트"
+  },
+  "ERI": {
+    "ko": "인제라",
+    "vi": "인제라",
+    "en": "인제라"
+  },
+  "IND": {
+    "vi": "Bánh mì Roti & Cà ri đậu Dal",
+    "en": "Dal and Roti",
+    "ko": "달과 로티"
+  },
+  "PAK": {
+    "vi": "Cơm Biryani hương thảo mộc",
+    "en": "Biryani",
+    "ko": "비리야니"
+  },
+  "BGD": {
+    "vi": "Cà ri cá sông Macher Jhol",
+    "en": "Fish curry",
+    "ko": "생선 커리"
+  },
+  "NPL": {
+    "vi": "Cơm Dal Bhat truyền thống",
+    "en": "Dal Bhat",
+    "ko": "달밧"
+  },
+  "LKA": {
+    "vi": "Cơm và cà ri cay Tích Lan",
+    "en": "Rice and curry",
+    "ko": "라이스 앤 커리"
+  },
+  "CHN": {
+    "vi": "Sủi cảo & Mì sợi",
+    "en": "Dumplings (Jiaozi)",
+    "ko": "만두"
+  },
+  "TWN": {
+    "vi": "Mì bò hầm Đài Loan",
+    "en": "Taiwanese beef noodle soup",
+    "ko": "우육면"
+  },
+  "VNM": {
+    "vi": "Phở bò / Phở gà",
+    "en": "Pho noodle soup",
+    "ko": "쌀국수"
+  },
+  "KOR": {
+    "vi": "Canh tương Doenjang jjigae",
+    "en": "Soybean paste stew (Doenjang-jjigae)",
+    "ko": "된장찌개"
+  },
+  "PRK": {
+    "vi": "Mì lạnh Naengmyeon",
+    "en": "Cold noodles (Naengmyeon)",
+    "ko": "냉면"
+  },
+  "JPN": {
+    "vi": "Sushi & Cơm phần Teishoku",
+    "en": "Sushi and Teishoku meal",
+    "ko": "초밥"
+  },
+  "THA": {
+    "vi": "Pad Thai & Tom Yum",
+    "en": "Pad Thai & Tom Yum",
+    "ko": "팟타이"
+  },
+  "IDN": {
+    "vi": "Cơm chiên Nasi Goreng",
+    "en": "Nasi Goreng",
+    "ko": "나시 고렝"
+  },
+  "MYS": {
+    "vi": "Cơm nước cốt dừa Nasi Lemak",
+    "en": "Nasi Lemak",
+    "ko": "나시 르막"
+  },
+  "PHL": {
+    "ko": "아도보",
+    "vi": "아도보",
+    "en": "아도보"
+  },
+  "MMR": {
+    "ko": "모힝가",
+    "vi": "모힝가",
+    "en": "모힝가"
+  },
+  "KHM": {
+    "ko": "아목",
+    "vi": "아목",
+    "en": "아목"
+  },
+  "MEX": {
+    "vi": "Bánh Tacos thịt nướng ngò rí",
+    "en": "Street Tacos",
+    "ko": "타코"
+  },
+  "GTM": {
+    "ko": "타말레",
+    "vi": "타말레",
+    "en": "타말레"
+  },
+  "BRA": {
+    "vi": "Thịt hầm đậu đen Feijoada",
+    "en": "Feijoada black bean stew",
+    "ko": "페이조아다"
+  },
+  "ARG": {
+    "vi": "Thịt bò nướng Asado",
+    "en": "Asado barbecue",
+    "ko": "아사도"
+  },
+  "COL": {
+    "ko": "아레파",
+    "vi": "아레파",
+    "en": "아레파"
+  },
+  "VEN": {
+    "ko": "아레파",
+    "vi": "아레파",
+    "en": "아레파"
+  },
+  "PER": {
+    "ko": "세비체",
+    "vi": "세비체",
+    "en": "세비체"
+  },
+  "EGY": {
+    "vi": "Cơm mì Koshari",
+    "en": "Koshari",
+    "ko": "코샤리"
+  },
+  "MAR": {
+    "ko": "타진",
+    "vi": "타진",
+    "en": "타진"
+  },
+  "DZA": {
+    "ko": "쿠스쿠스",
+    "vi": "쿠스쿠스",
+    "en": "쿠스쿠스"
+  },
+  "TUN": {
+    "ko": "쿠스쿠스",
+    "vi": "쿠스쿠스",
+    "en": "쿠스쿠스"
+  },
+  "TUR": {
+    "ko": "렌틸콩 수프",
+    "vi": "렌틸콩 수프",
+    "en": "렌틸콩 수프"
+  },
+  "IRN": {
+    "ko": "고르메 사브지",
+    "vi": "고르메 사브지",
+    "en": "고르메 사브지"
+  },
+  "IRQ": {
+    "ko": "돌마",
+    "vi": "돌마",
+    "en": "돌마"
+  },
+  "SYR": {
+    "ko": "키베",
+    "vi": "키베",
+    "en": "키베"
+  },
+  "SAU": {
+    "ko": "캅사",
+    "vi": "캅사",
+    "en": "캅사"
+  },
+  "YEM": {
+    "ko": "살타",
+    "vi": "살타",
+    "en": "살타"
+  },
+  "AFG": {
+    "ko": "카불리 풀라오",
+    "vi": "카불리 풀라오",
+    "en": "카불리 풀라오"
+  },
+  "UZB": {
+    "ko": "플로프",
+    "vi": "플로프",
+    "en": "플로프"
+  },
+  "KAZ": {
+    "ko": "베쉬바르막",
+    "vi": "베쉬바르막",
+    "en": "베쉬바르막"
+  },
+  "RUS": {
+    "vi": "Súp củ dền Borsch & Bánh mì đen",
+    "en": "Borscht and rye bread",
+    "ko": "보르시"
+  },
+  "UKR": {
+    "ko": "보르시",
+    "vi": "보르시",
+    "en": "보르시"
+  },
+  "POL": {
+    "ko": "피에로기",
+    "vi": "피에로기",
+    "en": "피에로기"
+  },
+  "ITA": {
+    "vi": "Mì Ý Pasta sốt cà chua húng quế",
+    "en": "Pasta al pomodoro",
+    "ko": "파스타"
+  },
+  "FRA": {
+    "vi": "Bánh mì Baguette và phô mai",
+    "en": "Baguette and regional cheese",
+    "ko": "바게트와 치즈"
+  },
+  "DEU": {
+    "vi": "Xúc xích nướng Bratwurst & Bánh mì",
+    "en": "Bratwurst and crusty bread",
+    "ko": "소시지와 빵"
+  },
+  "ESP": {
+    "vi": "Cơm chiên hải sản Paella",
+    "en": "Paella",
+    "ko": "파에야"
+  },
+  "GBR": {
+    "vi": "Cá chiên kèm khoai tây Fish & Chips",
+    "en": "Fish and chips",
+    "ko": "피시 앤 칩스"
+  },
+  "USA": {
+    "vi": "Bánh Burger & Khoai tây chiên",
+    "en": "Cheeseburger and fries",
+    "ko": "햄버거와 감자튀김"
+  },
+  "COD": {
+    "ko": "푸푸",
+    "vi": "푸푸",
+    "en": "푸푸"
+  },
+  "CMR": {
+    "ko": "은돌레",
+    "vi": "은돌레",
+    "en": "은돌레"
+  },
+  "KEN": {
+    "ko": "우갈리",
+    "vi": "우갈리",
+    "en": "우갈리"
+  },
+  "TZA": {
+    "ko": "우갈리",
+    "vi": "우갈리",
+    "en": "우갈리"
+  },
+  "UGA": {
+    "ko": "마토케",
+    "vi": "마토케",
+    "en": "마토케"
+  },
+  "ZAF": {
+    "ko": "파프",
+    "vi": "파프",
+    "en": "파프"
+  },
+  "ZWE": {
+    "ko": "사드자",
+    "vi": "사드자",
+    "en": "사드자"
+  },
+  "MWI": {
+    "ko": "은시마",
+    "vi": "은시마",
+    "en": "은시마"
+  },
+  "ZMB": {
+    "ko": "은시마",
+    "vi": "은시마",
+    "en": "은시마"
+  },
+  "SEN": {
+    "ko": "티에부디엔",
+    "vi": "티에부디엔",
+    "en": "티에부디엔"
+  },
+  "MLI": {
+    "ko": "티에부디엔",
+    "vi": "티에부디엔",
+    "en": "티에부디엔"
+  },
+  "SDN": {
+    "ko": "풀 메담메스",
+    "vi": "풀 메담메스",
+    "en": "풀 메담메스"
+  },
+  "SOM": {
+    "ko": "캄분",
+    "vi": "캄분",
+    "en": "캄분"
+  },
+  "CIV": {
+    "ko": "아티에케",
+    "vi": "아티에케",
+    "en": "아티에케"
+  },
+  "HTI": {
+    "ko": "디리 아크 콜레",
+    "vi": "디리 아크 콜레",
+    "en": "디리 아크 콜레"
+  },
+  "CUB": {
+    "ko": "로파 비에하",
+    "vi": "로파 비에하",
+    "en": "로파 비에하"
+  },
+  "NER": {
+    "ko": "담부",
+    "vi": "담부",
+    "en": "담부"
+  },
+  "BFA": {
+    "ko": "토",
+    "vi": "토",
+    "en": "토"
+  },
+  "TCD": {
+    "ko": "보울",
+    "vi": "보울",
+    "en": "보울"
+  },
+  "MDG": {
+    "ko": "로마자바",
+    "vi": "로마자바",
+    "en": "로마자바"
+  },
+  "AGO": {
+    "ko": "푼지",
+    "vi": "푼지",
+    "en": "푼지"
+  },
+  "MOZ": {
+    "ko": "마탑사",
+    "vi": "마탑사",
+    "en": "마탑사"
+  },
+  "HKG": {
+    "ko": "완탕면",
+    "vi": "완탕면",
+    "en": "완탕면"
+  },
+  "HRV": {
+    "ko": "사르마",
+    "vi": "사르마",
+    "en": "사르마"
+  },
+  "PRI": {
+    "ko": "아로스 콘 간둘레스",
+    "vi": "아로스 콘 간둘레스",
+    "en": "아로스 콘 간둘레스"
+  },
+  "BIH": {
+    "ko": "체바피",
+    "vi": "체바피",
+    "en": "체바피"
+  },
+  "MDA": {
+    "ko": "마멀리거",
+    "vi": "마멀리거",
+    "en": "마멀리거"
+  },
+  "ARM": {
+    "ko": "돌마",
+    "vi": "돌마",
+    "en": "돌마"
+  },
+  "LTU": {
+    "ko": "체펠리나이",
+    "vi": "체펠리나이",
+    "en": "체펠리나이"
+  },
+  "ALB": {
+    "ko": "타베 코시",
+    "vi": "타베 코시",
+    "en": "타베 코시"
+  },
+  "SVN": {
+    "ko": "포티차",
+    "vi": "포티차",
+    "en": "포티차"
+  },
+  "LVA": {
+    "ko": "베이컨을 곁들인 회색 완두콩",
+    "vi": "베이컨을 곁들인 회색 완두콩",
+    "en": "베이컨을 곁들인 회색 완두콩"
+  },
+  "MKD": {
+    "ko": "타프체 그라브체",
+    "vi": "타프체 그라브체",
+    "en": "타프체 그라브체"
+  },
+  "XKX": {
+    "ko": "플리",
+    "vi": "플리",
+    "en": "플리"
+  },
+  "BHR": {
+    "ko": "마츠부스",
+    "vi": "마츠부스",
+    "en": "마츠부스"
+  },
+  "TTO": {
+    "ko": "더블스",
+    "vi": "더블스",
+    "en": "더블스"
+  },
+  "EST": {
+    "ko": "호밀빵",
+    "vi": "호밀빵",
+    "en": "호밀빵"
+  },
+  "CYP": {
+    "ko": "할루미",
+    "vi": "할루미",
+    "en": "할루미"
+  },
+  "MUS": {
+    "ko": "달 푸리",
+    "vi": "달 푸리",
+    "en": "달 푸리"
+  },
+  "DJI": {
+    "ko": "스쿠데카리스",
+    "vi": "스쿠데카리스",
+    "en": "스쿠데카리스"
+  },
+  "FJI": {
+    "ko": "코코다",
+    "vi": "코코다",
+    "en": "코코다"
+  },
+  "COM": {
+    "ko": "마타바",
+    "vi": "마타바",
+    "en": "마타바"
+  },
+  "GUY": {
+    "ko": "페퍼팟",
+    "vi": "페퍼팟",
+    "en": "페퍼팟"
+  },
+  "BTN": {
+    "ko": "에마 다치",
+    "vi": "에마 다치",
+    "en": "에마 다치"
+  },
+  "MAC": {
+    "ko": "민치",
+    "vi": "민치",
+    "en": "민치"
+  },
+  "LUX": {
+    "ko": "주드 마트 가르데보우넨",
+    "vi": "주드 마트 가르데보우넨",
+    "en": "주드 마트 가르데보우넨"
+  },
+  "MNE": {
+    "ko": "카차마크",
+    "vi": "카차마크",
+    "en": "카차마크"
+  },
+  "SUR": {
+    "ko": "로티",
+    "vi": "로티",
+    "en": "로티"
+  },
+  "MLT": {
+    "ko": "파스티치",
+    "vi": "파스티치",
+    "en": "파스티치"
+  },
+  "MDV": {
+    "ko": "마스후니",
+    "vi": "마스후니",
+    "en": "마스후니"
+  },
+  "CPV": {
+    "ko": "카추파",
+    "vi": "카추파",
+    "en": "카추파"
+  }
+}
