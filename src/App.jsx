@@ -33,6 +33,8 @@ export default function App() {
   // Speed & Pause controls
   const [speed, setSpeed] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+  const [isAutoMode, setIsAutoMode] = useState(false);
+  const [isPausesOn, setIsPausesOn] = useState(true);
 
   // Sound and Shop modal
   const [isSoundOn, setIsSoundOn] = useState(false);
@@ -382,6 +384,11 @@ export default function App() {
         onOpenShop={() => setIsShopOpen(true)}
         onOpenAchievements={() => setIsAchievementsOpen(true)}
         unlockedAchievementsCount={lifeState?.unlockedAchievements?.length || 0}
+        lifeState={lifeState}
+        isAutoMode={isAutoMode}
+        onToggleAutoMode={() => setIsAutoMode(!isAutoMode)}
+        isPausesOn={isPausesOn}
+        onTogglePauses={() => setIsPausesOn(!isPausesOn)}
       />
 
       {/* Main Container */}
@@ -419,11 +426,21 @@ export default function App() {
       </main>
 
       {/* Interactive Decision Popup */}
-      {lifeState && lifeState.pendingDecision && (
+      {lifeState && lifeState.pendingDecision && !isAutoMode && (
         <DecisionModal
           decision={lifeState.pendingDecision}
           lang={lang}
           onChoose={handleChooseDecision}
+          onAutoDecisions={() => {
+            setIsAutoMode(true);
+            const choices = lifeState.pendingDecision.choices || [];
+            handleChooseDecision(choices[Math.floor(Math.random() * choices.length)] || choices[0]);
+          }}
+          onSetAside={() => {
+            // Set aside decision: temporarily proceed
+            const choices = lifeState.pendingDecision.choices || [];
+            handleChooseDecision(choices[0]);
+          }}
         />
       )}
 

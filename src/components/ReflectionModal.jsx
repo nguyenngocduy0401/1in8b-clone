@@ -1,72 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ReflectionModal({ reflection, onChoose, lang }) {
+export default function ReflectionModal({ reflection, onChoose, lang = 'en' }) {
+  const [reflectionText, setReflectionText] = useState('');
+
   if (!reflection) return null;
 
-  const title = reflection.title[lang] || reflection.title.vi;
-  const fact = reflection.fact[lang] || reflection.fact.vi;
-  const qObj = reflection.questions[0];
-  const question = qObj.question[lang] || qObj.question.vi;
+  const title = reflection.title?.[lang] || reflection.title?.en || reflection.title?.vi || '';
+  const fact = reflection.fact?.[lang] || reflection.fact?.en || reflection.fact?.vi || '';
+  const qObj = reflection.questions?.[0] || {};
+  const question = qObj.question?.[lang] || qObj.question?.en || qObj.question?.vi || '';
+  const options = qObj.options || [];
 
   return (
-    <div className="fixed inset-0 z-50 bg-ink/65 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-card border-2 border-rule max-w-lg w-full rounded-xl shadow-2xl p-6 relative overflow-hidden font-serif">
-        {/* Decorative corner stamp */}
-        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none overflow-hidden">
-          <div className="absolute transform rotate-45 bg-accent/15 text-accent text-[10px] py-1 right-[-35px] top-[18px] w-[120px] text-center font-bold tracking-widest uppercase">
-            {lang === 'vi' ? 'Chiêm nghiệm' : lang === 'ko' ? '되돌아보기' : 'Reflection'}
-          </div>
-        </div>
-
-        {/* Milestone Age Badge */}
-        <div className="flex items-center gap-2 mb-3">
-          <span className="inline-flex items-center justify-center px-3 py-0.5 rounded-full text-xs font-bold bg-accent/10 text-accent border border-accent/30 tracking-wider">
-            {lang === 'vi' ? `Cột mốc ${reflection.age} tuổi` : lang === 'ko' ? `${reflection.age}세 인생 분기점` : `Age ${reflection.age} Milestone`}
-          </span>
-          <span className="text-xs text-ink/40 tracking-widest uppercase font-mono">1 in 8 Billion</span>
-        </div>
-
-        {/* Title */}
-        <h2 className="text-xl font-bold text-ink mb-3 leading-snug">
-          {title}
-        </h2>
-
-        {/* Question Prompt */}
-        <p className="text-sm text-ink/80 mb-5 leading-relaxed italic bg-paper p-3.5 rounded-lg border border-rule/60">
-          "{question}"
-        </p>
-
-        {/* Choice Options */}
-        <div className="space-y-2.5 mb-5">
-          {qObj.options.map((opt) => (
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-fade-in select-none">
+      <div className="bg-card border border-rule rounded-xl shadow-vintage max-w-xl w-full overflow-hidden my-auto animate-pop relative text-ink">
+        
+        {/* Top Kicker exactly as original: 'A pause' · Age X · Year */}
+        <div className="px-6 pt-5 pb-2 flex justify-between items-center text-xs font-mono">
+          <span className="text-stamp font-medium">A pause</span>
+          <div className="flex items-center gap-3">
+            <span className="text-ink3 font-medium">
+              Age {reflection.age} · {2026 + reflection.age}
+            </span>
             <button
-              key={opt.id}
-              onClick={() => onChoose(opt)}
-              className="w-full text-left p-3.5 rounded-lg border border-rule hover:border-accent hover:bg-accent/5 transition-all group flex items-start justify-between cursor-pointer active:scale-[0.99]"
+              onClick={() => onChoose(options[0])}
+              className="px-2.5 py-1 rounded border border-rule bg-paper hover:bg-card text-ink2 hover:text-ink text-xs font-mono flex items-center gap-1 transition cursor-pointer"
             >
-              <div className="flex-1 pr-3">
-                <span className="text-sm font-semibold text-ink group-hover:text-accent transition-colors block">
-                  {opt.label[lang] || opt.label.vi}
-                </span>
-              </div>
-              <span className="text-xs font-bold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                →
-              </span>
+              <span>Set aside</span>
+              <span className="text-[10px]">▾</span>
             </button>
-          ))}
+          </div>
         </div>
 
-        {/* Real Demographic Statistics Box */}
-        <div className="p-3 bg-stamp/5 border border-stamp/20 rounded-lg text-xs text-ink/70 leading-relaxed">
-          <div className="flex items-center gap-1.5 font-bold text-stamp mb-1">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="16" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12.01" y2="8" />
-            </svg>
-            <span>{lang === 'vi' ? 'Thực tế thống kê toàn cầu' : lang === 'ko' ? '글로벌 통계의 현실' : 'Global Demographic Context'}</span>
+        {/* Modal Main Content */}
+        <div className="px-6 py-4 space-y-4">
+          <div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink leading-tight tracking-tight">
+              {title}
+            </h2>
+            <p className="text-ink2 text-sm sm:text-base mt-2 leading-relaxed font-body">
+              {reflection.age === 5
+                ? 'In this country, some children never reach their fifth birthday. You made it through those crucial early years.'
+                : 'Looking back on the stretch of road behind you, what stands out most clearly in your memory?'}
+            </p>
           </div>
-          <p>{fact}</p>
+
+          {/* Demographic Real-World Citation Callout (Green/Slate background exactly as 1in8b) */}
+          {fact && (
+            <div className="p-4 rounded-lg bg-[#E2EBE8] dark:bg-[#1C272B] border-l-4 border-stamp text-xs text-ink leading-relaxed font-mono">
+              <span className="block text-ink2 font-medium">
+                {fact}
+              </span>
+            </div>
+          )}
+
+          {/* Prompt heading */}
+          <h3 className="font-display text-lg font-bold text-ink pt-1">
+            {question || 'What do you remember or need most right now?'}
+          </h3>
+
+          {/* Optional Reflection Input Area */}
+          <textarea
+            value={reflectionText}
+            onChange={(e) => setReflectionText(e.target.value)}
+            placeholder="e.g. A way to go to school (writing is optional)"
+            rows={3}
+            className="w-full bg-paper border border-accent/40 rounded-lg p-3 text-sm font-mono text-ink placeholder:text-ink3/60 focus:outline-accent focus:border-accent resize-none transition"
+          />
+
+          {/* Numbered Choices List 1, 2 */}
+          <div className="space-y-2.5 pt-1">
+            <button
+              onClick={() => onChoose({ ...options[0], userNote: reflectionText })}
+              className="w-full text-left p-4 rounded-lg border border-rule bg-paper hover:bg-card2 hover:border-accent hover:shadow-xs transition flex items-center justify-between gap-4 group cursor-pointer"
+            >
+              <div className="flex items-start gap-3.5">
+                <span className="w-5 h-5 rounded-full bg-ink/5 border border-rule flex items-center justify-center text-xs font-mono text-ink2 group-hover:border-accent group-hover:text-accent shrink-0 mt-0.5">
+                  1
+                </span>
+                <div>
+                  <b className="block text-sm sm:text-base font-semibold text-ink group-hover:text-accent transition">
+                    Write it down and carry on
+                  </b>
+                  <small className="text-xs text-ink3 font-mono block mt-1">
+                    What you write stays in this life's record
+                  </small>
+                </div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => onChoose(options[0])}
+              className="w-full text-left p-4 rounded-lg border border-rule bg-paper hover:bg-card2 hover:border-accent hover:shadow-xs transition flex items-center justify-between gap-4 group cursor-pointer"
+            >
+              <div className="flex items-start gap-3.5">
+                <span className="w-5 h-5 rounded-full bg-ink/5 border border-rule flex items-center justify-center text-xs font-mono text-ink2 group-hover:border-accent group-hover:text-accent shrink-0 mt-0.5">
+                  2
+                </span>
+                <div>
+                  <b className="block text-sm sm:text-base font-semibold text-ink group-hover:text-accent transition">
+                    Keep it to yourself and carry on
+                  </b>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          {/* Bottom helper buttons */}
+          <div className="pt-3 border-t border-rule/60 flex flex-col sm:flex-row justify-center items-center gap-2">
+            <button
+              onClick={() => onChoose(options[0])}
+              className="px-4 py-1.5 rounded border border-rule bg-paper hover:bg-card text-ink2 hover:text-ink text-xs font-mono transition cursor-pointer"
+            >
+              Leave decisions to auto from now on
+            </button>
+
+            <button
+              onClick={() => onChoose(options[0])}
+              className="px-4 py-1.5 rounded border border-rule bg-paper hover:bg-card text-ink3 hover:text-ink text-xs font-mono transition cursor-pointer"
+            >
+              Don't show these pauses again
+            </button>
+          </div>
         </div>
       </div>
     </div>

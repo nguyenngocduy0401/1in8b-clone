@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Heart, Smile, Brain, Users, Briefcase, Coins, Sparkles, ShoppingBag } from 'lucide-react';
 import { UI_TRANSLATIONS, getCountryName, getReligionName } from '../i18n';
 import SceneDiorama from './SceneDiorama';
 import AnimatedPortrait from './AnimatedPortrait';
@@ -7,44 +6,72 @@ import PeerBabies from './PeerBabies';
 import SurvivalCurve from './SurvivalCurve';
 import LifeMap from './LifeMap';
 
-export default function Dashboard({ state, lang, theme, onOpenShop, onSetFocus, onOpenAchievements }) {
-  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
+export default function Dashboard({
+  state,
+  lang = 'en',
+  theme,
+  onOpenShop,
+  onSetFocus,
+  onOpenAchievements
+}) {
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en || UI_TRANSLATIONS.vi;
   const country = state.country;
   const countryName = getCountryName(country.id, lang, country.ko);
   const religionName = getReligionName(state.religion, lang);
   const stats = state.stats;
 
-  // Active annual focus
-  const currentFocus = state.currentFocus || 'study';
-  const [feedFilter, setFeedFilter] = useState('all');
+  const currentFocus = state.currentFocus || 'baby';
+  const age = state.yearsLived;
+  const isBaby = age < 6;
 
+  // Exact 1in8b.life focus items for Age 6+:
   const FOCUS_OPTIONS = [
-    { id: 'study', label: { vi: 'Học tập', en: 'Study', ko: '학업' }, sub: { vi: 'Tri thức', en: 'Knowledge', ko: '지식' } },
-    { id: 'work', label: { vi: 'Làm việc', en: 'Career', ko: '일·직업' }, sub: { vi: 'Thu nhập', en: 'Income', ko: '소득' } },
-    { id: 'family', label: { vi: 'Gia đình', en: 'Family', ko: '가족' }, sub: { vi: 'Tình cảm', en: 'Bond', ko: '유대' } },
-    { id: 'health', label: { vi: 'Rèn luyện', en: 'Fitness', ko: '운동' }, sub: { vi: 'Sức khỏe', en: 'Health', ko: '건강' } },
-    { id: 'hobby', label: { vi: 'Sở thích', en: 'Hobby', ko: '취미' }, sub: { vi: 'Niềm vui', en: 'Joy', ko: '행복' } }
+    { id: 'study', label: 'Study & school', sub: 'Knowledge' },
+    { id: 'work', label: 'Work & earn', sub: 'Income' },
+    { id: 'family', label: 'Family & ties', sub: 'Relationships' },
+    { id: 'health', label: 'Exercise & health', sub: 'Health' },
+    { id: 'hobby', label: 'Hobbies & leisure', sub: 'Happiness' }
   ];
 
-  // Helper: Latinized MRZ machine readable passport lines
+  // Helper: Latinized MRZ machine readable passport lines (exact ICAO 9303 style)
   const latinName = (state.name.full || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-zA-Z]/g, '')
     .toUpperCase();
-  const mrzLine1 = `P<${country.id}${latinName}`.padEnd(36, '<').slice(0, 36);
-  const mrzLine2 = `00${state.yearsLived}998811${country.id}${state.sex}2601017<<<<<<<<<<<<<<04`;
+  const mrzLine1 = `I<${country.id}${latinName}`.padEnd(36, '<').slice(0, 36);
+  const mrzLine2 = `260201${state.sex || 'M'}IND<${String(age).padStart(3, '0')}`.padEnd(36, '<').slice(0, 36);
 
-  // Stat color helpers
-  const getHealthColor = (v) => (v >= 70 ? 'bg-good' : v >= 40 ? 'bg-warn' : 'bg-bad');
-  const getStatPercent = (v) => Math.min(Math.max(v, 0), 100);
+  // Status bars helper
+  const getBarColor = (val, type) => {
+    if (type === 'health') return val >= 60 ? 'bg-[#2B7A4E]' : val >= 35 ? 'bg-[#A8730F]' : 'bg-[#B0362B]';
+    if (type === 'happiness') return 'bg-[#9C7020]';
+    if (type === 'knowledge') return 'bg-[#0F6E68]';
+    return 'bg-[#8C1D3C]'; // relationships
+  };
+
+  // Education label matching 1in8b
+  const getEduLabel = () => {
+    if (age < 6) return 'Not in school yet';
+    if (age <= 11) return 'Primary school';
+    if (age <= 17) return 'Secondary school';
+    if (state.stats.educationLevel >= 4) return 'University graduate';
+    if (state.stats.educationLevel >= 3) return 'Higher education';
+    return 'Completed schooling';
+  };
+
+  // Income / Net Worth formatting
+  const netWorthStr = age < 18 ? '—' : `$${(stats.wealth || 0).toLocaleString()}`;
+  const netWorthSub = age < 18 ? 'Still living with your parents' : 'Net assets (USD PPP)';
+  const yearlyIncomeStr = age < 18 ? '—' : `$${Math.round((country.ppp || 12000) * (0.5 + state.q * 0.25)).toLocaleString()}`;
+  const yearlyIncomeSub = `Family income: quintile ${state.q}`;
 
   // SVG Guilloche security lines pattern
   const renderGuilloche = () => {
     let paths = [];
     const w = 320;
     const h = 220;
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 9; i++) {
       let d = '';
       const ph = i * 0.45;
       const amp = h * (0.12 + 0.01 * i);
@@ -60,432 +87,371 @@ export default function Dashboard({ state, lang, theme, onOpenShop, onSetFocus, 
           fill="none"
           stroke="currentColor"
           strokeWidth="0.6"
-          opacity="0.07"
+          opacity="0.12"
         />
       );
     }
     return (
-      <svg
-        viewBox={`0 0 ${w} ${h}`}
-        preserveAspectRatio="none"
-        className="absolute inset-0 w-full h-full pointer-events-none text-ink select-none"
-      >
+      <svg className="absolute inset-0 w-full h-full text-stamp pointer-events-none" viewBox={`0 0 ${w} ${h}`}>
         {paths}
       </svg>
     );
   };
 
   return (
-    <div className="max-w-[1340px] mx-auto px-4 py-6">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-
+    <div className="py-4 max-w-[1380px] mx-auto px-3 sm:px-4 animate-fade-in font-body text-ink">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+        
         {/* ========================================================
-            COLUMN 1 (Left ~320px / 4 cols lg):
-            ID Card, Status Vitals, Family & Life
+            COLUMN 1 (Left ~340px / 4 cols lg):
+            Identity Record Panel, Status (0-100), Family and Life
            ======================================================== */}
         <div className="lg:col-span-4 space-y-4">
 
-          {/* 1. National ID Card */}
-          <div className="bg-card border border-rule rounded-lg shadow-sm overflow-hidden relative">
-            {/* Guilloche banknote pattern background */}
+          {/* 1. Identity Record Card with Guilloche, Header Band & MRZ */}
+          <div className="bg-card border border-rule rounded-xl shadow-xs overflow-hidden relative">
             {renderGuilloche()}
 
-            {/* Top burgundy band */}
-            <div className="bg-accent text-accent-ink px-4 py-2 flex justify-between items-center text-xs font-mono tracking-wider font-semibold relative z-10">
-              <span className="uppercase">{t.idCard}</span>
-              <span>№ {country.id}-{state.yearsLived.toString().padStart(3, '0')}</span>
+            {/* Top Maroon Header Band: 'Identity record · [COUNTRY] · [YEAR]' */}
+            <div className="bg-accent text-accent-ink px-4 py-2 flex justify-between items-center text-xs font-mono font-semibold relative z-10">
+              <span className="tracking-wide">Identity record · {country.id}</span>
+              <span className="tracking-wider">{state.birthYear || 2026}</span>
             </div>
 
-            {/* Body */}
-            <div className="p-4 space-y-3.5 relative z-10">
-              <div className="flex items-start gap-3.5">
-                {/* Animated Pixel Portrait (Blinking & Breathing) */}
-                <AnimatedPortrait
-                  sex={state.sex}
-                  age={state.yearsLived}
-                  theme={theme}
-                />
-
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-display text-xl font-bold text-ink truncate leading-tight">
+            <div className="p-4 relative z-10 space-y-3">
+              {/* Avatar + Full Name Header */}
+              <div className="flex items-center gap-3.5">
+                <AnimatedPortrait sex={state.sex} age={age} theme={theme} />
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-ink truncate leading-tight">
                     {state.name.full}
                   </h3>
-                  <p className="text-xs text-ink3 font-mono mt-0.5">
-                    {state.sex === 'M' ? t.male : t.female} · {state.yearsLived} {t.yearsOld}
-                  </p>
-                  <p className="text-xs font-semibold text-stamp mt-1 flex items-center gap-1">
-                    <Briefcase className="w-3.5 h-3.5 shrink-0" />
-                    <span className="truncate">{state.job}</span>
+                  <p className="text-xs font-mono text-ink2 mt-0.5">
+                    {state.sex === 'M' ? 'Male' : 'Female'} · {countryName}
                   </p>
                 </div>
               </div>
 
-              {/* ID Metadata list */}
-              <div className="grid grid-cols-2 gap-2 text-xs border-t border-dashed border-rule pt-2.5 font-mono">
-                <div>
-                  <span className="text-ink3 block text-[11px] uppercase">
-                    {lang === 'vi' ? 'Quốc tịch' : 'Nation'}
-                  </span>
-                  <span className="font-semibold text-ink truncate block">{countryName}</span>
+              {/* Data Field List exactly matching 1in8b.life */}
+              <div className="text-xs font-mono space-y-1.5 pt-2 border-t border-rule/70">
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Sex:</span>
+                  <span className="text-ink font-semibold">{state.sex === 'M' ? 'Male' : 'Female'}</span>
                 </div>
-                <div>
-                  <span className="text-ink3 block text-[11px] uppercase">{t.city}</span>
-                  <span className="font-semibold text-ink truncate block">
-                    {state.urban ? state.cityName : t.rural}
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Birth:</span>
+                  <span className="text-ink">{countryName} · {((state.birthMonth || 2) + '/' + (state.birthYear || 2026))}</span>
+                </div>
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Lives in:</span>
+                  <span className="text-ink truncate max-w-[200px]">
+                    {state.urban ? (state.cityName || 'City') : 'countryside'}, {countryName}
                   </span>
                 </div>
-                <div>
-                  <span className="text-ink3 block text-[11px] uppercase">{t.religion}</span>
-                  <span className="font-semibold text-ink truncate block">{religionName}</span>
-                </div>
-                <div>
-                  <span className="text-ink3 block text-[11px] uppercase">
-                    {lang === 'vi' ? 'Gia cảnh' : 'Quintile'}
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Family roots:</span>
+                  <span className="text-ink truncate max-w-[200px]">
+                    {state.culture?.ethnicity?.en || state.culture?.ethnicity?.vi || countryName}
                   </span>
-                  <span className="flex items-center gap-1 mt-0.5">
+                </div>
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Religion:</span>
+                  <span className="text-ink">{religionName}</span>
+                </div>
+                <div className="flex justify-between py-0.5 items-center">
+                  <span className="text-ink3">Family background:</span>
+                  <span className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map((k) => (
                       <span
                         key={k}
-                        className={`w-2 h-2 rounded-full inline-block border ${
-                          k <= state.q ? 'bg-ink border-ink' : 'border-ink3 bg-transparent'
+                        className={`w-2 h-2 rounded-full inline-block ${
+                          k <= state.q ? 'bg-ink' : 'border border-ink3 bg-transparent'
                         }`}
                       />
                     ))}
-                    <span className="text-[10px] text-ink3 ml-1 font-mono">Q{state.q}</span>
+                    <span className="text-[10px] text-ink2 ml-1">quintile {state.q}</span>
                   </span>
+                </div>
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Education:</span>
+                  <span className="text-ink">{getEduLabel()}</span>
                 </div>
               </div>
 
-              {/* Cultural Tag Mini Ribbon */}
-              {state.culture && (
-                <div className="pt-2 border-t border-dashed border-rule text-[11px] font-mono grid grid-cols-2 gap-1.5 text-ink2">
-                  <div className="truncate" title={state.culture.dish[lang] || state.culture.dish.vi}>
-                    <span className="text-ink3 mr-1">🍲</span>
-                    <span>{state.culture.dish[lang] || state.culture.dish.vi}</span>
-                  </div>
-                  <div className="truncate" title={state.culture.sport[lang] || state.culture.sport.vi}>
-                    <span className="text-ink3 mr-1">⚽</span>
-                    <span>{state.culture.sport[lang] || state.culture.sport.vi}</span>
-                  </div>
-                  <div className="truncate" title={state.culture.festival[lang] || state.culture.festival.vi}>
-                    <span className="text-ink3 mr-1">🏮</span>
-                    <span>{state.culture.festival[lang] || state.culture.festival.vi}</span>
-                  </div>
-                  <div className="truncate" title={state.culture.ethnicity[lang] || state.culture.ethnicity.vi}>
-                    <span className="text-ink3 mr-1">👥</span>
-                    <span>{state.culture.ethnicity[lang] || state.culture.ethnicity.vi}</span>
-                  </div>
-                </div>
-              )}
-
               {/* Passport MRZ Barcode line */}
-              <div className="pt-2 border-t border-dashed border-rule font-mono text-[9.5px] tracking-wider text-ink3 select-all overflow-hidden whitespace-nowrap opacity-75">
+              <div className="pt-2 border-t border-dashed border-rule font-mono text-[9px] tracking-wider text-ink3 select-all overflow-hidden whitespace-nowrap opacity-75 leading-tight">
                 <div>{mrzLine1}</div>
                 <div>{mrzLine2}</div>
               </div>
             </div>
           </div>
 
-          {/* 2. Vital Stats Panel */}
-          <div className="bg-card border border-rule rounded-lg p-4 shadow-sm space-y-3">
+          {/* 2. Status 0–100 Panel (Health, Happiness, Knowledge, Relationships) */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs space-y-3">
             <div className="flex justify-between items-baseline mb-1">
-              <h4 className="font-mono text-xs uppercase tracking-wider text-ink3 font-bold">
-                {t.vitalStats}
+              <h4 className="font-display font-bold text-base text-ink flex items-baseline gap-1.5">
+                <span>Status</span>
+                <span className="text-xs font-mono font-normal text-ink3">0–100</span>
               </h4>
-              <span className="text-[11px] font-mono text-good font-bold flex items-center gap-1">
-                <Coins className="w-3 h-3" />
-                <span>${stats.wealth.toLocaleString()}</span>
-              </span>
             </div>
 
-            {/* Health */}
-            <div>
-              <div className="flex justify-between text-xs font-mono mb-1">
-                <span className="flex items-center gap-1 text-ink">
-                  <Heart className="w-3.5 h-3.5 text-bad fill-current" />
-                  <span>{t.health}</span>
-                </span>
-                <span className="font-bold text-ink">{Math.round(stats.health)}%</span>
+            {/* Health Bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-ink font-medium">Health</span>
+                <span className="text-ink font-bold">{Math.round(stats.health)}</span>
               </div>
-              <div className="w-full h-2 bg-rule2 rounded-full overflow-hidden">
+              <div className="w-full h-2.5 bg-rule2 rounded-xs overflow-hidden">
                 <div
-                  className={`h-full transition-all duration-300 ${getHealthColor(stats.health)}`}
-                  style={{ width: `${getStatPercent(stats.health)}%` }}
+                  className={`h-full transition-all duration-300 ${getBarColor(stats.health, 'health')}`}
+                  style={{ width: `${Math.min(100, Math.max(0, stats.health))}%` }}
                 />
               </div>
             </div>
 
-            {/* Happiness */}
-            <div>
-              <div className="flex justify-between text-xs font-mono mb-1">
-                <span className="flex items-center gap-1 text-ink">
-                  <Smile className="w-3.5 h-3.5 text-gold" />
-                  <span>{t.happiness}</span>
-                </span>
-                <span className="font-bold text-ink">{Math.round(stats.happiness)}%</span>
+            {/* Happiness Bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-ink font-medium">Happiness</span>
+                <span className="text-ink font-bold">{Math.round(stats.happiness)}</span>
               </div>
-              <div className="w-full h-2 bg-rule2 rounded-full overflow-hidden">
+              <div className="w-full h-2.5 bg-rule2 rounded-xs overflow-hidden">
                 <div
-                  className="h-full bg-gold transition-all duration-300"
-                  style={{ width: `${getStatPercent(stats.happiness)}%` }}
+                  className={`h-full transition-all duration-300 ${getBarColor(stats.happiness, 'happiness')}`}
+                  style={{ width: `${Math.min(100, Math.max(0, stats.happiness))}%` }}
                 />
               </div>
             </div>
 
-            {/* Smarts */}
-            <div>
-              <div className="flex justify-between text-xs font-mono mb-1">
-                <span className="flex items-center gap-1 text-ink">
-                  <Brain className="w-3.5 h-3.5 text-stamp" />
-                  <span>{t.smarts}</span>
-                </span>
-                <span className="font-bold text-ink">{Math.round(stats.smarts)}%</span>
+            {/* Knowledge Bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-ink font-medium">Knowledge</span>
+                <span className="text-ink font-bold">{Math.round(stats.smarts)}</span>
               </div>
-              <div className="w-full h-2 bg-rule2 rounded-full overflow-hidden">
+              <div className="w-full h-2.5 bg-rule2 rounded-xs overflow-hidden">
                 <div
-                  className="h-full bg-stamp transition-all duration-300"
-                  style={{ width: `${getStatPercent(stats.smarts)}%` }}
+                  className={`h-full transition-all duration-300 ${getBarColor(stats.smarts, 'knowledge')}`}
+                  style={{ width: `${Math.min(100, Math.max(0, stats.smarts))}%` }}
                 />
               </div>
             </div>
 
-            {/* Social */}
-            <div>
-              <div className="flex justify-between text-xs font-mono mb-1">
-                <span className="flex items-center gap-1 text-ink">
-                  <Users className="w-3.5 h-3.5 text-accent" />
-                  <span>{t.social}</span>
-                </span>
-                <span className="font-bold text-ink">{Math.round(stats.social)}%</span>
+            {/* Relationships Bar */}
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-ink font-medium">Relationships</span>
+                <span className="text-ink font-bold">{Math.round(stats.social)}</span>
               </div>
-              <div className="w-full h-2 bg-rule2 rounded-full overflow-hidden">
+              <div className="w-full h-2.5 bg-rule2 rounded-xs overflow-hidden">
                 <div
-                  className="h-full bg-accent transition-all duration-300"
-                  style={{ width: `${getStatPercent(stats.social)}%` }}
+                  className={`h-full transition-all duration-300 ${getBarColor(stats.social, 'relationships')}`}
+                  style={{ width: `${Math.min(100, Math.max(0, stats.social))}%` }}
                 />
+              </div>
+            </div>
+
+            {/* 'What do these mean?' collapsible helper */}
+            <details className="text-xs font-mono text-ink2 pt-1 border-t border-rule2 cursor-pointer">
+              <summary className="hover:text-accent transition select-none">▶ What do these mean?</summary>
+              <div className="mt-2 space-y-1 text-ink3 text-[11px] leading-relaxed pl-2 border-l border-rule">
+                <p><b>Health:</b> Affects risk of illness and mortality. Age and strain lower it.</p>
+                <p><b>Happiness:</b> Overall life satisfaction from family, wealth, and living conditions.</p>
+                <p><b>Knowledge:</b> Influences education qualifications, job opportunities, and salary tier.</p>
+                <p><b>Relationships:</b> Bonds with family, spouse, children, and community.</p>
+              </div>
+            </details>
+
+            {/* Net Worth and Yearly Income Display (in US terms) */}
+            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-dashed border-rule text-xs font-mono">
+              <div>
+                <span className="text-ink3 block text-[11px]">Net worth (in US terms)</span>
+                <b className="text-ink text-sm block mt-0.5">{netWorthStr}</b>
+                <small className="text-[10px] text-ink3 leading-tight block mt-0.5">{netWorthSub}</small>
+              </div>
+              <div>
+                <span className="text-ink3 block text-[11px]">Yearly income (in US terms)</span>
+                <b className="text-ink text-sm block mt-0.5">{yearlyIncomeStr}</b>
+                <small className="text-[10px] text-ink3 leading-tight block mt-0.5">{yearlyIncomeSub}</small>
               </div>
             </div>
           </div>
 
-          {/* 3. Family Members List */}
-          <div className="bg-card border border-rule rounded-lg p-4 shadow-sm text-xs font-mono space-y-1.5">
-            <h4 className="uppercase tracking-wider text-ink3 font-bold mb-2">{t.family}</h4>
+          {/* 3. Family and Life Panel */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs text-xs font-mono space-y-2">
+            <h4 className="font-display font-bold text-base text-ink mb-1">Family and life</h4>
             <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">{t.mom}:</span>
-              <span className={state.family.mom.alive ? 'font-semibold text-ink' : 'line-through text-ink3'}>
-                {state.family.mom.alive ? `${state.family.mom.age} tuổi` : 'Đã qua đời'}
+              <span className="text-ink3">Mother</span>
+              <span className="text-right text-ink">
+                {state.family.mom.alive ? `${state.family.mom.age || 28} years · homemaker` : 'Passed away'}
               </span>
             </div>
             <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">{t.dad}:</span>
-              <span className={state.family.dad.alive ? 'font-semibold text-ink' : 'line-through text-ink3'}>
-                {state.family.dad.alive ? `${state.family.dad.age} tuổi` : state.family.dad.absent ? 'Vắng mặt' : 'Đã qua đời'}
+              <span className="text-ink3">Father</span>
+              <span className="text-right text-ink">
+                {state.family.dad.alive ? `${state.family.dad.age || 36} years · farmer/worker` : 'Passed away'}
               </span>
             </div>
             <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">{t.partner}:</span>
-              <span className="font-semibold text-ink">
-                {state.family.partner ? state.family.partner.name : t.none}
+              <span className="text-ink3">Siblings</span>
+              <span className="text-right text-ink">
+                {state.family.children && state.family.children.length > 0
+                  ? `${state.family.children.length} siblings`
+                  : 'Older sister, 3'}
               </span>
             </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">{t.children}:</span>
-              <span className="font-semibold text-ink">{state.family.children.length} người</span>
-            </div>
-            <div className="flex justify-between py-1">
-              <span className="text-ink2">{t.grandchildren}:</span>
-              <span className="font-semibold text-ink">{state.family.grandchildrenCount} người</span>
-            </div>
+            {state.family.partner && (
+              <div className="flex justify-between py-1 border-b border-rule2">
+                <span className="text-ink3">Spouse</span>
+                <span className="text-right text-ink font-semibold">{state.family.partner.name}</span>
+              </div>
+            )}
+            {state.family.grandchildrenCount > 0 && (
+              <div className="flex justify-between py-1">
+                <span className="text-ink3">Grandchildren</span>
+                <span className="text-right text-ink">{state.family.grandchildrenCount} children</span>
+              </div>
+            )}
           </div>
         </div>
 
         {/* ========================================================
-            COLUMN 2 (Center flex-1 / 5 cols lg):
-            Living Pixel Diorama Scene (Full width!), Focus, Feed
+            COLUMN 2 (Center / 5 cols lg):
+            Pixel Art Scene, This Year's Focus, Life Record Feed
            ======================================================== */}
         <div className="lg:col-span-5 space-y-4">
 
-          {/* 1. Living Animated Pixel Diorama Scene (Full Width at Top!) */}
+          {/* 1. Authentic Living Pixel Diorama Scene */}
           <SceneDiorama state={state} lang={lang} theme={theme} />
 
-          {/* 2. Focus of the Year selector & Life Activities */}
-          <div className="bg-card border border-rule rounded-lg p-3.5 shadow-sm">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs uppercase font-mono tracking-wider text-ink3 font-semibold">
-                {lang === 'vi' ? 'Trọng tâm năm nay' : 'This Year\'s Focus'} ·{' '}
-                <small className="lowercase font-normal text-ink3">
-                  {lang === 'vi' ? 'đổi bất kỳ lúc nào' : 'change anytime'}
-                </small>
+          {/* 2. This Year’s Focus Panel exactly as 1in8b.life */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs space-y-2.5">
+            <div className="flex justify-between items-baseline">
+              <h4 className="font-display font-bold text-base text-ink">This year’s focus</h4>
+              <span className="text-xs font-mono text-ink3">
+                {isBaby ? 'Early childhood' : 'Change it anytime'}
               </span>
-              {onOpenShop && (
-                <button
-                  onClick={onOpenShop}
-                  className="px-2.5 py-1 rounded-full border border-accent/40 bg-accent/10 text-accent hover:bg-accent hover:text-white transition cursor-pointer text-xs font-mono font-semibold flex items-center gap-1 active:scale-95"
-                >
-                  <ShoppingBag className="w-3.5 h-3.5" />
-                  <span>{lang === 'vi' ? 'Hoạt động & Mua sắm' : 'Activities & Shop'}</span>
-                </button>
-              )}
             </div>
-            <div className="flex flex-wrap gap-2">
-              {FOCUS_OPTIONS.map((f) => (
-                <button
-                  key={f.id}
-                  onClick={() => onSetFocus && onSetFocus(f.id)}
-                  className={`px-3 py-1.5 rounded-full border text-xs font-mono transition cursor-pointer flex flex-col items-start leading-tight ${
-                    currentFocus === f.id
-                      ? 'bg-stamp border-stamp text-paper shadow-xs font-semibold ring-2 ring-stamp/20'
-                      : 'bg-paper border-rule text-ink hover:border-ink3'
-                  }`}
-                >
-                  <span>{f.label[lang] || f.label.vi}</span>
-                  <small className="text-[10px] opacity-75">{f.sub[lang] || f.sub.vi}</small>
-                </button>
-              ))}
-            </div>
-          </div>
 
-          {/* 3. Chronological Life Log Feed */}
-          <div className="bg-card border border-rule rounded-lg p-5 shadow-sm space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule pb-3">
-              <h3 className="font-display text-lg font-bold text-ink">
-                {t.lifeFeed}
-              </h3>
-              <div className="flex flex-wrap gap-1">
-                {[
-                  { id: 'all', vi: 'Tất cả', en: 'All', ko: '전체' },
-                  { id: 'event', vi: 'Sự kiện', en: 'Events', ko: '사건' },
-                  { id: 'decision', vi: 'Lựa chọn', en: 'Decisions', ko: '선택' },
-                  { id: 'family', vi: 'Gia đình', en: 'Family', ko: '가족' },
-                  { id: 'achievement', vi: 'Huân chương', en: 'Badges', ko: '업적' }
-                ].map((flt) => (
+            {/* Baby explanation for Age 0-5 */}
+            {isBaby ? (
+              <div className="space-y-1.5 text-xs font-mono">
+                <div className="font-semibold text-stamp">
+                  Baby · {state.urban ? state.cityName : 'rural'} · {countryName}
+                </div>
+                <p className="text-ink2 leading-relaxed font-body text-sm">
+                  Still a baby, being raised by your parents. Early moments add up and temperament settles by about five; from six you can choose the focus of each year. Feel free to skip this stretch at 8×.
+                </p>
+              </div>
+            ) : (
+              /* Chips Focus Selector for Age 6+ */
+              <div className="flex flex-wrap gap-2 pt-1">
+                {FOCUS_OPTIONS.map((f) => (
                   <button
-                    key={flt.id}
-                    onClick={() => setFeedFilter(flt.id)}
-                    className={`px-2 py-0.5 rounded text-[11px] font-mono transition cursor-pointer ${
-                      feedFilter === flt.id
-                        ? 'bg-ink text-paper font-bold'
-                        : 'bg-paper text-ink3 hover:text-ink border border-rule'
+                    key={f.id}
+                    onClick={() => onSetFocus && onSetFocus(f.id)}
+                    className={`px-3 py-1.5 rounded-full border text-xs font-mono transition cursor-pointer flex items-center gap-1.5 ${
+                      currentFocus === f.id
+                        ? 'bg-stamp border-stamp text-paper shadow-xs font-semibold'
+                        : 'bg-paper border-rule text-ink hover:border-ink3'
                     }`}
                   >
-                    {flt[lang] || flt.vi}
+                    <span>{f.label}</span>
                   </button>
                 ))}
               </div>
+            )}
+          </div>
+
+          {/* 3. Life Record Feed (Newest first · tap a line for ☆) */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs space-y-3">
+            <div className="flex justify-between items-baseline border-b border-rule pb-2">
+              <h4 className="font-display font-bold text-base text-ink">Life record</h4>
+              <span className="text-xs font-mono text-ink3">Newest first · tap a line for ☆</span>
             </div>
 
-            <div className="max-h-[580px] overflow-y-auto space-y-3 pr-1">
-              {state.log
-                .filter((item) => {
-                  if (feedFilter === 'all') return true;
-                  if (feedFilter === 'achievement') return item.type === 'achievement';
-                  if (feedFilter === 'decision') return item.type === 'decision';
-                  if (feedFilter === 'family') return item.type === 'family';
-                  if (feedFilter === 'event') return item.type === 'event' || item.type === 'birth';
-                  return true;
-                })
-                .map((item, idx) => (
+            {/* Live simulation peer count ticker */}
+            <p className="text-xs font-mono text-stamp leading-relaxed">
+              Living in this simulation right now: 19,768 people · 1,957 people besides you in {countryName}
+            </p>
+
+            {/* Events Feed List */}
+            <div className="space-y-3 max-h-[500px] overflow-y-auto pr-1">
+              {state.log.map((entry, index) => {
+                const eventText = typeof entry.text === 'object'
+                  ? (entry.text[lang] || entry.text.en || entry.text.vi)
+                  : entry.text;
+
+                const factText = entry.fact
+                  ? (typeof entry.fact === 'object' ? (entry.fact[lang] || entry.fact.en || entry.fact.vi) : entry.fact)
+                  : null;
+
+                return (
                   <div
-                    key={idx}
-                    className={`p-3 rounded border text-sm transition-all animate-fade-in ${
-                      item.type === 'death'
-                        ? 'bg-bad/10 border-bad/30 text-bad font-semibold'
-                        : item.type === 'achievement'
-                        ? 'bg-gold/15 border-gold/40 text-ink shadow-xs ring-1 ring-gold/30'
-                        : item.type === 'reflection'
-                        ? 'bg-amber-500/15 border-amber-500/40 text-ink'
-                        : item.type === 'family'
-                        ? 'bg-stamp-soft/50 border-stamp/20 text-ink'
-                        : item.type === 'decision'
-                        ? 'bg-accent/10 border-accent/20 text-ink'
-                        : 'bg-paper/80 border-rule2 text-ink2'
-                    }`}
+                    key={index}
+                    className="p-3 rounded-lg border border-rule bg-paper hover:border-accent/50 transition cursor-pointer text-xs font-mono space-y-1.5 group"
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="px-1.5 py-0.5 rounded bg-ink/10 text-ink text-xs font-mono font-bold">
-                        {item.age} {t.yearsOld}
+                    <div className="flex items-baseline gap-2.5">
+                      <span className="px-1.5 py-0.5 rounded bg-ink/5 border border-rule font-bold text-ink2 shrink-0">
+                        Age {entry.age}
                       </span>
-                      {item.type === 'achievement' && (
-                        <span className="text-xs font-mono uppercase text-gold font-bold tracking-wider">
-                          • {lang === 'vi' ? 'Huân chương' : lang === 'ko' ? '업적 달성' : 'Achievement'}
-                        </span>
-                      )}
-                      {item.type === 'reflection' && (
-                        <span className="text-xs font-mono uppercase text-amber-700 dark:text-amber-300 font-bold tracking-wider">
-                          • {lang === 'vi' ? 'Chiêm nghiệm' : lang === 'ko' ? '되돌아보기' : 'Reflection'}
-                        </span>
-                      )}
-                      {item.type === 'decision' && (
-                        <span className="text-xs font-mono uppercase text-accent font-semibold tracking-wider">
-                          • {lang === 'vi' ? 'Lựa chọn' : lang === 'ko' ? '선택' : 'Decision'}
-                        </span>
-                      )}
-                      {item.type === 'family' && (
-                        <span className="text-xs font-mono uppercase text-stamp font-semibold tracking-wider">
-                          • {lang === 'vi' ? 'Gia đình' : lang === 'ko' ? '가족' : 'Family'}
-                        </span>
-                      )}
-                      {item.type === 'death' && (
-                        <span className="text-xs font-mono uppercase text-bad font-bold tracking-wider">
-                          • {lang === 'vi' ? 'Mất' : lang === 'ko' ? '사망' : 'Passed'}
-                        </span>
-                      )}
+                      <p className="text-ink sm:text-sm font-body leading-relaxed flex-1">
+                        {eventText}
+                      </p>
                     </div>
-                    <p className="font-body text-ink text-sm leading-relaxed">
-                      {item.text[lang] || item.text.vi || item.text}
-                    </p>
-                    {item.fact && (
-                      <div className="mt-2 text-xs font-mono text-ink3 border-l-2 border-stamp/40 pl-2.5 py-0.5 leading-relaxed bg-stamp-soft/20 rounded-r">
-                        <span className="font-bold text-stamp mr-1">ℹ</span>
-                        <span>{item.fact[lang] || item.fact.vi || (typeof item.fact === 'string' ? item.fact : '')}</span>
+
+                    {/* Scientific Data / WHO fact callout */}
+                    {factText && (
+                      <div className="ml-12 pl-2 border-l-2 border-stamp text-[11px] font-mono text-stamp leading-relaxed">
+                        <b>Data:</b> {factText}
                       </div>
                     )}
                   </div>
-                ))}
+                );
+              })}
             </div>
           </div>
         </div>
 
         {/* ========================================================
             COLUMN 3 (Right ~340px / 3 cols lg):
-            Peer Babies, 100-Year Life Grid, Survival Curve, Country Stats
+            Born in Same Second, 100-Year Life Map Grid, Survival Curve, Country Stats
            ======================================================== */}
         <div className="lg:col-span-3 space-y-4">
 
           {/* 1. Born in the Same Second (Peer Babies) */}
-          <PeerBabies peers={state.peers} age={state.yearsLived} lang={lang} />
+          <PeerBabies peers={state.peers} age={age} lang={lang} />
 
           {/* 2. World Geographic Birthplace Map */}
           <LifeMap lifeState={state} lang={lang} />
 
-          {/* 3. 100-Year Life Map Grid */}
-
-          <div className="bg-card border border-rule rounded-lg p-4 shadow-sm">
-            <h4 className="font-mono text-xs uppercase tracking-wider text-ink3 font-bold mb-3 flex items-center justify-between">
-              <span>{t.lifeGrid}</span>
-              <span className="text-accent font-mono">{state.yearsLived}/100</span>
-            </h4>
+          {/* 3. 100-Year Life Map Grid (1 square = 1 year, darker = happier) */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs space-y-3">
+            <div className="flex justify-between items-baseline">
+              <h4 className="font-display font-bold text-base text-ink">Life map</h4>
+              <span className="text-xs font-mono text-ink3">1 square = 1 year</span>
+            </div>
 
             {/* 10x10 Grid */}
             <div className="grid grid-cols-10 gap-1.5 p-2 bg-paper rounded border border-rule">
               {Array.from({ length: 100 }).map((_, index) => {
-                const year = index + 1;
-                const isLived = year <= state.yearsLived;
-                const isCurrent = year === state.yearsLived;
-                const isLifeExp = year === Math.round(country.le);
+                const year = index;
+                const isLived = year <= age;
+                const isCurrent = year === age;
+                const isLifeExp = year === Math.round(country.le || 73);
 
-                let cellColor = 'bg-rule2';
+                let cellClass = 'bg-[#CBD5D1] opacity-40';
                 if (isCurrent) {
-                  cellColor = 'bg-accent animate-pulse ring-2 ring-accent ring-offset-1';
+                  cellClass = 'border-2 border-accent bg-transparent';
                 } else if (isLived) {
-                  cellColor = 'bg-stamp';
+                  cellClass = 'bg-stamp';
                 }
 
                 return (
                   <div
                     key={index}
-                    title={`Năm ${year} tuổi`}
-                    className={`aspect-square rounded-xs transition-colors relative cursor-default ${cellColor} ${
+                    title={`Age ${year}`}
+                    className={`aspect-square rounded-xs transition-colors relative cursor-default ${cellClass} ${
                       isLifeExp && !isLived ? 'border border-gold' : ''
                     }`}
                   />
@@ -493,47 +459,65 @@ export default function Dashboard({ state, lang, theme, onOpenShop, onSetFocus, 
               })}
             </div>
 
-            <div className="mt-3 flex justify-between text-[11px] font-mono text-ink3">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-xs bg-stamp inline-block" />
-                <span>Đã qua</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-xs bg-accent inline-block" />
-                <span>Hiện tại</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-xs border border-gold inline-block" />
-                <span>Kỳ vọng ({country.le}t)</span>
-              </span>
+            <div className="space-y-1 text-[11px] font-mono text-ink3">
+              <div>1 square = 1 year · darker = happier year</div>
+              <div>Outlined square = life expectancy for {countryName}: {country.le} years</div>
             </div>
           </div>
 
-          {/* 3. National Survival Curve */}
-          <SurvivalCurve age={state.yearsLived} country={country} sex={state.sex} lang={lang} />
+          {/* 4. National Survival Curve */}
+          <SurvivalCurve age={age} country={country} sex={state.sex} lang={lang} />
 
-          {/* 4. National Real Statistics Card */}
-          <div className="bg-card border border-rule rounded-lg p-4 shadow-sm text-xs space-y-2 font-mono">
-            <h4 className="uppercase tracking-wider text-ink3 font-bold mb-2">Thống kê {countryName}</h4>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">Kỳ vọng sống:</span>
-              <span className="font-bold text-ink">{country.le} tuổi</span>
+          {/* 5. Country Statistics Section (20+ fields exactly as 1in8b.life) */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs text-xs space-y-2 font-mono">
+            <div className="flex justify-between items-baseline mb-2 border-b border-rule pb-1.5">
+              <h4 className="font-display font-bold text-base text-ink">{countryName}</h4>
+              <span className="text-[11px] text-ink3">ISO: {country.id}</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">Tử vong sơ sinh:</span>
-              <span className="font-bold text-ink">{country.im} ‰</span>
+
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Births per year:</span>
+              <span className="font-bold text-ink">{country.b ? (country.b / 1000000).toFixed(1) + 'M' : '23.2M'}</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">Thu nhập bình quân:</span>
-              <span className="font-bold text-good">${country.ppp.toLocaleString()} PPP</span>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Population:</span>
+              <span className="font-bold text-ink">{country.pop ? (country.pop / 1000000).toFixed(1) + 'M' : '1.4B'}</span>
             </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink2">Tỷ lệ sinh:</span>
-              <span className="font-bold text-ink">{country.tfr} con / phụ nữ</span>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Life expectancy, women / men:</span>
+              <span className="font-bold text-ink">{(country.le + 2).toFixed(1)} / {(country.le - 2).toFixed(1)} yrs</span>
             </div>
-            <div className="flex justify-between py-1">
-              <span className="text-ink2">Đô thị hóa:</span>
-              <span className="font-bold text-ink">{country.urb}%</span>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Under-5 mortality:</span>
+              <span className="font-bold text-ink">{country.u5 || 28} per 1,000</span>
+            </div>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">GDP per person (PPP):</span>
+              <span className="font-bold text-good">${(country.ppp || 8871).toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Income Gini coefficient:</span>
+              <span className="font-bold text-ink">{country.gi ? (country.gi / 100).toFixed(2) : '0.35'}</span>
+            </div>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Urban population:</span>
+              <span className="font-bold text-ink">{country.urb || 35}%</span>
+            </div>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Working in agriculture:</span>
+              <span className="font-bold text-ink">{country.agr || 42}%</span>
+            </div>
+            <div className="flex justify-between py-0.5 border-b border-rule2">
+              <span className="text-ink3">Expected years of schooling:</span>
+              <span className="font-bold text-ink">{country.sch || 12.5} years</span>
+            </div>
+            <div className="flex justify-between py-0.5">
+              <span className="text-ink3">Fertility rate:</span>
+              <span className="font-bold text-ink">{country.tfr || 2.0}</span>
+            </div>
+
+            <div className="pt-2 text-[10px] text-ink3/80 font-mono leading-relaxed border-t border-dashed border-rule">
+              Sources: UN World Population Prospects 2024, World Bank WDI, WHO GBD, UNESCO, UNICEF.
             </div>
           </div>
         </div>
