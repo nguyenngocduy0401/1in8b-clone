@@ -26,4 +26,7 @@ dist-ssr
 # MCP and test artifacts
 .playwright-mcp/
 scripts/original_1in8b.js
+rea-target/
+temp_1in8b.html
+
 

@@ -510,7 +510,7 @@ export default function Dashboard({ state, lang, theme, onOpenShop, onSetFocus, 
           </div>
 
           {/* 3. National Survival Curve */}
-          <SurvivalCurve age={state.yearsLived} country={country} lang={lang} />
+          <SurvivalCurve age={state.yearsLived} country={country} sex={state.sex} lang={lang} />
 
           {/* 4. National Real Statistics Card */}
           <div className="bg-card border border-rule rounded-lg p-4 shadow-sm text-xs space-y-2 font-mono">

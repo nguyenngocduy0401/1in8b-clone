@@ -1,26 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { lifeTable } from '../engine/lifeTable';
 
-export default function SurvivalCurve({ age, country, lang = 'vi' }) {
-  const le = country.le || 73;
-  const im = (country.im || 15) / 1000;
-  const u5 = (country.u5 || 25) / 1000;
+export default function SurvivalCurve({ age, country, sex = 'M', lang = 'vi' }) {
+  const lt = useMemo(() => lifeTable(country, sex), [country, sex]);
+  const worldLt = useMemo(() => lifeTable({ id: 'WLD', le: 73.4, im: 28, u5: 37, gap: 5 }, sex), [sex]);
 
-  // Gompertz curve approximation for national cohort survival l(a)
   const getSurvivalAtAge = (a) => {
-    if (a <= 0) return 1.0;
-    if (a === 1) return 1.0 - im;
-    if (a <= 5) return 1.0 - u5;
-    // Beyond age 5: Gompertz decline calibrated to le
-    const z = (a - le) / 13;
-    const s = 1.0 / (1.0 + Math.exp(1.7 * z));
-    return Math.max(0, Math.min(1.0 - u5, s));
+    const idx = Math.min(Math.max(Math.round(a), 0), 110);
+    return lt.l[idx];
   };
 
-  // World average curve
   const getWorldSurvivalAtAge = (a) => {
-    if (a <= 0) return 1.0;
-    const z = (a - 73) / 14;
-    return 1.0 / (1.0 + Math.exp(1.7 * z));
+    const idx = Math.min(Math.max(Math.round(a), 0), 110);
+    return worldLt.l[idx];
   };
 
   const W = 320;

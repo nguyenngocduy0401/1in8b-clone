@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Skull, RotateCcw, Award, Download, Share2, Check, Sparkles } from 'lucide-react';
+import { Skull, RotateCcw, Award, Download, Share2, Check, Sparkles, Film } from 'lucide-react';
 import { UI_TRANSLATIONS, getCountryName } from '../i18n';
 import AnimatedPortrait from './AnimatedPortrait';
 import { ACHIEVEMENTS } from '../engine/achievements';
+import LifeFilmModal from './LifeFilmModal';
 
 export function getLifeArchetype(state) {
   if (state.yearsLived >= 85) {
@@ -84,6 +85,7 @@ export function getLifeArchetype(state) {
 
 export default function DeathSummary({ state, lang, onReincarnate, theme, onOpenAchievements }) {
   const [copied, setCopied] = useState(false);
+  const [isFilmOpen, setIsFilmOpen] = useState(false);
   const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
   const country = state.country;
   const countryName = getCountryName(country.id, lang, country.ko);
@@ -366,7 +368,16 @@ Sống thọ hơn ${percentile}% số người sinh cùng thời!
 
           {/* Action Buttons */}
           <div className="pt-4 flex flex-wrap justify-between items-center gap-3 border-t border-rule">
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
+              {/* Cinematic Life Film Button */}
+              <button
+                onClick={() => setIsFilmOpen(true)}
+                className="px-4 py-2.5 rounded bg-stamp hover:bg-stamp/90 text-white font-display text-sm font-semibold flex items-center gap-2 shadow-xs transition cursor-pointer"
+              >
+                <Film className="w-4 h-4 text-gold" />
+                <span>{lang === 'vi' ? '🎞️ Xem Phim Ký Ức' : lang === 'ko' ? '🎞️ 주마등 필름' : '🎞️ Life Film'}</span>
+              </button>
+
               <button
                 onClick={handleDownloadCard}
                 className="px-4 py-2.5 rounded border border-rule hover:bg-paper font-display text-sm font-semibold text-ink flex items-center gap-2 transition cursor-pointer"
@@ -394,6 +405,16 @@ Sống thọ hơn ${percentile}% số người sinh cùng thời!
           </div>
         </div>
       </div>
+
+      {/* Cinematic Life Film Modal */}
+      {isFilmOpen && (
+        <LifeFilmModal
+          isOpen={isFilmOpen}
+          onClose={() => setIsFilmOpen(false)}
+          life={state}
+          lang={lang}
+        />
+      )}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { DECISIONS } from './decisions.js';
 import REFLECTIONS from '../data/reflections.json' with { type: 'json' };
 import eventsData from '../data/events.json' with { type: 'json' };
 import { checkNewAchievements } from './achievements.js';
+import { lifeTable, incomeAt } from './lifeTable.js';
 
 // Realistic causes of death cataloged by age group and risk factor
 const CAUSES_INFANT = [
@@ -49,29 +50,17 @@ export function advanceOneYear(state) {
   const country = state.country;
   const newLogs = [];
 
-  // 1. Mortality risk calculation based on actual UN/WHO figures
-  let deathProbability = 0;
-  if (currentAge === 0) {
-    // Infant mortality rate (per 1,000 live births)
-    deathProbability = (country.im || 15) / 1000;
-  } else if (currentAge >= 1 && currentAge <= 4) {
-    // Under-5 mortality remainder spread across ages 1-4
-    const u5Rem = Math.max(0, (country.u5 || 25) - (country.im || 15));
-    deathProbability = (u5Rem / 4) / 1000;
-  } else if (currentAge < 50) {
-    // Young adult mortality: Baseline ~0.08% adjusted for hazards, road safety, war
-    const roadRisk = (country.road || 15) / 100000;
-    const warRisk = (country.war || 0) * 0.005;
-    const homRisk = (country.hom || 3) / 100000;
-    const baseRisk = 0.0006 + roadRisk + warRisk + homRisk;
-    deathProbability = baseRisk;
-  } else {
-    // Gompertz-Makeham mortality curve for older adults
-    // P(death) = alpha * exp(beta * age) calibrated to country life expectancy
-    const le = country.le || 73;
-    const ageFactor = Math.pow(1.09, nextAge - 50);
-    const countryExpectancyAdj = Math.pow(78 / le, 2.2);
-    deathProbability = 0.003 * ageFactor * countryExpectancyAdj;
+  // 1. Mortality risk calculation based on authentic UN Life Tables (Gompertz-Makeham curve)
+  const lt = lifeTable(country, state.sex || 'M');
+  const ageIdx = Math.min(Math.max(currentAge, 0), 110);
+  let deathProbability = lt.q[ageIdx];
+
+  // Specific risk adjustments for local conflicts, road accidents, and violent crime
+  if (currentAge >= 15 && currentAge < 50) {
+    const roadRisk = (country.road || 15) / 150000;
+    const warRisk = (country.war || 0) * 0.003;
+    const homRisk = (country.hom || 3) / 150000;
+    deathProbability += (roadRisk + warRisk + homRisk);
   }
 
   // Health modifier: Healthy characters survive better
@@ -169,11 +158,10 @@ export function advanceOneYear(state) {
 
   // Career salary & financial accumulation
   if (nextAge >= 18 && state.alive) {
-    const basePpp = country.ppp || 15000;
-    const eduMult = state.stats.educationLevel >= 4 ? 1.6 : state.stats.educationLevel >= 2 ? 1.1 : 0.7;
-    const quintileMult = 0.5 + state.q * 0.25;
-    const annualIncome = Math.round((basePpp / 12) * eduMult * quintileMult);
-    const savingsRate = 0.15;
+    const eduBoost = (state.stats.educationLevel || 2) * 0.06;
+    const pct = clamp(((state.q || 3) - 0.5) / 5 + eduBoost - 0.08, 0.02, 0.98);
+    const annualIncome = incomeAt(country, pct);
+    const savingsRate = 0.14;
     state.stats.wealth += Math.round(annualIncome * savingsRate);
 
     // Job promotions / Career progress
@@ -420,17 +408,11 @@ export function advancePeers(peers, currentAge, nextAge) {
     if (!peer.alive) return peer;
 
     const c = peer.country;
-    let deathProb = 0;
-    if (currentAge === 0) {
-      deathProb = (c.im || 15) / 1000;
-    } else if (currentAge < 5) {
-      const u5Rem = Math.max(0, (c.u5 || 25) - (c.im || 15));
-      deathProb = (u5Rem / 4) / 1000;
-    } else if (currentAge < 50) {
-      deathProb = 0.0006 + ((c.road || 15) / 100000) + ((c.war || 0) * 0.005);
-    } else {
-      const le = c.le || 73;
-      deathProb = 0.003 * Math.pow(1.09, nextAge - 50) * Math.pow(78 / le, 2.2);
+    const peerLt = lifeTable(c, peer.gender || 'M');
+    const ageIdx = Math.min(Math.max(currentAge, 0), 110);
+    let deathProb = peerLt.q[ageIdx];
+    if (currentAge >= 15 && currentAge < 50) {
+      deathProb += ((c.road || 15) / 150000) + ((c.war || 0) * 0.003);
     }
 
     if (chance(deathProb)) {

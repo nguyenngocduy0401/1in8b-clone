@@ -301,13 +301,37 @@ export default function App() {
   // Save life to archive
   const savePastLife = (life) => {
     const record = {
-      name: life.name.full,
-      countryId: life.country.id,
-      countryKo: life.country.ko,
+      id: 'life_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+      name: life.name?.full || life.name,
+      countryId: life.country?.id,
+      countryKo: life.country?.ko,
+      country: life.country,
+      sex: life.sex,
+      urban: life.urban,
+      cityName: life.cityName,
+      birthYear: life.birthYear,
       yearsLived: life.yearsLived,
       job: life.job,
-      wealth: life.stats.wealth,
+      jobId: life.jobId,
+      wealth: life.stats?.wealth || 0,
+      stats: {
+        happiness: life.stats?.happiness || 70,
+        smarts: life.stats?.smarts || 70,
+        health: life.stats?.health || 70,
+        wealth: life.stats?.wealth || 0,
+        educationLevel: life.stats?.educationLevel || 2
+      },
+      family: {
+        mom: life.family?.mom ? { name: life.family.mom.name } : null,
+        dad: life.family?.dad ? { name: life.family.dad.name } : null,
+        children: life.family?.children || [],
+        childrenCount: life.family?.children?.length || 0,
+        grandchildrenCount: life.family?.grandchildrenCount || 0,
+        partner: life.family?.partner ? true : false
+      },
+      culture: life.culture,
       causeOfDeath: life.causeOfDeath,
+      unlockedAchievements: life.unlockedAchievements || [],
       timestamp: Date.now()
     };
 

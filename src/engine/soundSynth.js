@@ -224,6 +224,46 @@ class SoundSynth {
     this.playTone(130.81, 1.8, 'sine', 0.4);
     this.playTone(196.0, 1.4, 'triangle', 0.2);
   }
+
+  playCandleChime() {
+    // Gentle serene chime when lighting a memorial candle
+    const freqs = [880.0, 1318.51, 1760.0];
+    freqs.forEach((f, i) => {
+      setTimeout(() => this.playTone(f, 1.6 - i * 0.3, 'sine', 0.18 - i * 0.04), i * 140);
+    });
+  }
+
+  startFilmBgm() {
+    if (!this.init()) return;
+    this.stopFilmBgm();
+    let chordIdx = 0;
+    const filmChords = [
+      [261.63, 329.63, 392.00, 493.88], // Cmaj7
+      [220.00, 261.63, 329.63, 392.00], // Am7
+      [174.61, 220.00, 261.63, 329.63], // Fmaj7
+      [196.00, 246.94, 293.66, 392.00]  // G
+    ];
+
+    const playFilmStep = () => {
+      const currentChord = filmChords[chordIdx % filmChords.length];
+      currentChord.forEach((freq, i) => {
+        setTimeout(() => {
+          this.playTone(freq, 2.2, 'sine', 0.08);
+        }, i * 380);
+      });
+      chordIdx++;
+    };
+
+    playFilmStep();
+    this.filmTimer = setInterval(playFilmStep, 2400);
+  }
+
+  stopFilmBgm() {
+    if (this.filmTimer) {
+      clearInterval(this.filmTimer);
+      this.filmTimer = null;
+    }
+  }
 }
 
 export const sound = new SoundSynth();
