@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { lifeTable } from '../engine/lifeTable';
+import { getCountryName } from '../i18n';
 
 export default function SurvivalCurve({ age, country, sex = 'M', lang = 'en' }) {
   const lt = useMemo(() => lifeTable(country, sex), [country, sex]);
@@ -157,7 +158,7 @@ export default function SurvivalCurve({ age, country, sex = 'M', lang = 'en' }) 
       <div className="mt-2 pt-2 border-t border-dashed border-rule2 flex flex-wrap gap-x-4 gap-y-1 text-[10.5px] font-mono text-ink3">
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-1 bg-stamp rounded-xs inline-block" />
-          <span>{country.ko || country.id}</span>
+          <span>{getCountryName(country.id, lang, country.ko)}</span>
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-0.5 border-t border-dashed border-ink3 inline-block" />
