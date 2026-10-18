@@ -1,9 +1,11 @@
 import React from 'react';
-import { getCountryName } from '../i18n';
+import { getCountryName, getReligionName } from '../i18n';
 
 export default function BirthCard({ identity, lang = 'en', onStartLife, theme }) {
   const country = identity.country;
   const countryName = getCountryName(country.id, lang, country.ko);
+  const religionName = getReligionName(identity.religion, lang);
+  const cityName = lang === 'en' ? (identity.cityNameEn || identity.cityName) : (identity.cityName || identity.cityNameEn);
 
   const worldBirths = 131900000;
   const countryBirths = country.b || 23200000;
@@ -62,10 +64,10 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
               Name
             </span>
             <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-ink tracking-tight">
-              {identity.name.full}
+              {typeof identity.name === 'object' ? (identity.name.full || identity.name.first) : identity.name}
             </h1>
             <p className="text-ink2 text-sm sm:text-base mt-3 leading-relaxed font-body">
-              In February {identity.birthYear || 2026}, you were born a {identity.sex === 'M' ? 'boy' : 'girl'} in {identity.urban ? (identity.cityName || 'an urban district') : 'rural ' + (identity.cityName || countryName)}, {countryName}, into a family in the bottom {identity.q === 1 ? '0–20%' : identity.q === 2 ? '20–40%' : identity.q === 3 ? '40–60%' : identity.q === 4 ? '60–80%' : '80–100%'}. Your family's religion is {identity.religion || 'Hinduism'}. Your family's roots: {identity.culture?.ethnicity?.en || identity.culture?.ethnicity?.vi || countryName}.
+              In February {identity.birthYear || 2026}, you were born a {identity.sex === 'M' ? 'boy' : 'girl'} in {identity.urban ? cityName : 'rural ' + (cityName || countryName)}, {countryName}, into a family in the bottom {identity.q === 1 ? '0–20%' : identity.q === 2 ? '20–40%' : identity.q === 3 ? '40–60%' : identity.q === 4 ? '60–80%' : '80–100%'}. Your family's religion is {religionName}. Your family's roots: {identity.culture?.ethnicity?.en || identity.culture?.ethnicity?.vi || countryName}.
             </p>
             <p className="text-xs text-ink3 font-mono mt-3 leading-relaxed border-b border-dashed border-rule pb-4">
               Living to life expectancy takes about an hour (1 year ≈ 51 s). If you close the page, the life is saved in this browser and goes on when you come back in the same browser.
@@ -87,7 +89,7 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
             <div>
               <span className="text-ink3 block uppercase text-[10px]">Place of birth</span>
               <b className="text-ink text-sm block mt-0.5 truncate">
-                {identity.urban ? (identity.cityName || 'City') : 'Rural ' + (identity.cityName || countryName)}
+                {identity.urban ? cityName : 'Rural ' + (cityName || countryName)}
               </b>
             </div>
 
@@ -133,7 +135,7 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
 
             <div>
               <span className="text-ink3 block uppercase text-[10px]">Religion</span>
-              <b className="text-ink text-sm block mt-0.5">{identity.religion || 'Secular / Local'}</b>
+              <b className="text-ink text-sm block mt-0.5">{religionName}</b>
             </div>
 
             <div>
@@ -167,11 +169,13 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
               {(identity.peers || []).slice(0, 4).map((p, idx) => {
                 const peerName = typeof p.name === 'object' ? (p.name.full || p.name.first) : p.name;
+                const peerCountry = getCountryName(p.country?.id, lang, p.country?.ko);
+                const peerGender = p.sex === 'M' ? 'boy' : 'girl';
                 return (
                   <div key={idx} className="p-2.5 rounded border border-rule bg-paper">
                     <b className="text-ink block">{peerName}</b>
                     <span className="text-ink3 block text-[11px] truncate">
-                      {p.country?.id} ({p.country?.ko}) · {p.gender} · modest means
+                      {peerCountry} ({p.country?.id}) · {peerGender} · modest means
                     </span>
                   </div>
                 );
