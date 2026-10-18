@@ -25,12 +25,18 @@ export default function Dashboard({
   const isBaby = age < 6;
 
   // Exact 1in8b.life focus items for Age 6+:
-  const FOCUS_OPTIONS = [
-    { id: 'study', label: 'Study & school', sub: 'Knowledge' },
-    { id: 'work', label: 'Work & earn', sub: 'Income' },
-    { id: 'family', label: 'Family & ties', sub: 'Relationships' },
-    { id: 'health', label: 'Exercise & health', sub: 'Health' },
-    { id: 'hobby', label: 'Hobbies & leisure', sub: 'Happiness' }
+  const FOCUS_OPTIONS = age < 18 ? [
+    { id: 'study', label: 'Study', sub: 'Knowledge↑ Happiness↓' },
+    { id: 'friends', label: 'Friends & play', sub: 'Relationships↑ Happiness↑' },
+    { id: 'family', label: 'Help at home', sub: 'Family↑ Knowledge a little↓' },
+    { id: 'exercise', label: 'Exercise', sub: 'Health↑' },
+    { id: 'hobbies', label: 'Hobbies', sub: 'Happiness↑ Hobby skill↑' }
+  ] : [
+    { id: 'work', label: 'Work & earn', sub: 'Income↑ Relationships↓' },
+    { id: 'family', label: 'Family & ties', sub: 'Relationships↑ Family↑' },
+    { id: 'study', label: 'Self-study', sub: 'Knowledge↑ Health↓' },
+    { id: 'exercise', label: 'Health & exercise', sub: 'Health↑' },
+    { id: 'hobbies', label: 'Hobbies & leisure', sub: 'Happiness↑' }
   ];
 
   // Helper: Latinized MRZ machine readable passport lines (exact ICAO 9303 style)
@@ -176,6 +182,12 @@ export default function Dashboard({
                   <span className="text-ink3">Education:</span>
                   <span className="text-ink">{getEduLabel()}</span>
                 </div>
+                {state.temperament && (
+                  <div className="flex justify-between py-0.5">
+                    <span className="text-ink3">Temperament:</span>
+                    <span className="text-ink font-semibold">{state.temperament}</span>
+                  </div>
+                )}
               </div>
 
               {/* Passport MRZ Barcode line */}
@@ -277,41 +289,79 @@ export default function Dashboard({
             </div>
           </div>
 
-          {/* 3. Family and Life Panel */}
-          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs text-xs font-mono space-y-2">
-            <h4 className="font-display font-bold text-base text-ink mb-1">Family and life</h4>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink3">Mother</span>
-              <span className="text-right text-ink">
-                {state.family.mom.alive ? `${state.family.mom.age || 28} years · homemaker` : 'Passed away'}
-              </span>
+          {/* 3. Family and life Card */}
+          <div className="bg-card border border-rule rounded-xl p-4 shadow-xs space-y-2.5 font-mono text-xs">
+            <div className="flex justify-between items-baseline mb-1">
+              <h4 className="font-display font-bold text-base text-ink">Family and life</h4>
             </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink3">Father</span>
-              <span className="text-right text-ink">
-                {state.family.dad.alive ? `${state.family.dad.age || 36} years · farmer/worker` : 'Passed away'}
-              </span>
-            </div>
-            <div className="flex justify-between py-1 border-b border-rule2">
-              <span className="text-ink3">Siblings</span>
-              <span className="text-right text-ink">
-                {state.family.children && state.family.children.length > 0
-                  ? `${state.family.children.length} siblings`
-                  : 'Older sister, 3'}
-              </span>
-            </div>
-            {state.family.partner && (
-              <div className="flex justify-between py-1 border-b border-rule2">
-                <span className="text-ink3">Spouse</span>
-                <span className="text-right text-ink font-semibold">{state.family.partner.name}</span>
+
+            <div className="space-y-1.5 pt-1">
+              {/* Mother */}
+              <div className="flex justify-between py-0.5">
+                <span className="text-ink3">Mother</span>
+                <span className="text-ink">
+                  {state.family?.mom ? (
+                    state.family.mom.alive !== false
+                      ? `${state.family.mom.age + age} years · ${state.family.mom.job || 'homemaker'}`
+                      : 'passed away'
+                  ) : '28 years · homemaker'}
+                </span>
               </div>
-            )}
-            {state.family.grandchildrenCount > 0 && (
-              <div className="flex justify-between py-1">
-                <span className="text-ink3">Grandchildren</span>
-                <span className="text-right text-ink">{state.family.grandchildrenCount} children</span>
+
+              {/* Father */}
+              <div className="flex justify-between py-0.5">
+                <span className="text-ink3">Father</span>
+                <span className="text-ink">
+                  {state.family?.dad ? (
+                    state.family.dad.alive !== false
+                      ? `${state.family.dad.age + age} years · ${state.family.dad.job || 'farmer/worker'}`
+                      : 'passed away'
+                  ) : '31 years · laborer'}
+                </span>
               </div>
-            )}
+
+              {/* Siblings */}
+              <div className="flex justify-between py-0.5">
+                <span className="text-ink3">Siblings</span>
+                <span className="text-ink text-right">
+                  {state.family?.siblingList && state.family.siblingList.length > 0
+                    ? state.family.siblingList.map((s) => `${s.relation}, ${s.age + age}`).join(' · ')
+                    : state.family?.siblings > 0
+                    ? `${state.family.siblings}`
+                    : 'None'}
+                </span>
+              </div>
+
+              {/* Spouse */}
+              {state.family?.spouse && (
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Spouse</span>
+                  <span className="text-ink">
+                    {state.family.spouse.name || 'Spouse'} · {state.family.spouse.age + age} years
+                  </span>
+                </div>
+              )}
+
+              {/* Children */}
+              {state.family?.children > 0 && (
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Children</span>
+                  <span className="text-ink">
+                    {state.family.childrenList && state.family.childrenList.length > 0
+                      ? state.family.childrenList.map((c) => `${c.name || (c.sex === 'M' ? 'Son' : 'Daughter')}, ${c.age}`).join(' · ')
+                      : `${state.family.children}`}
+                  </span>
+                </div>
+              )}
+
+              {/* Grandchildren */}
+              {state.family?.grandchildren > 0 && (
+                <div className="flex justify-between py-0.5">
+                  <span className="text-ink3">Grandchildren</span>
+                  <span className="text-ink">{state.family.grandchildren}</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -345,20 +395,37 @@ export default function Dashboard({
               </div>
             ) : (
               /* Chips Focus Selector for Age 6+ */
-              <div className="flex flex-wrap gap-2 pt-1">
-                {FOCUS_OPTIONS.map((f) => (
-                  <button
-                    key={f.id}
-                    onClick={() => onSetFocus && onSetFocus(f.id)}
-                    className={`px-3 py-1.5 rounded-full border text-xs font-mono transition cursor-pointer flex items-center gap-1.5 ${
-                      currentFocus === f.id
-                        ? 'bg-stamp border-stamp text-paper shadow-xs font-semibold'
-                        : 'bg-paper border-rule text-ink hover:border-ink3'
-                    }`}
-                  >
-                    <span>{f.label}</span>
-                  </button>
-                ))}
+              <div className="space-y-2.5">
+                <div className="font-semibold text-stamp text-xs font-mono">
+                  {age <= 11
+                    ? `Year ${age - 5} of primary school · ${state.urban ? state.cityName : 'rural'} · ${countryName}`
+                    : age <= 17
+                    ? `Year ${age - 11} of secondary school · ${state.urban ? state.cityName : 'rural'} · ${countryName}`
+                    : `${state.job || 'Work'} · ${state.urban ? state.cityName : 'rural'} · ${countryName}`}
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-0.5">
+                  {FOCUS_OPTIONS.map((f) => (
+                    <button
+                      key={f.id}
+                      onClick={() => onSetFocus && onSetFocus(f.id)}
+                      className={`px-3 py-1.5 rounded-full border text-xs font-mono transition cursor-pointer flex items-center gap-1.5 ${
+                        currentFocus === f.id
+                          ? 'bg-accent border-accent text-accent-ink shadow-xs font-semibold'
+                          : 'bg-paper border-rule text-ink hover:border-ink3'
+                      }`}
+                    >
+                      <span>{f.label}</span>
+                      <span className={`text-[10px] ${currentFocus === f.id ? 'opacity-90' : 'text-ink3'}`}>
+                        {f.sub}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="text-[11px] font-mono text-ink3 leading-relaxed pt-1">
+                  While decisions are on auto, the focus of each year is chosen for you too. Tap a chip and from then on you choose it yourself.
+                </p>
               </div>
             )}
           </div>

@@ -236,6 +236,32 @@ export function generateBirthIdentity({ country, countries, namesPool, citiesPoo
   const olderSiblings = Math.min(expectedSiblings, Math.max(0, Math.floor((momAge - 19) / 2.5)));
   const youngerSiblings = Math.max(0, expectedSiblings - olderSiblings);
 
+  const siblingList = [];
+  for (let i = 0; i < olderSiblings; i++) {
+    const sSex = chance(0.5, randomFn) ? 'M' : 'F';
+    const sAgeDelta = (olderSiblings - i) * 2 + randomInt(1, 3, randomFn);
+    siblingList.push({
+      relation: sSex === 'M' ? 'older brother' : 'older sister',
+      relationVi: sSex === 'M' ? 'anh trai' : 'chị gái',
+      relationKo: sSex === 'M' ? '오빠/형' : '언니/누나',
+      age: sAgeDelta,
+      sex: sSex
+    });
+  }
+
+  // Parents' occupation based on wealth quintile
+  const momJob = q >= 4
+    ? pick(['civil servant', 'teacher', 'nurse', 'office manager', 'accountant'], randomFn)
+    : q === 3
+    ? pick(['homemaker', 'trader', 'clerk', 'tailor', 'cook'], randomFn)
+    : pick(['homemaker', 'agricultural worker', 'street vendor', 'factory worker'], randomFn);
+
+  const dadJob = q >= 4
+    ? pick(['civil servant', 'engineer', 'teacher', 'commercial farmer', 'doctor'], randomFn)
+    : q === 3
+    ? pick(['commercial farmer', 'driver', 'carpenter', 'mechanic', 'clerk'], randomFn)
+    : pick(['worker/farmer', 'day laborer', 'construction worker', 'driver'], randomFn);
+
   // Base Health
   // Influenced by Under-5 mortality (lower u5 = higher initial health) and quintile
   const baseHealth = clamp(85 + (q - 3) * 3 - (country.u5 / 10) + randomInt(-5, 5, randomFn), 40, 99);
@@ -259,6 +285,7 @@ export function generateBirthIdentity({ country, countries, namesPool, citiesPoo
     cityNameEn,
     religion,
     culture,
+    temperament: null,
     currentFocus: 'study',
     unlockedAchievements: [],
     stats: {
@@ -270,15 +297,16 @@ export function generateBirthIdentity({ country, countries, namesPool, citiesPoo
       educationLevel: 0, // 0: None, 1: Primary, 2: Middle, 3: High, 4: University, 5: Postgrad
     },
     family: {
-      mom: { age: momAge, alive: true },
-      dad: { age: dadAge, alive: !absentFather, absent: absentFather },
+      mom: { age: momAge, alive: true, job: momJob },
+      dad: { age: dadAge, alive: !absentFather, absent: absentFather, job: dadJob },
       olderSiblings,
       youngerSiblings,
+      siblingList,
       partner: null,
       children: [],
       grandchildrenCount: 0
     },
-    job: 'Bé thơ',
+    job: 'Infant',
     jobId: 'infant',
     hobbies: culture.hobbies,
     flags: {},

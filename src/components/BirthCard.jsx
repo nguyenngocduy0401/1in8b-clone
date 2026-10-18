@@ -52,6 +52,12 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
     );
   };
 
+  const siblingDesc = identity.family?.siblingList && identity.family.siblingList.length > 0
+    ? (lang === 'vi'
+        ? ` Bạn có ${identity.family.siblingList.map(s => `${s.relationVi} ${s.age} tuổi`).join(' và ')}.`
+        : ` You have ${identity.family.siblingList.map(s => `an ${s.relation} aged ${s.age}`).join(' and ')}.`)
+    : '';
+
   return (
     <div className="py-6 sm:py-10 max-w-2xl mx-auto px-3 sm:px-4 animate-fade-in font-body text-ink">
       <div className="bg-card border border-rule rounded-xl shadow-vintage overflow-hidden relative">
@@ -73,7 +79,7 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
               {typeof identity.name === 'object' ? (identity.name.full || identity.name.first) : identity.name}
             </h1>
             <p className="text-ink2 text-sm sm:text-base mt-3 leading-relaxed font-body">
-              In February {identity.birthYear || 2026}, you were born a {identity.sex === 'M' ? 'boy' : 'girl'} in {placeOfBirth}, {countryName}, into a family in the bottom {identity.q === 1 ? '0–20%' : identity.q === 2 ? '20–40%' : identity.q === 3 ? '40–60%' : identity.q === 4 ? '60–80%' : '80–100%'}. Your family's religion is {religionName}. Your family's roots: {identity.culture?.ethnicity?.en || identity.culture?.ethnicity?.vi || countryName}.
+              In February {identity.birthYear || 2026}, you were born a {identity.sex === 'M' ? 'boy' : 'girl'} in {placeOfBirth}, {countryName}, into a family in the bottom {identity.q === 1 ? '0–20%' : identity.q === 2 ? '20–40%' : identity.q === 3 ? '40–60%' : identity.q === 4 ? '60–80%' : '80–100%'}.{siblingDesc} Your family's religion is {religionName}. Your family's roots: {identity.culture?.ethnicity?.en || identity.culture?.ethnicity?.vi || countryName}.
             </p>
             <p className="text-xs text-ink3 font-mono mt-3 leading-relaxed border-b border-dashed border-rule pb-4">
               Living to life expectancy takes about an hour (1 year ≈ 51 s). If you close the page, the life is saved in this browser and goes on when you come back in the same browser.
@@ -123,14 +129,16 @@ export default function BirthCard({ identity, lang = 'en', onStartLife, theme })
 
             <div>
               <span className="text-ink3 block uppercase text-[10px]">Parents' ages</span>
-              <b className="text-ink text-sm block mt-0.5">Mother, 27 · Father, 36</b>
+              <b className="text-ink text-sm block mt-0.5">
+                Mother, {identity.family?.mom?.age || 26} · Father, {identity.family?.dad?.age || 29}
+              </b>
             </div>
 
             <div>
               <span className="text-ink3 block uppercase text-[10px]">Parents' work</span>
               <span className="text-ink text-xs block mt-0.5 leading-snug">
-                Mother: homemaker ·<br />
-                Father: worker/farmer
+                Mother: {identity.family?.mom?.job || 'homemaker'} ·<br />
+                Father: {identity.family?.dad?.job || 'farmer/worker'}
               </span>
             </div>
 
