@@ -177,6 +177,53 @@ class SoundSynth {
   setAge(age) {
     this.currentAge = age;
   }
+
+  playTone(freq, duration = 0.15, type = 'sine', gainVal = 0.25) {
+    if (!this.init()) return;
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+    try {
+      const osc = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+      g.gain.setValueAtTime(gainVal * this.volume, this.ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+      osc.connect(g);
+      g.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + duration);
+    } catch {}
+  }
+
+  playYearTick() {
+    this.playTone(587.33, 0.06, 'triangle', 0.12);
+  }
+
+  playDecision() {
+    [523.25, 659.25].forEach((freq, i) => {
+      setTimeout(() => this.playTone(freq, 0.35, 'sine', 0.2), i * 120);
+    });
+  }
+
+  playCoin() {
+    [987.77, 1318.51].forEach((freq, i) => {
+      setTimeout(() => this.playTone(freq, 0.25, 'triangle', 0.22), i * 90);
+    });
+  }
+
+  playAchievement() {
+    const notes = [523.25, 659.25, 783.99, 1046.5];
+    notes.forEach((freq, i) => {
+      setTimeout(() => this.playTone(freq, 0.45, 'triangle', 0.25), i * 110);
+    });
+  }
+
+  playDeath() {
+    this.playTone(130.81, 1.8, 'sine', 0.4);
+    this.playTone(196.0, 1.4, 'triangle', 0.2);
+  }
 }
 
 export const sound = new SoundSynth();

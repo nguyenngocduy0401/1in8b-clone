@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Pause, FastForward, Sun, Moon, BookOpen, SkipForward, Volume2, VolumeX, ShoppingBag } from 'lucide-react';
+import { Play, Pause, FastForward, Sun, Moon, BookOpen, SkipForward, Volume2, VolumeX, ShoppingBag, Award } from 'lucide-react';
 import { UI_TRANSLATIONS } from '../i18n';
 
 export default function TopBar({
@@ -19,7 +19,9 @@ export default function TopBar({
   hasActiveLife,
   isSoundOn,
   onToggleSound,
-  onOpenShop
+  onOpenShop,
+  onOpenAchievements,
+  unlockedAchievementsCount = 0
 }) {
   const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
 
@@ -116,6 +118,25 @@ export default function TopBar({
             <BookOpen className="w-3.5 h-3.5" />
             <span className="hidden md:inline">{t.pastLives}</span>
           </button>
+
+          {/* Achievements Button */}
+          {onOpenAchievements && (
+            <button
+              onClick={onOpenAchievements}
+              title={lang === 'vi' ? 'Huân chương cuộc đời' : 'Lifetime Achievements'}
+              className="p-1.5 sm:px-2.5 sm:py-1 rounded border border-gold/40 bg-gold/10 text-gold hover:bg-gold hover:text-paper text-xs font-mono flex items-center gap-1.5 transition cursor-pointer"
+            >
+              <Award className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">
+                {lang === 'vi' ? 'Huân chương' : lang === 'ko' ? '업적' : 'Badges'}
+              </span>
+              {unlockedAchievementsCount > 0 && (
+                <span className="px-1.5 py-0.2 rounded-full bg-gold text-paper text-[10px] font-bold">
+                  {unlockedAchievementsCount}
+                </span>
+              )}
+            </button>
+          )}
 
           {/* Lang Selector */}
           <div className="flex border border-rule rounded overflow-hidden bg-card text-xs font-mono">

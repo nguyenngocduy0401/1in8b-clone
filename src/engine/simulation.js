@@ -2,6 +2,7 @@ import { rnd, chance, pick, clamp, randomInt } from './random.js';
 import { DECISIONS } from './decisions.js';
 import REFLECTIONS from '../data/reflections.json' with { type: 'json' };
 import eventsData from '../data/events.json' with { type: 'json' };
+import { checkNewAchievements } from './achievements.js';
 
 // Realistic causes of death cataloged by age group and risk factor
 const CAUSES_INFANT = [
@@ -77,6 +78,11 @@ export function advanceOneYear(state) {
   const healthAdj = (100 - state.stats.health) / 50; // health=100 -> 0x, health=50 -> 1x, health=0 -> 2x
   deathProbability *= clamp(healthAdj, 0.3, 2.5);
 
+  // Focus modifier: Prioritizing health provides a 25% longevity buffer
+  if (state.currentFocus === 'health') {
+    deathProbability *= 0.75;
+  }
+
   // Maximum human age cap
   if (nextAge >= 115) deathProbability = 1.0;
 
@@ -138,6 +144,27 @@ export function advanceOneYear(state) {
         }
       });
     }
+  }
+
+  // Annual Focus mechanics
+  const focus = state.currentFocus || 'study';
+  if (focus === 'study') {
+    state.stats.smarts = clamp(state.stats.smarts + randomInt(2, 4), 10, 100);
+    state.stats.happiness = clamp(state.stats.happiness - 1, 10, 100);
+  } else if (focus === 'work') {
+    if (nextAge >= 16) {
+      const basePpp = country.ppp || 15000;
+      const workBonus = Math.round((basePpp / 12) * 0.25 * (0.6 + state.q * 0.2));
+      state.stats.wealth += workBonus;
+      if (nextAge >= 35) state.stats.health = clamp(state.stats.health - 1, 10, 100);
+    }
+  } else if (focus === 'family') {
+    state.stats.social = clamp(state.stats.social + 3, 10, 100);
+    state.stats.happiness = clamp(state.stats.happiness + 3, 10, 100);
+  } else if (focus === 'health') {
+    state.stats.health = clamp(state.stats.health + randomInt(3, 5), 10, 100);
+  } else if (focus === 'hobby') {
+    state.stats.happiness = clamp(state.stats.happiness + randomInt(4, 6), 10, 100);
   }
 
   // Career salary & financial accumulation
@@ -357,6 +384,27 @@ export function advanceOneYear(state) {
   if (!state.pendingDecision && REFLECTIONS[nextAge] && !state.flags['refl_' + nextAge]) {
     state.pendingReflection = REFLECTIONS[nextAge];
     state.flags['refl_' + nextAge] = true;
+  }
+
+  // Check achievements
+  state.unlockedAchievements = state.unlockedAchievements || [];
+  const newlyUnlocked = checkNewAchievements(state, state.unlockedAchievements);
+  if (newlyUnlocked.length > 0) {
+    for (const ach of newlyUnlocked) {
+      state.unlockedAchievements.push(ach.id);
+      newLogs.push({
+        age: nextAge,
+        type: 'achievement',
+        text: {
+          vi: `🏆 Mở khóa huân chương: ${ach.title.vi} — ${ach.desc.vi}`,
+          en: `🏆 Unlocked Achievement: ${ach.title.en} — ${ach.desc.en}`,
+          ko: `🏆 업적 달성: ${ach.title.ko} — ${ach.desc.ko}`
+        }
+      });
+    }
+    state.newlyUnlocked = newlyUnlocked[0];
+  } else {
+    state.newlyUnlocked = null;
   }
 
   state.log.unshift(...newLogs);

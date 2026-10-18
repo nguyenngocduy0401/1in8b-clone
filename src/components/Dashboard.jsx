@@ -7,15 +7,16 @@ import PeerBabies from './PeerBabies';
 import SurvivalCurve from './SurvivalCurve';
 import LifeMap from './LifeMap';
 
-export default function Dashboard({ state, lang, theme, onOpenShop }) {
+export default function Dashboard({ state, lang, theme, onOpenShop, onSetFocus, onOpenAchievements }) {
   const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
   const country = state.country;
   const countryName = getCountryName(country.id, lang, country.ko);
   const religionName = getReligionName(state.religion, lang);
   const stats = state.stats;
 
-  // Active annual focus chip
-  const [activeFocus, setActiveFocus] = useState('study');
+  // Active annual focus
+  const currentFocus = state.currentFocus || 'study';
+  const [feedFilter, setFeedFilter] = useState('all');
 
   const FOCUS_OPTIONS = [
     { id: 'study', label: { vi: 'Học tập', en: 'Study', ko: '학업' }, sub: { vi: 'Tri thức', en: 'Knowledge', ko: '지식' } },
@@ -154,6 +155,28 @@ export default function Dashboard({ state, lang, theme, onOpenShop }) {
                   </span>
                 </div>
               </div>
+
+              {/* Cultural Tag Mini Ribbon */}
+              {state.culture && (
+                <div className="pt-2 border-t border-dashed border-rule text-[11px] font-mono grid grid-cols-2 gap-1.5 text-ink2">
+                  <div className="truncate" title={state.culture.dish[lang] || state.culture.dish.vi}>
+                    <span className="text-ink3 mr-1">🍲</span>
+                    <span>{state.culture.dish[lang] || state.culture.dish.vi}</span>
+                  </div>
+                  <div className="truncate" title={state.culture.sport[lang] || state.culture.sport.vi}>
+                    <span className="text-ink3 mr-1">⚽</span>
+                    <span>{state.culture.sport[lang] || state.culture.sport.vi}</span>
+                  </div>
+                  <div className="truncate" title={state.culture.festival[lang] || state.culture.festival.vi}>
+                    <span className="text-ink3 mr-1">🏮</span>
+                    <span>{state.culture.festival[lang] || state.culture.festival.vi}</span>
+                  </div>
+                  <div className="truncate" title={state.culture.ethnicity[lang] || state.culture.ethnicity.vi}>
+                    <span className="text-ink3 mr-1">👥</span>
+                    <span>{state.culture.ethnicity[lang] || state.culture.ethnicity.vi}</span>
+                  </div>
+                </div>
+              )}
 
               {/* Passport MRZ Barcode line */}
               <div className="pt-2 border-t border-dashed border-rule font-mono text-[9.5px] tracking-wider text-ink3 select-all overflow-hidden whitespace-nowrap opacity-75">
@@ -308,10 +331,10 @@ export default function Dashboard({ state, lang, theme, onOpenShop }) {
               {FOCUS_OPTIONS.map((f) => (
                 <button
                   key={f.id}
-                  onClick={() => setActiveFocus(f.id)}
+                  onClick={() => onSetFocus && onSetFocus(f.id)}
                   className={`px-3 py-1.5 rounded-full border text-xs font-mono transition cursor-pointer flex flex-col items-start leading-tight ${
-                    activeFocus === f.id
-                      ? 'bg-stamp border-stamp text-paper shadow-xs font-semibold'
+                    currentFocus === f.id
+                      ? 'bg-stamp border-stamp text-paper shadow-xs font-semibold ring-2 ring-stamp/20'
                       : 'bg-paper border-rule text-ink hover:border-ink3'
                   }`}
                 >
@@ -324,68 +347,101 @@ export default function Dashboard({ state, lang, theme, onOpenShop }) {
 
           {/* 3. Chronological Life Log Feed */}
           <div className="bg-card border border-rule rounded-lg p-5 shadow-sm space-y-4">
-            <div className="flex justify-between items-center border-b border-rule pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule pb-3">
               <h3 className="font-display text-lg font-bold text-ink">
                 {t.lifeFeed}
               </h3>
-              <span className="text-xs font-mono text-ink3">
-                {state.log.length} {lang === 'vi' ? 'sự kiện' : 'entries'}
-              </span>
+              <div className="flex flex-wrap gap-1">
+                {[
+                  { id: 'all', vi: 'Tất cả', en: 'All', ko: '전체' },
+                  { id: 'event', vi: 'Sự kiện', en: 'Events', ko: '사건' },
+                  { id: 'decision', vi: 'Lựa chọn', en: 'Decisions', ko: '선택' },
+                  { id: 'family', vi: 'Gia đình', en: 'Family', ko: '가족' },
+                  { id: 'achievement', vi: 'Huân chương', en: 'Badges', ko: '업적' }
+                ].map((flt) => (
+                  <button
+                    key={flt.id}
+                    onClick={() => setFeedFilter(flt.id)}
+                    className={`px-2 py-0.5 rounded text-[11px] font-mono transition cursor-pointer ${
+                      feedFilter === flt.id
+                        ? 'bg-ink text-paper font-bold'
+                        : 'bg-paper text-ink3 hover:text-ink border border-rule'
+                    }`}
+                  >
+                    {flt[lang] || flt.vi}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div className="max-h-[580px] overflow-y-auto space-y-3 pr-1">
-              {state.log.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`p-3 rounded border text-sm transition-all animate-fade-in ${
-                    item.type === 'death'
-                      ? 'bg-bad/10 border-bad/30 text-bad font-semibold'
-                      : item.type === 'reflection'
-                      ? 'bg-amber-500/15 border-amber-500/40 text-ink'
-                      : item.type === 'family'
-                      ? 'bg-stamp-soft/50 border-stamp/20 text-ink'
-                      : item.type === 'decision'
-                      ? 'bg-accent/10 border-accent/20 text-ink'
-                      : 'bg-paper/80 border-rule2 text-ink2'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="px-1.5 py-0.5 rounded bg-ink/10 text-ink text-xs font-mono font-bold">
-                      {item.age} {t.yearsOld}
-                    </span>
-                    {item.type === 'reflection' && (
-                      <span className="text-xs font-mono uppercase text-amber-700 dark:text-amber-300 font-bold tracking-wider">
-                        • {lang === 'vi' ? 'Chiêm nghiệm' : lang === 'ko' ? '되돌아보기' : 'Reflection'}
+              {state.log
+                .filter((item) => {
+                  if (feedFilter === 'all') return true;
+                  if (feedFilter === 'achievement') return item.type === 'achievement';
+                  if (feedFilter === 'decision') return item.type === 'decision';
+                  if (feedFilter === 'family') return item.type === 'family';
+                  if (feedFilter === 'event') return item.type === 'event' || item.type === 'birth';
+                  return true;
+                })
+                .map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`p-3 rounded border text-sm transition-all animate-fade-in ${
+                      item.type === 'death'
+                        ? 'bg-bad/10 border-bad/30 text-bad font-semibold'
+                        : item.type === 'achievement'
+                        ? 'bg-gold/15 border-gold/40 text-ink shadow-xs ring-1 ring-gold/30'
+                        : item.type === 'reflection'
+                        ? 'bg-amber-500/15 border-amber-500/40 text-ink'
+                        : item.type === 'family'
+                        ? 'bg-stamp-soft/50 border-stamp/20 text-ink'
+                        : item.type === 'decision'
+                        ? 'bg-accent/10 border-accent/20 text-ink'
+                        : 'bg-paper/80 border-rule2 text-ink2'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 rounded bg-ink/10 text-ink text-xs font-mono font-bold">
+                        {item.age} {t.yearsOld}
                       </span>
-                    )}
-                    {item.type === 'decision' && (
-                      <span className="text-xs font-mono uppercase text-accent font-semibold tracking-wider">
-                        • Lựa chọn
-                      </span>
-                    )}
-                    {item.type === 'family' && (
-                      <span className="text-xs font-mono uppercase text-stamp font-semibold tracking-wider">
-                        • Gia đình
-                      </span>
-                    )}
-                    {item.type === 'death' && (
-                      <span className="text-xs font-mono uppercase text-bad font-bold tracking-wider">
-                        • Mất
-                      </span>
+                      {item.type === 'achievement' && (
+                        <span className="text-xs font-mono uppercase text-gold font-bold tracking-wider">
+                          • {lang === 'vi' ? 'Huân chương' : lang === 'ko' ? '업적 달성' : 'Achievement'}
+                        </span>
+                      )}
+                      {item.type === 'reflection' && (
+                        <span className="text-xs font-mono uppercase text-amber-700 dark:text-amber-300 font-bold tracking-wider">
+                          • {lang === 'vi' ? 'Chiêm nghiệm' : lang === 'ko' ? '되돌아보기' : 'Reflection'}
+                        </span>
+                      )}
+                      {item.type === 'decision' && (
+                        <span className="text-xs font-mono uppercase text-accent font-semibold tracking-wider">
+                          • {lang === 'vi' ? 'Lựa chọn' : lang === 'ko' ? '선택' : 'Decision'}
+                        </span>
+                      )}
+                      {item.type === 'family' && (
+                        <span className="text-xs font-mono uppercase text-stamp font-semibold tracking-wider">
+                          • {lang === 'vi' ? 'Gia đình' : lang === 'ko' ? '가족' : 'Family'}
+                        </span>
+                      )}
+                      {item.type === 'death' && (
+                        <span className="text-xs font-mono uppercase text-bad font-bold tracking-wider">
+                          • {lang === 'vi' ? 'Mất' : lang === 'ko' ? '사망' : 'Passed'}
+                        </span>
+                      )}
+                    </div>
+                    <p className="font-body text-ink text-sm leading-relaxed">
+                      {item.text[lang] || item.text.vi || item.text}
+                    </p>
+                    {item.fact && (
+                      <div className="mt-2 text-xs font-mono text-ink3 border-l-2 border-stamp/40 pl-2.5 py-0.5 leading-relaxed bg-stamp-soft/20 rounded-r">
+                        <span className="font-bold text-stamp mr-1">ℹ</span>
+                        <span>{item.fact[lang] || item.fact.vi || (typeof item.fact === 'string' ? item.fact : '')}</span>
+                      </div>
                     )}
                   </div>
-                  <p className="font-body text-ink text-sm leading-relaxed">
-                    {item.text[lang] || item.text.vi || item.text}
-                  </p>
-                  {item.fact && (
-                    <div className="mt-2 text-xs font-mono text-ink3 border-l-2 border-stamp/40 pl-2.5 py-0.5 leading-relaxed bg-stamp-soft/20 rounded-r">
-                      <span className="font-bold text-stamp mr-1">ℹ</span>
-                      <span>{item.fact[lang] || item.fact.vi || (typeof item.fact === 'string' ? item.fact : '')}</span>
-                    </div>
-                  )}
-                </div>
-              ))}
-
+                ))}
             </div>
           </div>
         </div>

@@ -100,6 +100,49 @@ export default function BirthCard({ identity, lang, onStartLife, theme }) {
             </div>
           </div>
 
+          {/* Cultural Heritage & Roots */}
+          {identity.culture && (
+            <div className="p-4 rounded-lg bg-paper border border-rule space-y-2.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-stamp font-bold block">
+                {lang === 'vi' ? 'Bản sắc văn hóa & Cội nguồn' : 'Cultural Heritage & Roots'}
+              </span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                <div>
+                  <span className="text-ink3 block font-mono text-[11px]">
+                    🍲 {lang === 'vi' ? 'Món ăn quê hương' : 'National Dish'}
+                  </span>
+                  <span className="font-semibold text-ink truncate block">
+                    {identity.culture.dish[lang] || identity.culture.dish.vi}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-ink3 block font-mono text-[11px]">
+                    🏮 {lang === 'vi' ? 'Lễ hội truyền thống' : 'Cultural Festival'}
+                  </span>
+                  <span className="font-semibold text-ink truncate block">
+                    {identity.culture.festival[lang] || identity.culture.festival.vi}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-ink3 block font-mono text-[11px]">
+                    ⚽ {lang === 'vi' ? 'Thể thao dân tộc' : 'National Sport'}
+                  </span>
+                  <span className="font-semibold text-ink truncate block">
+                    {identity.culture.sport[lang] || identity.culture.sport.vi}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-ink3 block font-mono text-[11px]">
+                    👥 {lang === 'vi' ? 'Sắc tộc / Dân tộc' : 'Ethnicity'}
+                  </span>
+                  <span className="font-semibold text-ink truncate block">
+                    {identity.culture.ethnicity[lang] || identity.culture.ethnicity.vi}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* National Statistical Reality Callout */}
           <div className="p-4 rounded bg-stamp-soft/50 border border-stamp/20 text-xs sm:text-sm text-ink leading-relaxed">
             <p className="font-mono text-stamp font-bold mb-1">

@@ -19,6 +19,7 @@ import ReflectionModal from './components/ReflectionModal';
 import ShopModal from './components/ShopModal';
 import DeathSummary from './components/DeathSummary';
 import PastLivesModal from './components/PastLivesModal';
+import AchievementsModal from './components/AchievementsModal';
 
 const PAST_LIVES_KEY = '1in8b_past_lives_v1';
 
@@ -47,6 +48,7 @@ export default function App() {
     }
   });
   const [isPastLivesOpen, setIsPastLivesOpen] = useState(false);
+  const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
 
   // Sync theme attribute to HTML tag
   useEffect(() => {
@@ -148,9 +150,26 @@ export default function App() {
       const updated = advanceOneYear(clone);
       sound.setAge(updated.yearsLived);
 
+      if (isSoundOn) {
+        sound.playYearTick();
+        if (updated.pendingDecision) {
+          sound.playDecision();
+        }
+        if (updated.newlyUnlocked) {
+          sound.playAchievement();
+        }
+      }
+
+      if (updated.newlyUnlocked) {
+        try {
+          confetti({ particleCount: 45, spread: 50, origin: { y: 0.7 } });
+        } catch {}
+      }
+
       // Check if dead
       if (!updated.alive) {
         setPhase('dead');
+        if (isSoundOn) sound.playDeath();
         sound.stop();
         setIsSoundOn(false);
         if (updated.yearsLived >= 70) {
@@ -193,6 +212,9 @@ export default function App() {
     setLifeState((prev) => {
       const clone = JSON.parse(JSON.stringify(prev));
       const resultText = choice.apply(clone);
+      if (isSoundOn) {
+        sound.playTone(659.25, 0.15, 'triangle', 0.2);
+      }
       clone.pendingDecision = null;
 
       clone.log.unshift({
@@ -212,6 +234,9 @@ export default function App() {
     setLifeState((prev) => {
       const clone = JSON.parse(JSON.stringify(prev));
       clone.pendingReflection = null;
+      if (isSoundOn) {
+        sound.playTone(523.25, 0.2, 'sine', 0.2);
+      }
       if (opt.stat) {
         for (const [k, v] of Object.entries(opt.stat)) {
           clone.stats[k] = Math.max(0, (clone.stats[k] || 0) + v);
@@ -243,6 +268,10 @@ export default function App() {
       if (item.effects.health) clone.stats.health += item.effects.health;
       if (item.effects.smarts) clone.stats.smarts += item.effects.smarts;
       if (item.effects.social) clone.stats.social += item.effects.social;
+
+      if (isSoundOn) {
+        sound.playCoin();
+      }
 
       if (item.id === 'pet') {
         clone.flags.pet = 'd';
@@ -327,6 +356,8 @@ export default function App() {
         isSoundOn={isSoundOn}
         onToggleSound={handleToggleSound}
         onOpenShop={() => setIsShopOpen(true)}
+        onOpenAchievements={() => setIsAchievementsOpen(true)}
+        unlockedAchievementsCount={lifeState?.unlockedAchievements?.length || 0}
       />
 
       {/* Main Container */}
@@ -345,11 +376,21 @@ export default function App() {
             lang={lang}
             theme={theme}
             onOpenShop={() => setIsShopOpen(true)}
+            onSetFocus={(focusId) => {
+              setLifeState((prev) => (prev ? { ...prev, currentFocus: focusId } : prev));
+            }}
+            onOpenAchievements={() => setIsAchievementsOpen(true)}
           />
         )}
 
         {phase === 'dead' && lifeState && (
-          <DeathSummary state={lifeState} lang={lang} onReincarnate={handleRoll} theme={theme} />
+          <DeathSummary
+            state={lifeState}
+            lang={lang}
+            onReincarnate={handleRoll}
+            theme={theme}
+            onOpenAchievements={() => setIsAchievementsOpen(true)}
+          />
         )}
       </main>
 
@@ -386,6 +427,14 @@ export default function App() {
         onClose={() => setIsPastLivesOpen(false)}
         pastLives={pastLives}
         onClearHistory={handleClearHistory}
+        lang={lang}
+      />
+
+      {/* Lifetime Achievements Modal */}
+      <AchievementsModal
+        isOpen={isAchievementsOpen}
+        onClose={() => setIsAchievementsOpen(false)}
+        currentLifeAchievements={lifeState?.unlockedAchievements || []}
         lang={lang}
       />
 
