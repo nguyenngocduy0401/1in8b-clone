@@ -83,10 +83,10 @@ export function getLifeArchetype(state) {
   };
 }
 
-export default function DeathSummary({ state, lang, onReincarnate, theme, onOpenAchievements }) {
+export default function DeathSummary({ state, lang = 'en', onReincarnate, theme, onOpenAchievements }) {
   const [copied, setCopied] = useState(false);
   const [isFilmOpen, setIsFilmOpen] = useState(false);
-  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
   const country = state.country;
   const countryName = getCountryName(country.id, lang, country.ko);
   const cause = state.causeOfDeath;
@@ -112,15 +112,26 @@ export default function DeathSummary({ state, lang, onReincarnate, theme, onOpen
 
   // Copy Epitaph to clipboard
   const handleCopySummary = () => {
-    const text = `📜 [1 in 8 Billion · Cuộc Đời]
-Họ tên: ${state.name.full}
+    const charName = typeof state.name === 'object' ? (state.name.full || state.name.first) : state.name;
+    const text = lang === 'vi'
+      ? `📜 [1 in 8 Billion · Cuộc Đời]
+Họ tên: ${charName}
 Quê hương: ${countryName} (${country.id})
 Hưởng thọ: ${state.yearsLived} tuổi (Kỳ vọng: ${country.le} tuổi)
-Danh hiệu: ${archetype.icon} ${archetype.title[lang] || archetype.title.vi}
+Danh hiệu: ${archetype.icon} ${archetype.title[lang] || archetype.title.vi || archetype.title.en}
 Nguyên nhân mất: ${cause ? (cause[lang] || cause.vi) : 'Tuổi già qua đời'}
 Tài sản: $${state.stats.wealth.toLocaleString()} | Con cái: ${state.family.children.length}
 Sống thọ hơn ${percentile}% số người sinh cùng thời!
-🌍 Trải nghiệm kiếp sống ngẫu nhiên: https://nguyenngocduy0401.github.io/1in8b-clone/`;
+🌍 Trải nghiệm: https://nguyenngocduy0401.github.io/1in8b-clone/`
+      : `📜 [1 in 8 Billion · Life Record]
+Name: ${charName}
+Country: ${countryName} (${country.id})
+Age: ${state.yearsLived} years old (Life expectancy: ${country.le} yrs)
+Archetype: ${archetype.icon} ${archetype.title[lang] || archetype.title.en}
+Cause of death: ${cause ? (cause[lang] || cause.en || cause.vi) : 'Old age'}
+Net worth: $${state.stats.wealth.toLocaleString()} | Children: ${state.family.children.length}
+Lived longer than ${percentile}% of peers born in the same country!
+🌍 Experience life simulation: https://nguyenngocduy0401.github.io/1in8b-clone/`;
 
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);

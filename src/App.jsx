@@ -20,11 +20,12 @@ import ShopModal from './components/ShopModal';
 import DeathSummary from './components/DeathSummary';
 import PastLivesModal from './components/PastLivesModal';
 import AchievementsModal from './components/AchievementsModal';
+import { getCountryName } from './i18n';
 
 const PAST_LIVES_KEY = '1in8b_past_lives_v1';
 
 export default function App() {
-  const [lang, setLang] = useState('vi');
+  const [lang, setLang] = useState('en');
   const [theme, setTheme] = useState('light');
   const [phase, setPhase] = useState('hero'); // 'hero' | 'birth' | 'living' | 'dead'
   const [isRolling, setIsRolling] = useState(false);
@@ -80,6 +81,10 @@ export default function App() {
       const peers = generatePeerBabies(countriesData, namesData);
 
       const birthYear = identity.birthYear || 2024;
+      const countryNameVi = getCountryName(identity.country.id, 'vi', identity.country.ko);
+      const countryNameEn = getCountryName(identity.country.id, 'en', identity.country.ko);
+      const countryNameKo = getCountryName(identity.country.id, 'ko', identity.country.ko);
+
       const initialLife = {
         ...identity,
         peers,
@@ -92,9 +97,9 @@ export default function App() {
             age: 0,
             type: 'birth',
             text: {
-              vi: `Năm ${birthYear}, bạn cất tiếng khóc chào đời tại ${identity.urban ? identity.cityName : 'vùng nông thôn'}, ${identity.country.ko}. Một sinh linh nhỏ bé giữa hơn ${birthYear < 1980 ? '4' : '8'} tỷ người.`,
-              en: `In the year ${birthYear}, you were born into ${identity.urban ? identity.cityName : 'a rural area'} in ${identity.country.ko}. One new infant among over ${birthYear < 1980 ? '4' : '8'} billion people.`,
-              ko: `${birthYear}년, ${identity.country.ko}의 ${identity.urban ? identity.cityName : '농촌'}에서 건강하게 태어났습니다. 인류의 한 사람으로 삶이 시작되었습니다.`
+              vi: `Năm ${birthYear}, bạn cất tiếng khóc chào đời tại ${identity.urban ? identity.cityName : 'vùng nông thôn'}, ${countryNameVi}. Một sinh linh nhỏ bé giữa hơn ${birthYear < 1980 ? '4' : '8'} tỷ người.`,
+              en: `In the year ${birthYear}, you were born into ${identity.urban ? (identity.cityNameEn || identity.cityName) : 'a rural area'} in ${countryNameEn}. One new infant among over ${birthYear < 1980 ? '4' : '8'} billion people.`,
+              ko: `${birthYear}년, ${countryNameKo}의 ${identity.urban ? identity.cityName : '농촌'}에서 건강하게 태어났습니다. 인류의 한 사람으로 삶이 시작되었습니다.`
             }
           }
         ]
@@ -482,8 +487,8 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-rule py-4 px-4 text-center text-xs text-ink3 font-mono">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <span>1 in 8 Billion Clone · Inspired by 1n8b.life</span>
-          <span>Dữ liệu thống kê: United Nations, WHO, World Bank, UNESCO</span>
+          <span>1 in 8 Billion · Inspired by 1n8b.life</span>
+          <span>{lang === 'vi' ? 'Dữ liệu thống kê: United Nations, WHO, World Bank, UNESCO' : 'Demographic data: United Nations, WHO, World Bank, UNESCO'}</span>
         </div>
       </footer>
     </div>

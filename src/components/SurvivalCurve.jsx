@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { lifeTable } from '../engine/lifeTable';
 
-export default function SurvivalCurve({ age, country, sex = 'M', lang = 'vi' }) {
+export default function SurvivalCurve({ age, country, sex = 'M', lang = 'en' }) {
   const lt = useMemo(() => lifeTable(country, sex), [country, sex]);
   const worldLt = useMemo(() => lifeTable({ id: 'WLD', le: 73.4, im: 28, u5: 37, gap: 5 }, sex), [sex]);
 

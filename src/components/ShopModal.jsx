@@ -1,7 +1,7 @@
 import React from 'react';
 import SHOP_ITEMS from '../data/shop.json';
 
-export default function ShopModal({ isOpen, onClose, state, onBuyItem, lang }) {
+export default function ShopModal({ isOpen, onClose, state, onBuyItem, lang = 'en' }) {
   if (!isOpen) return null;
 
   return (
@@ -54,7 +54,7 @@ export default function ShopModal({ isOpen, onClose, state, onBuyItem, lang }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-ink truncate">
-                      {item.name[lang] || item.name.vi}
+                      {item.name[lang] || item.name.en || item.name.vi}
                     </span>
                     {!ageEligible && (
                       <span className="text-[10px] bg-ink/10 text-ink/60 px-1.5 py-0.5 rounded">
@@ -63,7 +63,7 @@ export default function ShopModal({ isOpen, onClose, state, onBuyItem, lang }) {
                     )}
                   </div>
                   <p className="text-[11px] text-ink/70 mt-0.5">
-                    {item.desc[lang] || item.desc.vi}
+                    {item.desc[lang] || item.desc.en || item.desc.vi}
                   </p>
                 </div>
 

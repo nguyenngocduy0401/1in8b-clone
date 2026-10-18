@@ -4,7 +4,7 @@ import { getCountryName } from '../i18n';
 import { sound } from '../engine/soundSynth';
 import { getLifeArchetype } from './DeathSummary';
 
-export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
+export default function LifeFilmModal({ isOpen, onClose, life, lang = 'en' }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
@@ -26,14 +26,14 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
       era: `${birthYear}`,
       icon: '👶',
       tag: { vi: 'Khởi đầu', en: 'Birth', ko: '탄생' },
-      headline: `${life.name?.full || life.name}`,
-      subline: `${countryName} (${country.id}) · ${life.urban ? 'Đô thị' : 'Làng quê'}`,
+      headline: `${typeof life.name === 'object' ? (life.name.full || life.name.first) : life.name}`,
+      subline: `${countryName} (${country.id}) · ${life.urban ? (lang === 'vi' ? 'Đô thị' : 'Urban') : (lang === 'vi' ? 'Làng quê' : 'Rural')}`,
       description: {
         vi: `Năm ${birthYear}, giữa hơn 8 tỷ sinh linh trên Trái Đất, bạn cất tiếng khóc chào đời tại ${countryName}. Mẹ bạn (${life.family?.mom?.name || 'Mẹ'}) và cha bạn (${life.family?.dad?.name || 'Cha'}) đã ôm bạn vào lòng với niềm hy vọng bao la.`,
         en: `In the year ${birthYear}, among over 8 billion souls on Earth, you were born in ${countryName}. Your mother and father held you close with boundless hope.`,
         ko: `${birthYear}년, 80억 인류의 한 사람으로 ${countryName}에서 태어났습니다. 부모님은 벅찬 감동으로 새 생명을 품에 안았습니다.`
       },
-      detail: life.culture ? `🍲 Món ăn truyền thống: ${life.culture.dish?.[lang] || life.culture.dish?.vi || ''} · 🏮 Lễ hội: ${life.culture.festival?.[lang] || life.culture.festival?.vi || ''}` : null
+      detail: life.culture ? `🍲 ${lang === 'vi' ? 'Món ăn truyền thống:' : 'Iconic dish:'} ${life.culture.dish?.[lang] || life.culture.dish?.en || life.culture.dish?.vi || ''} · 🏮 ${lang === 'vi' ? 'Lễ hội:' : 'Festival:'} ${life.culture.festival?.[lang] || life.culture.festival?.en || life.culture.festival?.vi || ''}` : null
     },
 
     // Slide 2: Childhood & Roots
@@ -42,8 +42,10 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
       era: `${birthYear + Math.min(6, Math.floor(deathAge * 0.2))}`,
       icon: '🎒',
       tag: { vi: 'Tuổi thơ', en: 'Childhood', ko: '유년기' },
-      headline: deathAge <= 5 ? 'Những ngày tháng ngắn ngủi nhưng đong đầy yêu thương' : 'Tiếng cười trên những con đường làng & trang sách đầu tiên',
-      subline: `Sức khỏe: ${life.stats?.health || 80}% · Hạnh phúc: ${life.stats?.happiness || 75}%`,
+      headline: deathAge <= 5
+        ? (lang === 'vi' ? 'Những ngày tháng ngắn ngủi nhưng đong đầy yêu thương' : 'Brief days bathed in tender love')
+        : (lang === 'vi' ? 'Tiếng cười trên những con đường làng & trang sách đầu tiên' : 'Early steps, laughter with friends, and the warmth of home'),
+      subline: `${lang === 'vi' ? 'Sức khỏe' : 'Health'}: ${life.stats?.health || 80}% · ${lang === 'vi' ? 'Hạnh phúc' : 'Happiness'}: ${life.stats?.happiness || 75}%`,
       description: {
         vi: deathAge <= 5
           ? `Mặc dù sinh linh bé nhỏ chỉ ở lại trần thế trong thoáng chốc (${deathAge} tuổi), từng nụ cười và ánh mắt thơ ngây đã khắc sâu vĩnh viễn trong trái tim người thân.`
@@ -55,7 +57,7 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
           ? `세상에 머문 시간은 ${deathAge}년으로 짧았지만, 순수한 미소는 가족의 마음속에 영원한 빛으로 남았습니다.`
           : `마을 어귀를 뛰놀고 배움을 시작하며, 따뜻한 가족의 품에서 세상의 온기를 배웠습니다.`
       },
-      detail: life.culture?.sport ? `⚽ Thể thao quê hương: ${life.culture.sport?.[lang] || life.culture.sport?.vi}` : null
+      detail: life.culture?.sport ? `⚽ ${lang === 'vi' ? 'Thể thao:' : 'Sport:'} ${life.culture.sport?.[lang] || life.culture.sport?.en || life.culture.sport?.vi}` : null
     },
 
     // Slide 3: Prime & Passion
@@ -64,14 +66,16 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
       era: `${birthYear + Math.min(25, Math.floor(deathAge * 0.5))}`,
       icon: '💼',
       tag: { vi: 'Thăng trầm', en: 'Journey', ko: '여정' },
-      headline: `Nghề nghiệp: ${life.job || 'Lao động tự do'}`,
-      subline: `Học vấn: Cấp ${life.stats?.educationLevel || 2} · Tài sản tích lũy: $${(life.stats?.wealth || life.wealth || 0).toLocaleString()}`,
+      headline: `${lang === 'vi' ? 'Nghề nghiệp:' : 'Occupation:'} ${life.job || (lang === 'vi' ? 'Lao động tự do' : 'Independent work')}`,
+      subline: `${lang === 'vi' ? 'Học vấn: Cấp' : 'Education: Level'} ${life.stats?.educationLevel || 2} · ${lang === 'vi' ? 'Tài sản:' : 'Net worth:'} $${(life.stats?.wealth || life.wealth || 0).toLocaleString()}`,
       description: {
         vi: `Bước vào tuổi trưởng thành, bạn tự mình chọn lối đi giữa dòng đời. Mỗi giọt mồ hôi cống hiến cho công việc và những quyết định sinh tử đã tôi luyện nên một con người kiên định.`,
         en: `Stepping into adulthood, you forged your own path. Honest work and hard decisions shaped you into a resilient spirit.`,
         ko: `성인이 되어 세상의 파도 속에서 자신만의 길을 걸었습니다. 성실한 땀방울로 삶의 터전을 닦았습니다.`
       },
-      detail: life.family?.partner ? `💍 Đã tìm thấy một nửa yêu thương cùng chia sẻ ngọt bùi.` : `🧭 Độc hành tự tại qua những thăng trầm cuộc đời.`
+      detail: life.family?.partner
+        ? (lang === 'vi' ? `💍 Đã tìm thấy một nửa yêu thương cùng chia sẻ ngọt bùi.` : `💍 Found a life partner to share joys and sorrows.`)
+        : (lang === 'vi' ? `🧭 Độc hành tự tại qua những thăng trầm cuộc đời.` : `🧭 Journeyed with quiet independence and freedom.`)
     },
 
     // Slide 4: Family & Bonds
@@ -80,8 +84,8 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
       era: `${birthYear + Math.min(45, Math.floor(deathAge * 0.75))}`,
       icon: '🏡',
       tag: { vi: 'Gia đình', en: 'Family', ko: '가족' },
-      headline: `${(life.family?.children?.length || life.family?.childrenCount || 0)} người con · ${(life.family?.grandchildrenCount || 0)} người cháu`,
-      subline: `Chỉ số xã hội: ${life.stats?.social || 70}% · Điểm hạnh phúc: ${life.stats?.happiness || 75}%`,
+      headline: `${(life.family?.children?.length || life.family?.childrenCount || 0)} ${lang === 'vi' ? 'người con' : 'children'} · ${(life.family?.grandchildrenCount || 0)} ${lang === 'vi' ? 'người cháu' : 'grandchildren'}`,
+      subline: `${lang === 'vi' ? 'Chỉ số xã hội' : 'Relationships'}: ${life.stats?.social || 70}% · ${lang === 'vi' ? 'Hạnh phúc' : 'Happiness'}: ${life.stats?.happiness || 75}%`,
       description: {
         vi: (life.family?.children?.length || life.family?.childrenCount || 0) > 0
           ? `Tiếng cười của con trẻ và đàn cháu ríu rít sum vầy là gia tài quý giá nhất mà không vàng bạc nào sánh bằng. Bạn đã hoàn thành sứ mệnh truyền lửa cho thế hệ kế tiếp.`
@@ -93,7 +97,7 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
           ? `자녀와 손주들의 웃음소리가 집안 가득 울려 퍼졌습니다. 다음 세대에 사랑을 전한 가장 값진 유산이었습니다.`
           : `이웃과 벗들에게 베푼 따뜻한 온기로 삶의 모든 순간을 충만하게 채웠습니다.`
       },
-      detail: `🏮 Cội nguồn: ${life.culture?.ethnicity?.[lang] || life.culture?.ethnicity?.vi || countryName}`
+      detail: `🏮 ${lang === 'vi' ? 'Cội nguồn:' : 'Roots:'} ${life.culture?.ethnicity?.[lang] || life.culture?.ethnicity?.en || life.culture?.ethnicity?.vi || countryName}`
     },
 
     // Slide 5: The Sunset & Passing
@@ -102,30 +106,30 @@ export default function LifeFilmModal({ isOpen, onClose, life, lang = 'vi' }) {
       era: `${deathYear}`,
       icon: '🕊️',
       tag: { vi: 'Tạ thế', en: 'Departure', ko: '영면' },
-      headline: `Hưởng thọ: ${deathAge} tuổi (${birthYear} - ${deathYear})`,
-      subline: `Kỳ vọng sống quốc gia: ${country.le} tuổi · Nguyên nhân: ${life.causeOfDeath ? (life.causeOfDeath[lang] || life.causeOfDeath.vi) : 'Tuổi già thanh thản'}`,
+      headline: `${lang === 'vi' ? 'Hưởng thọ:' : 'Age:'} ${deathAge} ${lang === 'vi' ? 'tuổi' : 'years'} (${birthYear} - ${deathYear})`,
+      subline: `${lang === 'vi' ? 'Kỳ vọng sống:' : 'Life expectancy:'} ${country.le} ${lang === 'vi' ? 'tuổi' : 'yrs'} · ${lang === 'vi' ? 'Nguyên nhân:' : 'Cause:'} ${life.causeOfDeath ? (life.causeOfDeath[lang] || life.causeOfDeath.en || life.causeOfDeath.vi) : (lang === 'vi' ? 'Tuổi già thanh thản' : 'Peaceful old age')}`,
       description: {
         vi: `Mọi cuộc hành trình dẫu dài hay ngắn rồi cũng đến lúc khép lại. Năm ${deathYear}, bạn nhẹ nhàng trút hơi thở cuối cùng, để lại trần gian những kỷ niệm đẹp đẽ và sự tiếc thương của muôn người.`,
         en: `Every human journey, long or short, comes to its resting place. In ${deathYear}, you took your final breath, returning to the vast universe.`,
         ko: `${deathYear}년, 길고도 짧았던 지상에서의 여정을 마치고 평온하게 영면에 들었습니다.`
       },
-      detail: `Nguyên nhân mất: ${life.causeOfDeath ? (life.causeOfDeath[lang] || life.causeOfDeath.vi) : 'Tuổi già'}`
+      detail: `${lang === 'vi' ? 'Nguyên nhân mất:' : 'Cause of passing:'} ${life.causeOfDeath ? (life.causeOfDeath[lang] || life.causeOfDeath.en || life.causeOfDeath.vi) : (lang === 'vi' ? 'Tuổi già' : 'Old age')}`
     },
 
     // Slide 6: Eternal Archetype & Epitaph
     {
       title: { vi: '6. Tượng Đài Ký Ức Vĩnh Cửu', en: '6. Eternal Remembrance', ko: '6. 영원한 기억의 방' },
-      era: `Vĩnh Hằng`,
+      era: lang === 'vi' ? 'Vĩnh Hằng' : lang === 'ko' ? '영원' : 'Eternity',
       icon: archetype.icon,
       tag: { vi: 'Bất tử', en: 'Legacy', ko: '유산' },
-      headline: `${archetype.icon} ${archetype.title[lang] || archetype.title.vi}`,
-      subline: archetype.desc[lang] || archetype.desc.vi,
+      headline: `${archetype.icon} ${archetype.title[lang] || archetype.title.en || archetype.title.vi}`,
+      subline: archetype.desc[lang] || archetype.desc.en || archetype.desc.vi,
       description: {
         vi: `Bạn là 1 trong 8 tỷ sinh mệnh độc nhất vô nhị. Cuộc đời bạn là một khúc ca bình dị nhưng hào hùng của nhân loại. Tên tuổi và dấu ấn của bạn sẽ luôn được tôn kính tại Ngôi Nhà Tiền Kiếp.`,
         en: `You were 1 in 8 billion — unique and irreplaceable. Your story is woven forever into the tapestry of humankind.`,
         ko: `당신은 80억 인류 가운데 단 하나뿐인 고귀한 존재였습니다. 이 삶의 모든 순간은 우주의 아름다운 기억이 되었습니다.`
       },
-      detail: `🕯️ Thắp nến tri ân người đã đi qua cuộc đời này.`
+      detail: lang === 'vi' ? '🕯️ Thắp nến tri ân người đã đi qua cuộc đời này.' : lang === 'ko' ? '🕯️ 지나간 삶에 촛불을 밝히며.' : '🕯️ Lighting a candle in remembrance of this life.'
     }
   ];
 

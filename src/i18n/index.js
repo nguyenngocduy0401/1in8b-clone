@@ -244,17 +244,17 @@ export const UI_TRANSLATIONS = {
   }
 };
 
-export function getCountryName(countryId, lang = 'vi', fallbackKo = '') {
+export function getCountryName(countryId, lang = 'en', fallbackKo = '') {
   if (lang === 'vi') {
     return countryVi[countryId] || fallbackKo || countryId;
   }
   if (lang === 'en') {
     return countryEn[countryId] || countryId;
   }
-  return fallbackKo || countryId;
+  return fallbackKo || countryEn[countryId] || countryId;
 }
 
-export function getReligionName(relCode, lang = 'vi') {
+export function getReligionName(relCode, lang = 'en') {
   const map = {
     C: { vi: 'Kitô giáo (Công giáo / Tin lành)', en: 'Christianity', ko: '기독교' },
     M: { vi: 'Hồi giáo (Islam)', en: 'Islam', ko: '이슬람' },
@@ -266,5 +266,5 @@ export function getReligionName(relCode, lang = 'vi') {
     S: { vi: 'Đạo Sikh', en: 'Sikhism', ko: '시크교' },
     O: { vi: 'Tôn giáo khác', en: 'Other religion', ko: '기타 종교' }
   };
-  return map[relCode] ? map[relCode][lang] || map[relCode].vi : (lang === 'vi' ? 'Không tôn giáo' : 'None');
+  return map[relCode] ? map[relCode][lang] || map[relCode].en : (lang === 'vi' ? 'Không tôn giáo' : 'None');
 }

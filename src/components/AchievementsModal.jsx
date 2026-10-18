@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Award, CheckCircle2, Lock } from 'lucide-react';
 import { ACHIEVEMENTS, getUnlockedAchievements } from '../engine/achievements';
 
-export default function AchievementsModal({ isOpen, onClose, currentLifeAchievements = [], lang = 'vi' }) {
+export default function AchievementsModal({ isOpen, onClose, currentLifeAchievements = [], lang = 'en' }) {
   const [filter, setFilter] = useState('all'); // 'all' | 'unlocked' | 'locked'
 
   if (!isOpen) return null;
@@ -45,10 +45,10 @@ export default function AchievementsModal({ isOpen, onClose, currentLifeAchievem
             <Award className="w-6 h-6 text-gold animate-bounce" />
             <div>
               <h3 className="font-display font-bold text-base sm:text-lg tracking-wide uppercase">
-                {labels.title[lang] || labels.title.vi}
+                {labels.title[lang] || labels.title.en}
               </h3>
               <p className="text-xs font-mono opacity-80">
-                {labels.subtitle[lang] || labels.subtitle.vi}
+                {labels.subtitle[lang] || labels.subtitle.en}
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function AchievementsModal({ isOpen, onClose, currentLifeAchievem
                     : 'bg-card border border-rule text-ink3 hover:text-ink'
                 }`}
               >
-                {labels[f][lang] || labels[f].vi}
+                {labels[f][lang] || labels[f].en}
               </button>
             ))}
           </div>
@@ -123,7 +123,7 @@ export default function AchievementsModal({ isOpen, onClose, currentLifeAchievem
                         isUnlocked ? 'text-ink' : 'text-ink3'
                       }`}
                     >
-                      {ach.title[lang] || ach.title.vi}
+                      {ach.title[lang] || ach.title.en}
                     </h4>
                     <span
                       className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold uppercase tracking-wider shrink-0 ${
@@ -133,13 +133,13 @@ export default function AchievementsModal({ isOpen, onClose, currentLifeAchievem
                       }`}
                     >
                       {isUnlocked
-                        ? labels.unlockedStatus[lang] || labels.unlockedStatus.vi
-                        : labels.lockedStatus[lang] || labels.lockedStatus.vi}
+                        ? labels.unlockedStatus[lang] || labels.unlockedStatus.en
+                        : labels.lockedStatus[lang] || labels.lockedStatus.en}
                     </span>
                   </div>
 
                   <p className="text-xs text-ink2 mt-1 leading-relaxed">
-                    {ach.desc[lang] || ach.desc.vi}
+                    {ach.desc[lang] || ach.desc.en}
                   </p>
                 </div>
               </div>

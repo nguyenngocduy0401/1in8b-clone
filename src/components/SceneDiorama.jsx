@@ -11,7 +11,7 @@ import {
 import { getCountryName } from '../i18n';
 import DISHES from '../data/dishes.json';
 
-export default function SceneDiorama({ state, lang, theme }) {
+export default function SceneDiorama({ state, lang = 'en', theme }) {
   const canvasRef = useRef(null);
   const [showDetails, setShowDetails] = useState(false);
   const [reactionTime, setReactionTime] = useState(null);
@@ -22,7 +22,7 @@ export default function SceneDiorama({ state, lang, theme }) {
   const country = state.country;
   const countryName = getCountryName(country.id, lang, country.ko);
   const dishObj = DISHES[country.id];
-  const dishName = dishObj ? (dishObj[lang] || dishObj.vi) : null;
+  const dishName = dishObj ? (dishObj[lang] || dishObj.en || dishObj.vi) : null;
 
   // Trigger bounce hop when age advances
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { getCountryName } from '../i18n';
 
-export default function PeerBabies({ peers, age, lang = 'vi' }) {
+export default function PeerBabies({ peers, age, lang = 'en' }) {
   if (!peers || peers.length === 0) return null;
 
   return (
@@ -42,11 +42,11 @@ export default function PeerBabies({ peers, age, lang = 'vi' }) {
               <div className="text-right shrink-0 text-[11.5px]">
                 {isDead ? (
                   <span className="text-bad font-semibold">
-                    † {peer.deathAge} {lang === 'vi' ? 'tuổi' : 'yr'}
+                    † {peer.deathAge} {lang === 'vi' ? 'tuổi' : lang === 'ko' ? '세' : 'yr'}
                   </span>
                 ) : (
                   <span className="text-stamp font-medium">
-                    {peer.status[lang] || peer.status.vi}
+                    {peer.status[lang] || peer.status.en || peer.status.vi}
                   </span>
                 )}
               </div>

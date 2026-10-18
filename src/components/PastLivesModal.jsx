@@ -5,7 +5,7 @@ import { sound } from '../engine/soundSynth';
 import { getLifeArchetype } from './DeathSummary';
 import LifeFilmModal from './LifeFilmModal';
 
-export default function PastLivesModal({ isOpen, onClose, pastLives, onClearHistory, lang = 'vi' }) {
+export default function PastLivesModal({ isOpen, onClose, pastLives, onClearHistory, lang = 'en' }) {
   const [filter, setFilter] = useState('all'); // 'all' | 'elder' | 'prime' | 'infant'
   const [activeFilmLife, setActiveFilmLife] = useState(null);
   const [candleCounts, setCandleCounts] = useState(() => {
@@ -18,7 +18,7 @@ export default function PastLivesModal({ isOpen, onClose, pastLives, onClearHist
   });
 
   if (!isOpen) return null;
-  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
 
   const totalYears = pastLives.reduce((acc, l) => acc + (l.yearsLived || 0), 0);
   const totalCandles = Object.values(candleCounts).reduce((acc, c) => acc + c, 0);

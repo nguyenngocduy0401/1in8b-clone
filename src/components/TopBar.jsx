@@ -28,7 +28,7 @@ export default function TopBar({
   onTogglePauses
 }) {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
-  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.vi;
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
 
   const currentYear = lifeState ? (lifeState.birthYear || 2026) + age : 2026;
   const characterName = lifeState?.name?.full || '';
@@ -206,7 +206,7 @@ export default function TopBar({
                       }}
                       className="w-full text-left px-2.5 py-1.5 rounded hover:bg-paper text-ink transition"
                     >
-                      {isPausesOn ? '✓ ✎ Pauses (Bật)' : '✎ Pauses (Tắt)'}
+                      {isPausesOn ? (lang === 'vi' ? '✓ ✎ Pauses (Bật)' : '✓ ✎ Pauses (On)') : (lang === 'vi' ? '✎ Pauses (Tắt)' : '✎ Pauses (Off)')}
                     </button>
                   )}
                   {onOpenAchievements && (
@@ -217,7 +217,7 @@ export default function TopBar({
                       }}
                       className="w-full text-left px-2.5 py-1.5 rounded hover:bg-paper text-ink transition"
                     >
-                      🏆 Huân chương ({unlockedAchievementsCount})
+                      🏆 {lang === 'vi' ? 'Huân chương' : 'Achievements'} ({unlockedAchievementsCount})
                     </button>
                   )}
                   {onOpenShop && (
@@ -239,7 +239,7 @@ export default function TopBar({
                     }}
                     className="w-full text-left px-2.5 py-1.5 rounded text-bad hover:bg-paper transition"
                   >
-                    Exit (Thoát)
+                    {lang === 'vi' ? 'Exit (Thoát)' : 'Exit'}
                   </button>
                 </div>
               )}
@@ -263,7 +263,7 @@ export default function TopBar({
               onClick={onOpenPastLives}
               className="px-3 py-1.5 rounded border border-rule bg-paper hover:bg-card text-ink text-xs font-mono transition cursor-pointer"
             >
-              Past lives (Tiền kiếp)
+              {lang === 'vi' ? 'Past lives (Tiền kiếp)' : 'Past lives'}
             </button>
 
             {/* Language Switcher */}

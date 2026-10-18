@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import worldData from '../data/world.json';
 import { Globe2 } from 'lucide-react';
+import { getCountryName } from '../i18n';
 
 let decodedLandCache = null;
 
@@ -22,7 +23,7 @@ function getLandPixels() {
   }
 }
 
-export default function LifeMap({ lifeState, lang = 'vi' }) {
+export default function LifeMap({ lifeState, lang = 'en' }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -90,7 +91,7 @@ export default function LifeMap({ lifeState, lang = 'vi' }) {
       // Optional text label
       ctx.font = '10px "IBM Plex Mono", monospace';
       ctx.fillStyle = highlightColor;
-      const label = lifeState.country?.ko || lifeState.bornCountryId;
+      const label = getCountryName(lifeState.bornCountryId || lifeState.country?.id, lang, lifeState.country?.ko);
       ctx.fillText(label, bornPt[0] + 6, bornPt[1] + 3);
     }
   }, [lifeState, lang]);
